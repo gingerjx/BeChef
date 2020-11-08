@@ -17,7 +17,7 @@
         $valid = false;
         $_SESSION['e_fullname'] = "Only characters and whitespaces. Range: (5, 100)";
     }
-    
+
     $_SESSION['username'] = $username;
     if (!$user->isValidUsername()) {
         $valid = false;

@@ -1,0 +1,247 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :private/user.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/user.php
+> git cat-file -s 4d5eb66fb44f6c0982d61282a88f0e2dda18f361
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :.gitignore
+> git ls-files --stage -- /opt/lampp/htdocs/.gitignore
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :private/user.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/user.php
+> git cat-file -s 4d5eb66fb44f6c0982d61282a88f0e2dda18f361
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :private/register.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/register.php
+> git cat-file -s acb589f11f94180d9f56cbc09051ef174732d6f9
+> git show --textconv :private/user.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/user.php
+> git cat-file -s 4d5eb66fb44f6c0982d61282a88f0e2dda18f361
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :private/register.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/register.php
+> git cat-file -s acb589f11f94180d9f56cbc09051ef174732d6f9
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :private/utils.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/utils.php
+> git cat-file -s fb558ac1ef6861d5c2733160ba805ebcffa77a88
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :private/register.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/register.php
+> git cat-file -s acb589f11f94180d9f56cbc09051ef174732d6f9
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :private/user.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/user.php
+> git cat-file -s 4d5eb66fb44f6c0982d61282a88f0e2dda18f361
+> git show --textconv :private/register.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/register.php
+> git cat-file -s acb589f11f94180d9f56cbc09051ef174732d6f9
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :private/utils.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/utils.php
+> git cat-file -s fb558ac1ef6861d5c2733160ba805ebcffa77a88
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :private/register.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/register.php
+> git cat-file -s acb589f11f94180d9f56cbc09051ef174732d6f9
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :private/utils.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/utils.php
+> git cat-file -s fb558ac1ef6861d5c2733160ba805ebcffa77a88
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :private/utils.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/utils.php
+> git cat-file -s fb558ac1ef6861d5c2733160ba805ebcffa77a88
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :private/utils.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/utils.php
+> git cat-file -s fb558ac1ef6861d5c2733160ba805ebcffa77a88
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :public/loginView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/loginView.php
+> git cat-file -s 4461a0d2cc3e1cbb3869063c68ec394f23c1337b
+> git show --textconv :public/registerView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/registerView.php
+> git cat-file -s 06074335bc360b5161c54c3053e340014bee2838
+> git show --textconv :public/loginView.php
+> git ls-files --stage -- /opt/lampp/htdocs/public/loginView.php
+> git cat-file -s 4461a0d2cc3e1cbb3869063c68ec394f23c1337b
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :private/login.php
+> git ls-files --stage -- /opt/lampp/htdocs/private/login.php
+> git cat-file -s 89677775869e954534f52c82f1816be44d663e2d
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template

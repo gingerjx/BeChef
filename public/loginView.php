@@ -23,7 +23,7 @@
     <header>CookWeb</header>
     <form id="login" action="../private/login.php" method="post">
       <label>Username</label>
-      <input type="text" name="username">
+      <input type="text" name="username" value=<?php displayAndUnset('username'); ?>> 
 
       <label>Password</label>
       <input type="password" name="password">

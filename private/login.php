@@ -10,6 +10,7 @@
 
     require_once "connectdb.php";
 
+    $_SESSION['username'] = $username;
     if (!$user->isInDatabaseUsername($connection) || !$user->isValidLogin($connection, $password)) {
         $valid = false;
         $_SESSION['e_login'] = "Invalid username or password";
@@ -17,7 +18,6 @@
 
     if ($valid) {
         unset($_SESSION['password']);
-        $_SESSION['username'] = $username;
         $_SESSION['logged'] = true;
         header('Location: ../index.php');
         exit();
