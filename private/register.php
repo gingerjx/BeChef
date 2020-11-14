@@ -59,7 +59,7 @@
         unset($_SESSION['password']);
         unset($_SESSION['pass-repeat']);
         $_SESSION['logged'] = true;
-        header('Location: ../public/theNewest.php');
+        header('Location: ../public/newestView.php');
         exit();
     } else {
         header('Location: ../public/registerView.php');

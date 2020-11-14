@@ -1,3 +1,3 @@
 <?php
-  header("Location: public/theNewest.php");
+  header("Location: public/newestView.php");
 ?>
