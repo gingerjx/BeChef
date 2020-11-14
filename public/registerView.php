@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (isset($_SESSION['logged'])) {
-    header('Location: ../index.php');
+    header('Location: theNewest.php');
     exit();
   }
   require_once "../private/utils.php";

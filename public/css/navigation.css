@@ -50,28 +50,25 @@ nav {
     height: 60px;
 }
 
-#usermenu input {
-    width: 100%;
-}
-
-#usermenu input, #login input {
+#usermenu p {
+    padding: 10px 0;
     margin: 0;
-    padding: 10px;
-    border: none;
-    background: none;
     font-size: large;
     font-weight: 600;
     font-family: "Lucida Console", Courier, monospace;
+}
+
+#username a {
+    text-decoration: none;
+    color: black;
     transition: color 0.5s;
 }
 
-#usermenu input:hover{
+#usermenu p:hover{
     background-color: var(--nav-color-hover);
-    color: var(--font-color);
     cursor: pointer;
 } 
 
-#login input:hover {
+#usermenu p:hover > a {
     color: var(--font-color);
-    cursor: pointer;
 }
