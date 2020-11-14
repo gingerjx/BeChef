@@ -1,8 +1,8 @@
 <nav>
     <div class="nav-item"><img src="img/trayOrange.svg" alt="Web icon"/></div> 
-    <div class="nav-item"><p>The Newest</p></div>
-    <div class="nav-item"><p>Popular</p></div>
-    <div class="nav-item"><p>Search</p></div>
+    <div class="nav-item"><p><a href="../public/theNewest.php">The Newest</a></p></div>
+    <div class="nav-item"><p><a href="#">Popular</a></p></div>
+    <div class="nav-item"><p><a href="#">Search</a></p></div>
 
     <?php if(isset($_SESSION['logged'])) : ?>
       <div id="username" class="nav-item">
@@ -16,10 +16,6 @@
         </div>
       </div>
     <?php else : ?>
-      <div id="login" class="nav-item">          
-        <form action="loginView.php">
-            <input type="submit" value="Login">
-        </form>
-      </div>
+      <div id="login" class="nav-item"><p><a href="loginView.php">Login</a></p></div>
     <?php endif; ?>
   </nav>
