@@ -1,0 +1,77 @@
+:root {
+    --nav-color: #e9e3e3;
+    --nav-color-hover: #ccc5c5;
+    --font-color: #c75e18;
+}
+
+nav {
+    background-color: var(--nav-color);
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    max-height: 60px;
+}
+
+.nav-item {
+    padding: 0 40px;
+    font-size: large;
+    font-weight: 600;
+    font-family: "Lucida Console", Courier, monospace;
+    transition: color 0.5s;
+}
+
+.nav-item > img{
+    padding: 5px 0;
+    height: 50px;
+    width: 50px;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+    color: var(--font-color);
+}
+
+#login {
+    margin-left: auto;
+}
+
+#username {
+    min-width: 150px;
+    margin-left: auto;
+    text-align: center;
+}
+
+#usermenu {
+    background-color: var(--nav-color);
+    display: none;
+}
+
+#login input {
+    height: 60px;
+}
+
+#usermenu input {
+    width: 100%;
+}
+
+#usermenu input, #login input {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    background: none;
+    font-size: large;
+    font-weight: 600;
+    font-family: "Lucida Console", Courier, monospace;
+    transition: color 0.5s;
+}
+
+#usermenu input:hover{
+    background-color: var(--nav-color-hover);
+    color: var(--font-color);
+    cursor: pointer;
+} 
+
+#login input:hover {
+    color: var(--font-color);
+    cursor: pointer;
+}

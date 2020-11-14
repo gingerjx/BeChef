@@ -19,7 +19,7 @@
     if ($valid) {
         unset($_SESSION['password']);
         $_SESSION['logged'] = true;
-        header('Location: ../index.php');
+        header('Location: ../public/theNewest.php');
         exit();
     } else {
         header('Location: ../public/loginView.php');
