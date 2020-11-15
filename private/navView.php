@@ -8,7 +8,7 @@
       <div id="username" class="nav-item">
         <p><?php echo $_SESSION['username']; ?></p>
         <div id="usermenu">
-          <p><a href="#">Saves</a></p>
+          <p><a href="../public/savesView.php">Saves</a></p>
           <p><a href="../public/addRecipeView.php">Add recipe</a></p>
           <p><a href="#">Your recipes</a></p>
           <p><a href="#">Settings</a></p>

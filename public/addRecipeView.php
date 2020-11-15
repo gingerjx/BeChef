@@ -17,7 +17,7 @@
 <body>
   <?php include "../private/navView.php" ?>
   
-  <form id="add-recipe" action="#">
+  <form id="add-recipe" action="../private/addRecipe.php" method="post" enctype=multipart/form-data>
     <div class="add-recipe-component">
       <label for="title">Title:</label>
       <input type="text" id="title" name="title">
@@ -29,14 +29,14 @@
     </div>
     <div id="description-error" class="error"></div>
     <div id="ingredient-box-1" class="add-recipe-component">
-      <label for="ingredient-label-1">Ingredient 1:</label>
-      <input type="text" id="ingredient-label-1" name="ingredient-label-1">
+      <label for="ingredient-1">Ingredient 1:</label>
+      <input type="text" id="ingredient-1" name="ingredient-1">
       <input type="button" value="+" onclick="addIngredient()">
     </div>
     <div id="ingredient-box-error" class="error"></div>
     <div id="preparation-box-1" class="add-recipe-component">
-      <label for="preparation-label-1">Preparation step 1:</label>
-      <input type="text" id="preparation-label-1" name="preparation-label-1">
+      <label for="preparation-1">Preparation step 1:</label>
+      <input type="text" id="preparation-1" name="preparation-1">
       <input type="button" value="+" onclick="addPreparationStep()">
     </div>
     <div id="preparation-box-error" class="error"></div>
@@ -58,8 +58,8 @@
       </div>
       <div class="property">
         <label for="vegetarian">Vegetarian</label>
-        <input type="radio">
-        <div class="error" id="vegetarian" name="vegetarian"></div>
+        <input type="checkbox" id="vegetarian" name="vegetarian">
+        <div class="error"></div>
       </div>
       <div class="property">
         <label for="difficulty-level">Difficulty level</label>
@@ -78,8 +78,8 @@
       </div>
     </div>
     <div id="input-image" class="add-recipe-component">
-      <label for="img">Select recipe image:</label>
-      <input type="file" id="img" name="img" accept="image/*">
+      <label for="recipe-img">Select recipe image:</label>
+      <input type="file" id="recipe-img" name="recipe-img" accept="image/*">
     </div>
     <div id="input-image-error" class="error"></div>
     <div id="submit-input" class="add-recipe-component">
