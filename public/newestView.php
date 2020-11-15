@@ -7,5 +7,7 @@
 </head>
 <body>
   <?php include "../private/navView.php" ?>
+
+  <script src="js/navigation.js"></script>
 </body>
 </html>
