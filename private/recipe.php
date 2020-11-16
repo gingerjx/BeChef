@@ -44,7 +44,7 @@ class Recipe {
     }
 
     function isValidDescription() {
-        if (strlen($this->title) < 50 || strlen($this->title) > 2500) {
+        if (strlen($this->description) < 50 || strlen($this->description) > 2500) {
             return false;
         }
 

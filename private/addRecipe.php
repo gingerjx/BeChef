@@ -67,11 +67,11 @@
         move_uploaded_file($_FILES['recipe-img']['tmp_name'], $image_path);
     } catch (RuntimeException $e) {
         $valid = false;
-        $_SESSION['e_recipe-img'] = $e->getMessage();
+        $_SESSION['e_recipe_img'] = $e->getMessage();
     } 
 
     require_once "recipe.php";
-    require_once "validAddRecipeForm.php";
+    require_once "catchAddRecipeFormErrors.php";
 
     $recipe = new Recipe($title, $description, $ingredients, $preaparation, $preparation_time, $average_cost, $country,
                          $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path);
@@ -80,7 +80,6 @@
     else 
         catchAddRecipeFormErrors($recipe);
 
-
-
-    //header("Location: ../public/savesView.php");
+    if (!$valid)
+        header("Location: ../public/addRecipeView.php");
 ?>  
