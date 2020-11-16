@@ -43,12 +43,12 @@
     <div id="properties" class="add-recipe-component">
       <div class="property">
         <label for="preparation-time">Preparation Time (min)</label>
-        <input type="number" min="1" id="preparation-time" name="preparation-time">
+        <input type="number" min="1" max="324000" id="preparation-time" name="preparation-time">
         <div class="error"></div>
       </div>
       <div class="property">
         <label for="average-cost">Average Cost</label>
-        <input type="number" min="0" step=".01" id="average-cost" name="average-cost">
+        <input type="number" min="0.1" max="1000.0" step=".01" id="average-cost" name="average-cost">
         <div class="error"></div>
       </div>
       <div class="property">
@@ -68,12 +68,12 @@
       </div>
       <div class="property">
         <label for="number-of-people">Number of people</label>
-        <input type="number" min="1" id="number-of-people" name="number-of-people">
+        <input type="number" min="1" max="10" id="number-of-people" name="number-of-people">
         <div class="error"></div>
       </div>
       <div class="property">
         <label for="kcal-per-person" >Kcal per person</label>
-        <input type="number" min="1" id="kcal-per-person" name="kcal-per-person">
+        <input type="number" min="1" max="8000" id="kcal-per-person" name="kcal-per-person">
         <div class="error"></div>
       </div>
     </div>

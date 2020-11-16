@@ -28,7 +28,7 @@
             if (strlen($this->username) < 5 || strlen($this->username) > 50) {
                 return false;
             }
-            else if (ctype_alnum($this->username) == false) {
+            else if (!ctype_alnum($this->username)) {
                 return false;
             }
 
@@ -90,7 +90,7 @@
             return false;
         }
 
-        function fetchUser($connection) {
+        function fetchUserByUsername($connection) {
             /* not tested yet */
             $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
             $query->bindValue(":username", $this->username, PDO::PARAM_STR);

@@ -21,7 +21,7 @@
     $_SESSION['username'] = $username;
     if (!$user->isValidUsername()) {
         $valid = false;
-        $_SESSION['e_username'] = "Only characters. Range: (5, 50)";
+        $_SESSION['e_username'] = "Only characters and numbers. Range: (5, 50)";
     }
     
     $_SESSION['email'] = $email;
