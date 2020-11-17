@@ -55,7 +55,7 @@
     } 
 
     if ($valid && !$exists) {
-        $user->insertUser($connection, $password);
+        $user->insertToDB($connection, $password);
         unset($_SESSION['fullname']);
         unset($_SESSION['email']);
         unset($_SESSION['password']);

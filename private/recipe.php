@@ -19,8 +19,6 @@ class Recipe {
 
     function __construct($title, $description, $ingredients, $preparation, $preparation_time, $average_cost, 
                          $country, $vegetarian, $difficulty_level, $people_number, $kcal_per_person, $image_path) {
-        $addDate = new DateTime(); 
-
         $this->title = $title;
         $this->description = $description;
         $this->ingredients = $ingredients;
@@ -111,6 +109,46 @@ class Recipe {
     function isValidKcalPerPerson() {
         $number = (float)$this->kcal_per_person;
         return $number >= 1 && $number <= 8000;
+    }
+
+    function setAuthorID($id) {
+        $this->authorID = $id;
+    }
+
+    function insertToDB($connection) {
+        $this->addDate = new DateTime();
+        $inline_ingredients = "";
+        foreach ($this->ingredients as $ing) {
+            $inline_ingredients = $inline_ingredients.';'.$ing;
+        }
+        $inline_preparation = "";
+        foreach ($this->preparation as $prep) {
+            $inline_preparation = $inline_preparation.';'.$prep;
+        }
+
+        debug_to_console("Inline1: ".$inline_ingredients);
+        debug_to_console("Inline2: ".$inline_preparation);
+        debug_to_console("Inline3: ".$this->image_path);
+
+        $query = $connection->prepare('INSERT INTO Recipes VALUES 
+                                      (NULL, :author, now(), :imgPath, :title, :descr, :ingredients,
+                                      :preparation, :preparationTime, :averageCost, :country, :vegetarian,
+                                      :diffLevel, :pplNumber, :kcalPerPerson)');
+        $query->bindValue(":author", $this->authorID, PDO::PARAM_STR);
+        $query->bindValue(":imgPath", $this->image_path, PDO::PARAM_STR);
+        $query->bindValue(":title", $this->title, PDO::PARAM_STR);
+        $query->bindValue(":descr", $this->description, PDO::PARAM_STR);
+        $query->bindValue(":ingredients", $inline_ingredients, PDO::PARAM_STR);
+        $query->bindValue(":preparation", $inline_preparation, PDO::PARAM_STR);
+        $query->bindValue(":preparationTime", $this->preparation_time, PDO::PARAM_STR);
+        $query->bindValue(":averageCost", $this->average_cost, PDO::PARAM_STR);
+        $query->bindValue(":country", $this->country, PDO::PARAM_STR);
+        $query->bindValue(":vegetarian", $this->vegetarian ? '1' : '0', PDO::PARAM_STR);
+        $query->bindValue(":diffLevel", $this->difficulty_level, PDO::PARAM_STR);
+        $query->bindValue(":pplNumber", $this->people_number, PDO::PARAM_STR);
+        $query->bindValue(":kcalPerPerson", $this->kcal_per_person, PDO::PARAM_STR);
+
+        $query->execute();
     }
 }
 ?>

@@ -65,7 +65,7 @@
             return $query->rowCount() > 0;
         }
 
-        function insertUser($connection, $password) {
+        function insertToDB($connection, $password) {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $query = $connection->prepare('INSERT INTO Users VALUES (NULL, now(), :fullname, :email, :username, :pass, 3)');
             $query->bindValue(":fullname", $this->fullname, PDO::PARAM_STR);
@@ -96,8 +96,11 @@
             $this->email = $email;
         }
 
+        function getId() {
+            return $this->id;
+        }
+
         function fetchUserByUsername($connection) {
-            /* not tested yet */
             $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
             $query->bindValue(":username", $this->username, PDO::PARAM_STR);
             $query->execute();
@@ -108,7 +111,7 @@
                 $this->fullname = $record['fullname'];
                 $this->email = $record['email'];
                 $this->joinDate = new DateTime($record['joinDate']);
-                $this->role = $record['role'];
+                $this->role = $record['roleID'];
                 return true;
             }
 
