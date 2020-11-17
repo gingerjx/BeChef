@@ -88,6 +88,10 @@
             return false;
         }
 
+        function getUsername() {
+            return $this->username;
+        }
+        
         function setFullname($fullname) {
             $this->fullname = $fullname;
         }
@@ -100,7 +104,7 @@
             return $this->id;
         }
 
-        function fetchUserByUsername($connection) {
+        function fetchByUsername($connection) {
             $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
             $query->bindValue(":username", $this->username, PDO::PARAM_STR);
             $query->execute();

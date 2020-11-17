@@ -56,11 +56,18 @@
 
     if ($valid && !$exists) {
         $user->insertToDB($connection, $password);
+        $user->fetchByUsername($connection);
+        
+        unset($_SESSION['password']);
+        unset($_SESSION['username']);
         unset($_SESSION['fullname']);
         unset($_SESSION['email']);
         unset($_SESSION['password']);
         unset($_SESSION['pass-repeat']);
+
         $_SESSION['logged'] = true;
+        $_SESSION['user'] = serialize($user);
+
         header('Location: ../public/newestView.php');
         exit();
     } else {

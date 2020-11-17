@@ -99,8 +99,7 @@
     require_once "connectdb.php";
     require_once "user.php";
 
-    $user = new User($_SESSION['username']);
-    $user->fetchUserByUsername($connection);
+    $user = unserialize($_SESSION['user']);
     $recipe->setAuthorID($user->getId());
     $recipe->insertToDB($connection);
 ?>  

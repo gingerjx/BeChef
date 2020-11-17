@@ -6,7 +6,13 @@
 
     <?php if(isset($_SESSION['logged'])) : ?>
       <div id="username" class="nav-item">
-        <p><?php echo $_SESSION['username']; ?></p>
+        <p>
+        <?php 
+          require_once "user.php";
+          $user = unserialize($_SESSION['user']);
+          echo $user->getUsername(); 
+        ?>
+        </p>
         <div id="usermenu">
           <p><a href="../public/savesView.php">Saves</a></p>
           <p><a href="../public/addRecipeView.php">Add recipe</a></p>

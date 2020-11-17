@@ -17,8 +17,14 @@
     }
 
     if ($valid) {
+        $user->fetchByUsername($connection);
+
         unset($_SESSION['password']);
+        unset($_SESSION['username']);
+
         $_SESSION['logged'] = true;
+        $_SESSION['user'] = serialize($user);
+        
         header('Location: ../public/newestView.php');
         exit();
     } else {
