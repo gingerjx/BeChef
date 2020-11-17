@@ -5,13 +5,17 @@
     $valid = true;
 
     $title = htmlentities($_POST['title']);
+    $_SESSION['title'] = $title;
+
     $description = htmlentities($_POST['description']);
+    $_SESSION['description'] = $description;
 
     $ingredient_number = 1;
     $ingredients = array();
     while (!empty($_POST['ingredient-'.$ingredient_number])) {
         $ingredients[] = htmlentities($_POST['ingredient-'.$ingredient_number]);
         $ingredient_number += 1;
+        $_SESSION['ingredient_1'] = $ingredients[0];
     }
 
     $preparation_number = 1;
@@ -19,15 +23,22 @@
     while (!empty($_POST['preparation-'.$preparation_number])) {
         $preaparation[] = htmlentities($_POST['preparation-'.$preparation_number]);
         $preparation_number += 1;
+        $_SESSION['preparation_1'] = $preaparation[0];
     }
-
+    
     $preparation_time = htmlentities($_POST['preparation-time']);
+    $_SESSION['preparation_time'] = $preparation_time;
     $average_cost = htmlentities($_POST['average-cost']);
+    $_SESSION['average_cost'] = $average_cost;
     $country = htmlentities($_POST['country']);
+    $_SESSION['country'] = $country;
     $vegetarian = empty($_POST['vegetarian']) ? false : true;
     $difficulty_level = htmlentities($_POST['difficulty-level']);
+    $_SESSION['difficulty_level'] = $difficulty_level;
     $number_of_people = htmlentities($_POST['number-of-people']);
+    $_SESSION['people_number'] = $number_of_people;
     $kcal_per_person = htmlentities($_POST['kcal-per-person']);
+    $_SESSION['kcal_per_person'] = $kcal_per_person;
 
     $image_path = "";
     $max_size = 1024*1024;
@@ -80,6 +91,9 @@
     else 
         catchAddRecipeFormErrors($recipe);
 
-    if (!$valid)
+    if (!$valid) {
         header("Location: ../public/addRecipeView.php");
+        exit();
+    }
+
 ?>  

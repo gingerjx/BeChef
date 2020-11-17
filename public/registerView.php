@@ -28,7 +28,7 @@
           <?php displayAndUnset('e_fullname'); ?>
         </span>
       </label>
-      <input type="text" name="fullname" value=<?php displayAndUnset('fullname'); ?>>
+      <input type="text" name="fullname" value=<?php displayInputAndUnset('fullname'); ?>>
 
       <label>
         Username 
@@ -36,7 +36,7 @@
           <?php displayAndUnset('e_username'); ?>
         </span>
       </label>
-      <input type="text" name="username" value=<?php displayAndUnset('username'); ?>>
+      <input type="text" name="username" value=<?php displayInputAndUnset('username'); ?>>
 
       <label>
         Email 
@@ -44,7 +44,7 @@
           <?php displayAndUnset('e_email'); ?>
         </span>
       </label>
-      <input type="text" name="email" value=<?php displayAndUnset('email'); ?>>
+      <input type="text" name="email" value=<?php displayInputAndUnset('email'); ?>>
 
       <label>
         Password 
