@@ -1,16 +1,14 @@
 <?php 
     class User {
-        public $fullname;
-        public $username;
-        public $email;
-        public $password;
-        public $joinDate;
-        public $role;
+        private $id;
+        private $fullname;
+        private $username;
+        private $email;
+        private $joinDate;
+        private $role;
 
-        function __construct ($fullname, $username, $email) {
-            $this->fullname = $fullname;
+        function __construct($username) {
             $this->username = $username;
-            $this->email = $email;
         }
 
         function isValidFullname() { 
@@ -90,6 +88,14 @@
             return false;
         }
 
+        function setFullname($fullname) {
+            $this->fullname = $fullname;
+        }
+
+        function setEmail($email) {
+            $this->email = $email;
+        }
+
         function fetchUserByUsername($connection) {
             /* not tested yet */
             $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
@@ -98,11 +104,15 @@
 
             if ($query->rowCount() > 0) {
                 $record = $query->fetch();
-                $fullname = $record['fullname'];
-                $email = $record['email'];;
-                $joinDate = new DateTime($record['joinDate']);
-                $role = $record['role'];
+                $this->id = $record['id'];
+                $this->fullname = $record['fullname'];
+                $this->email = $record['email'];
+                $this->joinDate = new DateTime($record['joinDate']);
+                $this->role = $record['role'];
+                return true;
             }
+
+            return false;
         }
     }
 ?>

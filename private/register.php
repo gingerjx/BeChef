@@ -8,7 +8,9 @@
     $password = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
     $pass_repeat = htmlentities($_POST['pass-repeat'], ENT_QUOTES, "UTF-8");
 
-    $user = new User($fullname, $username, $email);
+    $user = new User($username);
+    $user->setFullname($fullname);
+    $user->setEmail($email);
     $valid = true;
     $exists = false;
 
