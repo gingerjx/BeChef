@@ -67,15 +67,12 @@
         }
         
         if ($image_ext != 'jpeg' && $image_ext != 'jpg'
-            && $image_ext != 'png' && $image_ext != 'svg') {
-            throw new RuntimeException('Invalid format');
+            && $image_ext != 'png') {
+            throw new RuntimeException('Invalid format, only .jpeg and .png');
         }
 
-        $image_path = sprintf("%s%s.%s", 
-                            $target_dir, 
-                            sha1_file($_FILES['recipe-img']['tmp_name']),
-                            $image_ext);
-        move_uploaded_file($_FILES['recipe-img']['tmp_name'], $image_path);
+        $image_path = sha1_file($_FILES['recipe-img']['tmp_name']).'.'.$image_ext; 
+        move_uploaded_file($_FILES['recipe-img']['tmp_name'], $target_dir.$image_path);
     } catch (RuntimeException $e) {
         $valid = false;
         $_SESSION['e_recipe_img'] = $e->getMessage();

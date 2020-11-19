@@ -182,7 +182,7 @@ class Recipe {
     function getKcalPerPerson() {
         return $this->kcal_per_person;
     }
-    function getImagePatj() {
+    function getImagePath() {
         return $this->image_path;
     }
     

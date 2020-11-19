@@ -1,0 +1,37 @@
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    background-color: var(--font-color);
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    border: 3px var(--nav-color) solid;
+    text-decoration: none;
+}
+
+.card > img {
+    width: 100%;
+    max-height: 225px;
+    border-bottom: 1px var(--nav-color) solid;
+}
+
+.card > h2 {
+    align-self: flex-end;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.card:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}

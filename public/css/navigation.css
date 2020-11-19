@@ -27,7 +27,6 @@ nav p:hover > a {
     padding: 0 40px;
     font-size: large;
     font-weight: 600;
-
     transition: color 0.5s;
 }
 
