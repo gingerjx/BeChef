@@ -34,6 +34,7 @@ class Recipe {
         $this->image_path = $image_path;
     }
 
+/* Validation */
     function isValidTitle() {
         if (strlen($this->title) < 5 || strlen($this->title) > 50) {
             return false;
@@ -112,6 +113,7 @@ class Recipe {
         return $number >= 1 && $number <= 8000;
     }
 
+/* Setters */
     function setAuthorID($id) {
         $this->authorID = $id;
     }
@@ -124,6 +126,67 @@ class Recipe {
         $this->addDate = $addDate;
     }
 
+/* Getters */
+    function getRecipeID() {
+        return $this->recipeID;
+    }
+
+    function getAuthorID() {
+       return $this->authorID;
+    }
+
+    function getAddDate() {
+        return $this->addDate;
+    }
+
+    function getTitle() {
+        return $this->title;
+    }
+
+    function getDescription() {
+       return $this->description;
+    }
+
+    function getIngredients() {
+        return $this->ingredients;
+    }
+
+    function getPreparation() {
+        return $this->preparation;
+    }
+
+    function getPreparationTime() {
+       return $this->preparation_time;
+    }
+
+    function getAverageCost() {
+        return $this->average_cost;
+    }
+
+    function getCountry() {
+        return $this->country;
+    }
+
+    function getVegetarian() {
+        return $this->vegetarian;
+    }
+
+    function getDifficultyLevel() {
+        return $this->difficulty_level;
+    }
+
+    function getPeopleNumber() {
+        return $this->people_number;
+    }
+
+    function getKcalPerPerson() {
+        return $this->kcal_per_person;
+    }
+    function getImagePatj() {
+        return $this->image_path;
+    }
+    
+/* Insert to database */
     function insertToDB($connection) {
         $this->addDate = new DateTime();
         $inline_ingredients = "";

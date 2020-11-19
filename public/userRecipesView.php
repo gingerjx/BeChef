@@ -7,10 +7,10 @@
   require_once "../private/utils.php";
   require_once "../private/dbQueries.php";
   require_once "../private/user.php";
+  require_once "../private/recipe.php";
 
   $user = unserialize($_SESSION['user']);
   $recipes = getUserRecipes($user->getID());
-  $stop = 1;
 ?>
 
 
@@ -21,7 +21,9 @@
 </head>
 <body>
   <?php include "../private/navView.php" ?>
-
+  <?php
+    echo $recipes[0]->getRecipeID();
+  ?>
   <script src="js/navigation.js"></script>
 </body>
 </html>
