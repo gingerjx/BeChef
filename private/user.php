@@ -100,7 +100,7 @@
             $this->email = $email;
         }
 
-        function getId() {
+        function getID() {
             return $this->id;
         }
 

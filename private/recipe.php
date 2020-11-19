@@ -2,6 +2,7 @@
 require_once "debug.php";
 
 class Recipe {
+    public $recipeID;
     public $authorID;
     public $addDate;
     public $title;
@@ -113,6 +114,14 @@ class Recipe {
 
     function setAuthorID($id) {
         $this->authorID = $id;
+    }
+
+    function setRecipeID($id) {
+        $this->recipeID = $id;
+    }
+
+    function setAddDate($addDate) {
+        $this->addDate = $addDate;
     }
 
     function insertToDB($connection) {
