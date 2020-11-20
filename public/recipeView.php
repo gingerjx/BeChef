@@ -88,6 +88,11 @@
         <?php endforeach ?>
       </ul>
     </div>
+    <div id="tags">
+      <?php foreach ($rec->getTags() as $tag) : ?>
+        <p><?= $tag ?></p>
+      <?php endforeach ?>
+    </div>
   </div>
 
   <script src="js/navigation.js"></script>

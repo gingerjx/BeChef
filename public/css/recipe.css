@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 100px 50px;
     padding: 20px;
     background: var(--nav-color);
 }
@@ -46,4 +46,19 @@
     block-size: fit-content;
     font-size: xx-large;
     font-weight: bold;
+}
+
+#tags {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#tags > p {
+    margin: 0 10px;
+    background-color: var(--nav-color-hover);
+    padding: 5px;
+    font-weight: bold;
+    font-size: small;
 }
