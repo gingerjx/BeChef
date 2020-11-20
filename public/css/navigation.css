@@ -5,6 +5,9 @@
 }
 
 nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: var(--nav-color);
     display: flex;
     flex-direction: row;

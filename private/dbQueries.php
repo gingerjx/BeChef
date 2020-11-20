@@ -37,7 +37,7 @@
             $kcal_per_person = $record['kcalPerPerson'];
 
             $recipe = new Recipe($title, $description, $ingredients, $preparation, $preparation_time, $average_cost, $country,
-                                 $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path);
+                                 $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path, array("a", "a"));
             $recipe->setRecipeID($recipeId);
             $recipe->setAuthorID($authorId);
             $recipe->setaddDate($addDate);
@@ -84,7 +84,7 @@
             $kcal_per_person = $record['kcalPerPerson'];
 
             $recipe = new Recipe($title, $description, $ingredients, $preparation, $preparation_time, $average_cost, $country,
-                                 $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path);
+                                 $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path, array("a", "a"));
             $recipe->setRecipeID($recipeId);
             $recipe->setAuthorID($authorId);
             $recipe->setaddDate($addDate);

@@ -14,6 +14,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 2px var(--nav-color-hover) solid;
+}
+
+.space-between-container{ 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 30px 0;
+    justify-content: space-around;
 }
 
 #main-info > img{
@@ -24,4 +34,16 @@
 
 #main-info b {
     display: block;
+}
+
+.property {
+    text-align: center;
+}
+
+.property > p {
+    margin: 10px;
+    width: fit-content;
+    block-size: fit-content;
+    font-size: xx-large;
+    font-weight: bold;
 }

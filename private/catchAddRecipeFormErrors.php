@@ -53,6 +53,11 @@
             $_SESSION['e_kcal_per_person'] = 'Range (1, 8000)';
         }
 
+        if (!$recipe->isValidTags()) {
+            $valid = false;
+            $_SESSION['e_tags'] = "Only characters and commas as separator";
+        }
+
         return $valid;
     }
 ?>

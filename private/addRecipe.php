@@ -39,6 +39,8 @@
     $_SESSION['people_number'] = $number_of_people;
     $kcal_per_person = htmlentities($_POST['kcal-per-person']);
     $_SESSION['kcal_per_person'] = $kcal_per_person;
+    $tags = htmlentities($_POST['tags']);
+    $_SESSION['tags'] = $tags;
 
     $image_path = "";
     $max_size = 1024*1024;
@@ -81,8 +83,10 @@
     require_once "recipe.php";
     require_once "catchAddRecipeFormErrors.php";
 
+    $tags = explode(',', $tags);
     $recipe = new Recipe($title, $description, $ingredients, $preaparation, $preparation_time, $average_cost, $country,
-                         $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path);
+                         $vegetarian, $difficulty_level, $number_of_people, $kcal_per_person, $image_path, $tags);
+
     if ($valid)
         $valid = catchAddRecipeFormErrors($recipe);
     else 

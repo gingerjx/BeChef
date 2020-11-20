@@ -2,24 +2,25 @@
 require_once "debug.php";
 
 class Recipe {
-    public $recipeID;
-    public $authorID;
-    public $addDate;
-    public $title;
-    public $description;
-    public $ingredients;
-    public $preparation;
-    public $preparation_time;
-    public $average_cost;
-    public $country;
-    public $vegetarian;
-    public $difficulty_level;
-    public $people_number;
-    public $kcal_per_person;
-    public $image_path;
+    private $recipeID;
+    private $authorID;
+    private $addDate;
+    private $title;
+    private $description;
+    private $ingredients;
+    private $preparation;
+    private $preparation_time;
+    private $average_cost;
+    private $country;
+    private $vegetarian;
+    private $difficulty_level;
+    private $people_number;
+    private $kcal_per_person;
+    private $image_path;
+    private $tags;
 
-    function __construct($title, $description, $ingredients, $preparation, $preparation_time, $average_cost, 
-                         $country, $vegetarian, $difficulty_level, $people_number, $kcal_per_person, $image_path) {
+    function __construct($title, $description, $ingredients, $preparation, $preparation_time, $average_cost, $country, 
+                         $vegetarian, $difficulty_level, $people_number, $kcal_per_person, $image_path, $tags) {
         $this->title = $title;
         $this->description = $description;
         $this->ingredients = $ingredients;
@@ -32,6 +33,7 @@ class Recipe {
         $this->people_number = $people_number;
         $this->kcal_per_person = $kcal_per_person;
         $this->image_path = $image_path;
+        $this->tags = $tags;
     }
 
 /* Validation */
@@ -113,6 +115,16 @@ class Recipe {
         return $number >= 1 && $number <= 8000;
     }
 
+    function isValidTags() {
+        foreach ($this->tags as $tag) {
+            if (!ctype_alpha($tag)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 /* Setters */
     function setAuthorID($id) {
         $this->authorID = $id;
@@ -124,6 +136,10 @@ class Recipe {
 
     function setAddDate($addDate) {
         $this->addDate = $addDate;
+    }
+
+    function setTags($tags) {
+        $this->tags = $tags;
     }
 
 /* Getters */
@@ -182,10 +198,15 @@ class Recipe {
     function getKcalPerPerson() {
         return $this->kcal_per_person;
     }
+
     function getImagePath() {
         return $this->image_path;
     }
-    
+
+    function getTags() {
+        return $this->tags;
+    }
+
 /* Insert to database */
     function insertToDB($connection) {
         $this->addDate = new DateTime();
@@ -221,6 +242,19 @@ class Recipe {
         $query->bindValue(":kcalPerPerson", $this->kcal_per_person, PDO::PARAM_STR);
 
         $query->execute();
+
+        $this->recipeID = $connection->lastInsertId();
+        $this->insertTagsToDB($connection);
+    }
+
+    function insertTagsToDB($connection) {
+        foreach ($this->tags as $tag) {
+            $query = $connection->prepare('INSERT INTO Tags VALUES (NULL, :recipe, :name)');
+            $query->bindValue(":recipe", $this->recipeID, PDO::PARAM_STR);
+            $query->bindValue(":name", $tag, PDO::PARAM_STR);
+
+            $query->execute();
+        }
     }
 }
 ?>

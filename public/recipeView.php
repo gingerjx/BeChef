@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!isset($_SESSION['logged']) || !isset($_GET['recipeID'])) {
+    if (!isset($_GET['recipeID'])) {
         header('Location: loginView.php');
         exit();
     }
@@ -17,7 +17,6 @@
         exit();
     }
 
-    $user = unserialize($_SESSION['user']);
     $author = getUserByID($rec->getAuthorID());
 ?>
 
@@ -41,6 +40,53 @@
         </div>
       </div>
       <img src="<?= $rec->getImagePath() ?>"></img>
+    </div>
+    <div class="space-between-container">
+      <div class="property">
+        <p><?= $rec->getPreparationTime() ?></p>
+        <b>Preparation Time (min)</b>
+      </div>
+      <div class="property">
+        <p><?= $rec->getAverageCost() ?>$</p>
+        <b>Average Cost</b>
+      </div>
+      <div class="property">
+        <p><?= $rec->getCountry() ?></p>
+        <b>Country</b>
+      </div>
+      <div class="property">
+        <p>
+          <?php if ($rec->getVegetarian() == 1) echo 'Yes';
+                else echo 'No'; ?>
+        </p>
+        <b>Vegetarian</b>
+      </div>
+      <div class="property">
+        <p><?= $rec->getDifficultyLevel() ?></p>
+        <b>Difficulty level</b>
+      </div>
+      <div class="property">
+        <p><?= $rec->getPeopleNumber() ?></p>
+        <b>Number of people</b>
+      </div>
+      <div class="property">
+        <p><?= $rec->getKcalPerPerson() ?></p>
+        <b>Kcal per person</b>
+      </div>
+    </div>
+    <div class="space-between-container">
+      <ul>
+        <h2>Ingredients</h2>
+        <?php foreach ($rec->getIngredients() as $ingredient) : ?>
+          <li><?= $ingredient ?></pli>
+        <?php endforeach ?>
+      </ul>
+      <ul>
+        <h2>Preparation</h2>
+        <?php foreach ($rec->getPreparation() as $preparation) : ?>
+          <li><?= $preparation ?></pli>
+        <?php endforeach ?>
+      </ul>
     </div>
   </div>
 
