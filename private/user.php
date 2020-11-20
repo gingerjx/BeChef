@@ -11,6 +11,7 @@
             $this->username = $username;
         }
 
+/* Validation */
         function isValidFullname() { 
             if (strlen($this->fullname) < 5 || strlen($this->fullname) > 100) {
                 return false;
@@ -88,10 +89,24 @@
             return false;
         }
 
+/* Getters */
+        function getID() {
+            return $this->id;
+        }
+
         function getUsername() {
             return $this->username;
         }
+
+        function getFullname() {
+            return $this->fullname;
+        }
         
+/* Setters */
+        function setID($id) {
+            $this->id = $id;
+        }
+
         function setFullname($fullname) {
             $this->fullname = $fullname;
         }
@@ -100,26 +115,13 @@
             $this->email = $email;
         }
 
-        function getID() {
-            return $this->id;
+        function setJoinDate($email) {
+            $this->email = $email;
         }
 
-        function fetchByUsername($connection) {
-            $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
-            $query->bindValue(":username", $this->username, PDO::PARAM_STR);
-            $query->execute();
-
-            if ($query->rowCount() > 0) {
-                $record = $query->fetch();
-                $this->id = $record['id'];
-                $this->fullname = $record['fullname'];
-                $this->email = $record['email'];
-                $this->joinDate = new DateTime($record['joinDate']);
-                $this->role = $record['roleID'];
-                return true;
-            }
-
-            return false;
+        function setRole($role) {
+            $this->role = $role;
         }
+
     }
 ?>

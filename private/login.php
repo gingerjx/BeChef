@@ -1,14 +1,14 @@
 <?php
     session_start();
     require_once "user.php";
-
+    require_once "dbQueries.php";
+    require_once "connectdb.php";
+    
     $username = htmlentities($_POST['username'], ENT_QUOTES, "UTF-8");
     $password = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
 
     $user = new User($username);
     $valid = true;
-
-    require_once "connectdb.php";
 
     $_SESSION['username'] = $username;
     if (!$user->isInDatabaseUsername($connection) || !$user->isValidLogin($connection, $password)) {
@@ -17,7 +17,7 @@
     }
 
     if ($valid) {
-        $user->fetchByUsername($connection);
+        $user = getUserByUsername($user->getUsername());
 
         unset($_SESSION['password']);
         unset($_SESSION['username']);

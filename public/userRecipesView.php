@@ -22,10 +22,10 @@
 </head>
 <body>
   <?php include "../private/navView.php" ?>
-  <div class="recipe-container">
+  <div id="recipes-container">
 
   <?php foreach ($recipes as $rec) : ?>
-    <a class="card" href="<?= '#?'.$rec->getRecipeID() ?>">
+    <a class="card" href="<?= 'recipeView.php?recipeID='.$rec->getRecipeID() ?>">
       <img src="<?= $rec->getImagePath() ?>"></img>
       <h2><?= $rec->getTitle() ?></h2>
     </a>
