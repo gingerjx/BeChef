@@ -56,7 +56,7 @@ class Recipe {
             return false;
 
         foreach ($this->ingredients as $ing) {
-            if (strlen($ing) < 5 || strlen($ing) > 50) {
+            if (strlen($ing) < 5 || strlen($ing) > 100) {
                 return false;
             }
         }
@@ -69,7 +69,7 @@ class Recipe {
             return false;
 
         foreach ($this->preparation as $prep) {
-            if (strlen($prep) < 5 || strlen($prep) > 50) {
+            if (strlen($prep) < 5 || strlen($prep) > 100) {
                 return false;
             }
         }

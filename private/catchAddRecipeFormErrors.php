@@ -15,12 +15,12 @@
 
         if (!$recipe->isValidIngredients()) {
             $valid = false;
-            $_SESSION['e_ingredients'] = 'Minimum 1 ingredient. Text range: (5, 50)';
+            $_SESSION['e_ingredients'] = 'Minimum 1 ingredient. Text range: (5, 100)';
         }
 
         if (!$recipe->isValidPreparation()) {
             $valid = false;
-            $_SESSION['e_preparation'] = 'Minimum 1 preparation step. Text range: (5, 50)';
+            $_SESSION['e_preparation'] = 'Minimum 1 preparation step. Text range: (5, 100)';
         }
 
         if (!$recipe->isValidPreparationTime()) {

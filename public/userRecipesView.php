@@ -25,7 +25,7 @@
   <div class="recipe-container">
 
   <?php foreach ($recipes as $rec) : ?>
-    <a class="card" href="#">
+    <a class="card" href="<?= '#?'.$rec->getRecipeID() ?>">
       <img src="<?= $rec->getImagePath() ?>"></img>
       <h2><?= $rec->getTitle() ?></h2>
     </a>

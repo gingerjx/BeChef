@@ -42,7 +42,7 @@
 
     $image_path = "";
     $max_size = 1024*1024;
-    $target_dir = $_SERVER['DOCUMENT_ROOT'].'/public/img/';
+    $target_dir = $_SERVER['DOCUMENT_ROOT'].'/public/';
     $image_ext = strtolower(pathinfo($_FILES['recipe-img']['name'], PATHINFO_EXTENSION));
 
     try {
@@ -71,7 +71,7 @@
             throw new RuntimeException('Invalid format, only .jpeg and .png');
         }
 
-        $image_path = sha1_file($_FILES['recipe-img']['tmp_name']).'.'.$image_ext; 
+        $image_path = 'img/'.sha1_file($_FILES['recipe-img']['tmp_name']).'.'.$image_ext; 
         move_uploaded_file($_FILES['recipe-img']['tmp_name'], $target_dir.$image_path);
     } catch (RuntimeException $e) {
         $valid = false;
@@ -100,5 +100,16 @@
     $recipe->setAuthorID($user->getId());
     $recipe->insertToDB($connection);
 
-    header("Location: public/userRecipesView.php");
+    unset($_SESSION['title']);
+    unset($_SESSION['description']);
+    unset($_SESSION['ingredient_1']);
+    unset($_SESSION['preparation_1']);
+    unset($_SESSION['preparation_time']);
+    unset($_SESSION['average_cost']);
+    unset($_SESSION['country']);
+    unset($_SESSION['difficulty_level']);
+    unset($_SESSION['people_number']);
+    unset($_SESSION['kcal_per_person']);
+
+    header("Location: ../public/userRecipesView.php");
 ?>  
