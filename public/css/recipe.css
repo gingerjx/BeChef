@@ -32,8 +32,24 @@
     margin-left: 10px;
 }
 
-#main-info b {
+#main-info span {
     display: block;
+    font-weight: bold;
+}
+
+.ratings {
+    display: flex;
+    margin: 10px 0;
+    color: var(--font-color);
+    font-size: large;
+}
+
+.ratings img {
+    width: 20px;
+}
+
+.ratings b{
+    margin-right: 40px;
 }
 
 .property {

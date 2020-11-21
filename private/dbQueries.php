@@ -48,7 +48,6 @@
 
     function getUserRecipes($userID) {
         include "connectdb.php";
-        require_once "recipe.php";
         
         $query = $connection->prepare('SELECT * FROM Recipes WHERE authorID=:authorID');
         $query->bindValue(":authorID", $userID, PDO::PARAM_STR);
@@ -65,7 +64,6 @@
 
     function getRecipeByID($recipeID) {
         include "connectdb.php";
-        require_once "recipe.php";
         
         $query = $connection->prepare('SELECT * FROM Recipes WHERE recipeID=:recipeID');
         $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
@@ -99,7 +97,6 @@
 
     function getUserByUsername($username) {
         include "connectdb.php";
-        require_once "user.php";
 
         $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
         $query->bindValue(":username", $username, PDO::PARAM_STR);
@@ -115,7 +112,6 @@
 
     function getUserByID($id) {
         include "connectdb.php";
-        require_once "user.php";
 
         $query = $connection->prepare('SELECT * FROM Users WHERE id=:id');
         $query->bindValue(":id", $id, PDO::PARAM_STR);
@@ -127,5 +123,27 @@
         } else {
             return null;
         }
+    }
+
+    function getNumberOf($tableName, $recipeID) {
+        include "connectdb.php";
+        
+        $query = $connection->prepare('SELECT * FROM '.$tableName.' WHERE recipeID=:recipeID');
+        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->rowCount();
+    }
+
+    function getNumberOfSaves($recipeID) {
+        return getNumberOf('Saves', $recipeID);
+    }
+
+    function getNumberOfLikes($recipeID) {
+        return getNumberOf('Likes', $recipeID);
+    }
+
+    function getNumberOfComments($recipeID) {
+        return getNumberOf('Comments', $recipeID);
     }
 ?>

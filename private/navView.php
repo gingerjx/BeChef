@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav-item"><img src="img/trayOrange.svg" alt="Web icon"/></div> 
+    <div class="nav-item"><img src="img/tray-orange.svg" alt="Web icon"/></div> 
     <div class="nav-item"><p><a href="../public/newestView.php">The Newest</a></p></div>
     <div class="nav-item"><p><a href="#">Popular</a></p></div>
     <div class="nav-item"><p><a href="#">Search</a></p></div>

@@ -35,8 +35,22 @@
         <h2><?= $rec->getTitle() ?></h2>
         <p><?= $rec->getDescription() ?></p>
         <div>
-          <b>author: <?= $author->getFullname() ?></b>
-          <b>add date: <?= $rec->getAddDate() ?></b>
+          <span>author: <?= $author->getFullname() ?></span>
+          <span>add date: <?= $rec->getAddDate() ?></span>
+        </div>
+        <div class="ratings">
+          <div>
+            <img src="img/thumbs-up.svg" alt="Web icon"/>
+            <b> <?= getNumberOfLikes($rec->getRecipeID()) ?></b>
+          </div>
+          <div>
+            <img src="img/disk.svg" alt="Web icon"/>
+            <b><?= getNumberOfSaves($rec->getRecipeID()) ?></b>
+          </div>
+          <div>
+            <img src="img/comment.svg" alt="Web icon"/>
+            <b><?= getNumberOfComments($rec->getRecipeID()) ?></b>
+          </div>
         </div>
       </div>
       <img src="<?= $rec->getImagePath() ?>"></img>
