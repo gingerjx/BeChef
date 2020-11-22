@@ -1,8 +1,14 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+
 #recipes-container {
     margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
     width: 75%;
+    box-sizing: border-box;
 }
 
 .card {

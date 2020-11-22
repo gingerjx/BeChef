@@ -10,7 +10,18 @@
   require_once "../private/recipe.php";
 
   $user = unserialize($_SESSION['user']);
-  $recipes = getUserRecipes($user->getID());
+
+  $url_components = parse_url($_SERVER['REQUEST_URI']); 
+  $recipes = array();
+
+  if (!isset($url_components['query'])) {
+    $recipes = getUserRecipes($user->getID());
+  } else {
+    parse_str($url_components['query'], $params); 
+    $column = $params['column'];
+    $order = $params['order'];
+    $recipes = getUserRecipesInOrder($user->getID(), $column, $order);
+  }
 ?>
 
 
@@ -19,11 +30,12 @@
 <head>
   <?php include "../private/navInc.php" ?>
   <link href="css/recipeCard.css?v=<?php echo time(); ?>" rel="stylesheet">
+  <link href="css/orderContainer.css?v=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body>
   <?php include "../private/navView.php" ?>
-  <div id="recipes-container">
 
+  <div id="recipes-container">
   <?php foreach ($recipes as $rec) : ?>
     <a class="card" href="<?= 'recipeView.php?recipeID='.$rec->getRecipeID() ?>">
       <img src="<?= $rec->getImagePath() ?>"></img>
@@ -44,8 +56,33 @@
       <h2><?= $rec->getTitle() ?></h2>
     </a>
   <?php endforeach ?>
-
   </div>
+  <form id="order-container" action="../private/orderBy.php" method="post">
+    <div id="radio-container">
+      <div>
+        <input type="checkbox" name="order" value="order">
+        <label for="order">Ascending</label><br>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="add-date">
+        <label for="add-date">Add date</label><br>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="likes">
+        <label for="likes">Likes</label><br>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="saves">
+        <label for="saves">Saves</label>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="title">
+        <label for="title">Title</label>
+      </div>
+      <input type="submit" value="Order by">
+    <div>
+  </form>
+
   <script src="js/navigation.js"></script>
   <script src="js/recipe.js"></script>
 </body>

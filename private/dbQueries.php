@@ -62,6 +62,54 @@
         return $recipes;
     }
 
+    function getUserRecipesInOrder($userID, $column, $order) {
+        include "connectdb.php";
+        
+        $query = null;
+        
+        if ($column == 'add-date') {
+            $query = $connection->prepare('SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID 
+                                            ORDER BY addDate '.$order);  
+            $query->bindValue(":authorID", $userID, PDO::PARAM_INT); 
+        } else if ($column == 'title') {
+            $query = $connection->prepare('SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID 
+                                            ORDER BY title '.$order); 
+            $query->bindValue(":authorID", $userID, PDO::PARAM_INT);
+        } else if ($column == 'likes'){
+            $query = $connection->prepare('SELECT rec.* 
+                                            FROM (SELECT Recipes.*, COUNT(Likes.likeID) AS recipe_count 
+                                                    FROM Recipes 
+                                                    LEFT JOIN Likes ON Recipes.recipeID = Likes.recipeID
+                                                    GROUP BY Recipes.recipeID 
+                                                    ORDER BY recipe_count '.$order.') AS rec
+                                            WHERE rec.authorID='.$userID); //binding is not workin ;x
+        } else if ($column == 'saves'){
+            $query = $connection->prepare('SELECT rec.* 
+                                            FROM (SELECT Recipes.*, COUNT(Saves.savedID) AS recipe_count 
+                                                    FROM Recipes 
+                                                    LEFT JOIN Saves ON Recipes.recipeID = Saves.recipeID
+                                                    GROUP BY Recipes.recipeID 
+                                                    ORDER BY recipe_count '.$order.') AS rec
+                                            WHERE rec.authorID='.$userID);
+        } else {
+            return array();
+        }
+
+        $query->execute();
+
+        $recipes = array();
+        for ($i=0; $i<$query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $recipes[] = fetchRecipe($record);
+        }
+
+        return $recipes;
+    }
+
     function getRecipeByID($recipeID) {
         include "connectdb.php";
         
