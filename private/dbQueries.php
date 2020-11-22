@@ -146,4 +146,27 @@
     function getNumberOfComments($recipeID) {
         return getNumberOf('Comments', $recipeID);
     }
+
+    function userReactOnIt($tablename, $recipeID, $userID) {
+        include "connectdb.php";
+        
+        $query = $connection->prepare('SELECT * FROM '.$tablename.' WHERE recipeID=:recipeID AND userID=:userID');
+        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+        $query->bindValue(":userID", $userID, PDO::PARAM_STR);
+        $query->execute();
+
+        if ($query->rowCount()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function userLikedIt($recipeID, $userID) {
+        return userReactOnIt('Likes', $recipeID, $userID);
+    }
+
+    function userSavedIt($recipeID, $userID) {
+        return userReactOnIt('Saves', $recipeID, $userID);
+    }
 ?>

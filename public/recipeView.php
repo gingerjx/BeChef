@@ -18,6 +18,7 @@
     }
 
     $author = getUserByID($rec->getAuthorID());
+    $user = unserialize($_SESSION['user']);
 ?>
 
 <!DOCTYPE html>
@@ -38,20 +39,34 @@
           <span>author: <?= $author->getFullname() ?></span>
           <span>add date: <?= $rec->getAddDate() ?></span>
         </div>
-        <div class="ratings">
-          <div>
-            <img src="img/thumbs-up.svg" alt="Web icon"/>
-            <b> <?= getNumberOfLikes($rec->getRecipeID()) ?></b>
+        <form class="ratings" action="../private/checkRatings.php" method="post">
+          <div class="img-number">
+            <button type="submit" name="like">
+              <? if (userLikedIt($recipeID, $user->getID())): ?>
+                <img src="img/thumbs-up-orange.svg" alt="Web icon"/>
+              <? else: ?>
+                <img src="img/thumbs-up.svg" alt="Web icon"/>
+              <? endif; ?>
+            </button>
+            <b><?= getNumberOfLikes($rec->getRecipeID()) ?></b>
           </div>
-          <div>
-            <img src="img/disk.svg" alt="Web icon"/>
+          <div class="img-number">
+            <button type="submit" name="save">
+              <? if (userSavedIt($recipeID, $user->getID())): ?>
+                <img src="img/disk-orange.svg" alt="Web icon"/>
+              <? else: ?>
+                <img src="img/disk.svg" alt="Web icon"/>
+              <? endif; ?>
+            </button>
             <b><?= getNumberOfSaves($rec->getRecipeID()) ?></b>
           </div>
-          <div>
-            <img src="img/comment.svg" alt="Web icon"/>
+          <div class="img-number">
+            <button type="submit" name="comment">
+              <img src="img/comment.svg" alt="Web icon"/>
+            </button>
             <b><?= getNumberOfComments($rec->getRecipeID()) ?></b>
           </div>
-        </div>
+        </form>
       </div>
       <img src="<?= $rec->getImagePath() ?>"></img>
     </div>

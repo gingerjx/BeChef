@@ -28,15 +28,15 @@
     <a class="card" href="<?= 'recipeView.php?recipeID='.$rec->getRecipeID() ?>">
       <img src="<?= $rec->getImagePath() ?>"></img>
       <div class="ratings">
-        <div>
+        <div class="img-number">
           <img src="img/thumbs-up.svg" alt="Web icon"/>
           <b> <?= getNumberOfLikes($rec->getRecipeID()) ?></b>
         </div>
-        <div>
+        <div class="img-number">
           <img src="img/disk.svg" alt="Web icon"/>
           <b><?= getNumberOfSaves($rec->getRecipeID()) ?></b>
         </div>
-        <div>
+        <div class="img-number">
           <img src="img/comment.svg" alt="Web icon"/>
           <b><?= getNumberOfComments($rec->getRecipeID()) ?></b>
         </div>
@@ -47,5 +47,6 @@
 
   </div>
   <script src="js/navigation.js"></script>
+  <script src="js/recipe.js"></script>
 </body>
 </html>

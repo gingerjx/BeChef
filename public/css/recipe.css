@@ -40,15 +40,24 @@
 .ratings {
     display: flex;
     margin: 10px 0;
-    color: var(--font-color);
     font-size: large;
 }
 
-.ratings img {
+.ratings button {
+    border: none;
+    border: 5px;
+    background-color: var(--nav-color);
+}
+
+.ratings button:hover {
+    cursor: pointer;
+}
+
+.img-number img {
     width: 20px;
 }
 
-.ratings b{
+.img-number b{
     margin-right: 40px;
 }
 
