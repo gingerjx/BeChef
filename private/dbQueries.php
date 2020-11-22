@@ -169,4 +169,35 @@
     function userSavedIt($recipeID, $userID) {
         return userReactOnIt('Saves', $recipeID, $userID);
     }
+
+    function getRecipeComments($recipeID) {
+        include "connectdb.php";
+        require_once "comment.php";
+
+        $query = $connection->prepare('SELECT * FROM Comments WHERE recipeID=:recipeID');
+        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+        $query->execute();
+        
+        $comments = array();
+        for ($i = 0; $i < $query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $commentID = $record['commentID'];
+            $recipeID = $record['recipeID'];
+            $userID = $record['userID'];
+            $addDate = $record['addDate'];
+            $content = $record['content'];
+    
+            $user_query = $connection->prepare('SELECT * FROM Users WHERE id=:userID');
+            $user_query->bindValue(":userID", $userID, PDO::PARAM_STR);
+            $user_query->execute();
+
+            $user_record = $user_query->fetch();
+            $fullname = $user_record['fullname'];
+
+            $comments[] = new Comment($commentID, $recipeID, $userID, $fullname, $addDate, $content);
+        }
+
+        return $comments;
+    }
+
 ?>

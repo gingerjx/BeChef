@@ -1,0 +1,23 @@
+#comment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 50px;
+    padding: 20px;
+    background: var(--nav-color);
+}
+
+.comment-title {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px var(--nav-color-hover) solid;
+}
+
+.comment-title  > span {
+    margin-left: 10px;
+    font-size: small;
+}
+
+.comment-content {
+    margin: 10px 40px 30px 40px;
+}

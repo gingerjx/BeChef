@@ -19,6 +19,7 @@
 
     $author = getUserByID($rec->getAuthorID());
     $user = unserialize($_SESSION['user']);
+    $comments = getRecipeComments($recipeID);
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@
 <head>
   <?php include "../private/navInc.php" ?>
   <link href="css/recipe.css?v=<?php echo time(); ?>" rel="stylesheet">
+  <link href="css/comment.css?v=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body>
   <?php include "../private/navView.php"; ?>
@@ -122,6 +124,18 @@
         <p><?= $tag ?></p>
       <?php endforeach ?>
     </div>
+  </div>
+  <div id="comment-container">
+    <h2>Comments</h2>
+    <?php foreach ($comments as $com) : ?>
+      <div class="comment-title">
+        <b><?= $com->getFullname() ?></b>
+        <span><?= $com->getAddDate() ?></span>
+      </div>
+      <div class="comment-content">
+      <?= $com->getContent() ?>
+      </div>
+    <?php endforeach ?>
   </div>
 
   <script src="js/navigation.js"></script>
