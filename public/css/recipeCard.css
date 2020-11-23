@@ -51,6 +51,7 @@ body {
     margin: 10px 0;
     color: var(--font-color);
     font-size: large;
+    border-bottom: 1px var(--nav-color-hover) solid;
 }
 
 .img-number img {
