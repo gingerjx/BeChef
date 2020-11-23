@@ -1,4 +1,9 @@
 <?php
+    if (isset($_POST['login'])) {
+        header('Location: ../public/loginView.php');
+        exit();
+    }
+
     if (!isset($_POST['content']) || empty($_POST['content'])) {
         header('Location: '.$_SERVER['HTTP_REFERER']);
         exit();
@@ -17,9 +22,6 @@
 
         insertComment($recipeID, $user->getID(), $content);
 
-    } else if (isset($_POST['login'])) {
-        header('Location: ../public/loginView.php');
-        exit();
     }
 
     header('Location: '.$_SERVER['HTTP_REFERER']);

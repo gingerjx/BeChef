@@ -41,11 +41,19 @@
       <img src="<?= $rec->getImagePath() ?>"></img>
       <div class="ratings">
         <div class="img-number">
-          <img src="img/thumbs-up.svg" alt="Web icon"/>
+          <? if ($user != null && userLikedIt($rec->getRecipeID(), $user->getID())): ?>
+            <img src="img/thumbs-up-orange.svg" alt="Web icon"/>
+          <? else: ?>
+            <img src="img/thumbs-up.svg" alt="Web icon"/>
+          <? endif; ?>
           <b> <?= getNumberOfLikes($rec->getRecipeID()) ?></b>
         </div>
         <div class="img-number">
-          <img src="img/disk.svg" alt="Web icon"/>
+          <? if ($user != null && userSavedIt($rec->getRecipeID(), $user->getID())): ?>
+            <img src="img/disk-orange.svg" alt="Web icon"/>
+          <? else: ?>
+            <img src="img/disk.svg" alt="Web icon"/>
+          <? endif; ?>
           <b><?= getNumberOfSaves($rec->getRecipeID()) ?></b>
         </div>
         <div class="img-number">
