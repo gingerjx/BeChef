@@ -94,11 +94,28 @@
                                                     LEFT JOIN Saves ON Recipes.recipeID = Saves.recipeID
                                                     GROUP BY Recipes.recipeID 
                                                     ORDER BY recipe_count '.$order.') AS rec
-                                            WHERE rec.authorID='.$userID);
+                                            WHERE rec.authorID='.$userID); //binding is not workin ;x
         } else {
             return array();
         }
 
+        $query->execute();
+
+        $recipes = array();
+        for ($i=0; $i<$query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $recipes[] = fetchRecipe($record);
+        }
+
+        return $recipes;
+    }
+
+    function getNewestRecipes() {
+        include "connectdb.php";
+
+        $query = $connection->prepare('SELECT * 
+                                        FROM Recipes 
+                                        ORDER BY addDate DESC');  
         $query->execute();
 
         $recipes = array();
@@ -248,4 +265,12 @@
         return $comments;
     }
 
+    function insertComment($recipeID, $userID, $content) {
+        include "connectdb.php";
+        $query = $connection->prepare('INSERT INTO Comments VALUES (NULL, :recipeID, :userID, now(), :content)');
+        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+        $query->bindValue(":userID", $userID, PDO::PARAM_STR);
+        $query->bindValue(":content", $content, PDO::PARAM_STR);
+        $query->execute();
+    }
 ?>

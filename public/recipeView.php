@@ -18,8 +18,13 @@
     }
 
     $author = getUserByID($rec->getAuthorID());
-    $user = unserialize($_SESSION['user']);
     $comments = getRecipeComments($recipeID);
+
+    $user = null;
+    if (isset($_SESSION['logged'])) {
+      $user = unserialize($_SESSION['user']);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +49,7 @@
         <form class="ratings" action="../private/checkRatings.php" method="post">
           <div class="img-number">
             <button type="submit" name="like">
-              <? if (userLikedIt($recipeID, $user->getID())): ?>
+              <? if ($user != null && userLikedIt($recipeID, $user->getID())): ?>
                 <img src="img/thumbs-up-orange.svg" alt="Web icon"/>
               <? else: ?>
                 <img src="img/thumbs-up.svg" alt="Web icon"/>
@@ -54,7 +59,7 @@
           </div>
           <div class="img-number">
             <button type="submit" name="save">
-              <? if (userSavedIt($recipeID, $user->getID())): ?>
+              <? if ($user != null && userSavedIt($recipeID, $user->getID())): ?>
                 <img src="img/disk-orange.svg" alt="Web icon"/>
               <? else: ?>
                 <img src="img/disk.svg" alt="Web icon"/>
@@ -136,6 +141,15 @@
       <?= $com->getContent() ?>
       </div>
     <?php endforeach ?>
+    <h3>Add comment</h3>
+    <form action="../private/addComment.php" method="post">
+      <input type="textarea" name="content">
+      <?php if($user != null) : ?>
+        <input type="submit" value="Comment" name="comment">
+      <?php else : ?>
+        <input type="submit" value="Login to comment" name="login">
+      <?php endif; ?>
+    </form>
   </div>
 
   <script src="js/navigation.js"></script>
