@@ -127,6 +127,46 @@
         return $recipes;
     }
 
+    function getPopularRecipes() {
+        include "connectdb.php";
+
+        $query = $connection->prepare('SELECT rec.* 
+                                        FROM (SELECT Recipes.*, COUNT(Likes.likeID) AS recipe_count 
+                                                FROM Recipes 
+                                                LEFT JOIN Likes ON Recipes.recipeID = Likes.recipeID
+                                                GROUP BY Recipes.recipeID 
+                                                ORDER BY recipe_count DESC) AS rec');  
+        $query->execute();
+
+        $recipes = array();
+        for ($i=0; $i<$query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $recipes[] = fetchRecipe($record);
+        }
+
+        return $recipes;
+    }
+
+    function getSavedRecipes($userID) {
+        include "connectdb.php";
+
+        $query = $connection->prepare('SELECT * 
+                                        FROM `Recipes` 
+                                        WHERE recipeID in (SELECT recipeID 
+                                                            FROM `Saves` 
+                                                            WHERE userID=:userID)');  
+        $query->bindValue(":userID", $userID, PDO::PARAM_STR);
+        $query->execute();
+
+        $recipes = array();
+        for ($i=0; $i<$query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $recipes[] = fetchRecipe($record);
+        }
+
+        return $recipes;
+    }
+
     function getRecipeByID($recipeID) {
         include "connectdb.php";
         
@@ -141,6 +181,7 @@
             return null;
         }
     }
+
 
     function fetchUser($record) {
         $id = $record['id'];

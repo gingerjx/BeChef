@@ -6,7 +6,7 @@
   require_once "../private/user.php";
   require_once "../private/recipe.php";
 
-  $recipes = getNewestRecipes();
+  $recipes = getPopularRecipes();
 ?>
 
 
