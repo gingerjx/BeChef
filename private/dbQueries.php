@@ -110,6 +110,64 @@
         return $recipes;
     }
 
+    function getAllRecipesInOrder($column, $order) {
+        include "connectdb.php";
+        
+        $query = null;
+        
+        if ($column == 'add-date') {
+            $query = $connection->prepare('SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY addDate '.$order);  
+        } else if ($column == 'title') {
+            $query = $connection->prepare('SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY title '.$order); 
+        } else if ($column == 'likes'){
+            $query = $connection->prepare('SELECT rec.* 
+                                            FROM (SELECT Recipes.*, COUNT(Likes.likeID) AS recipe_count 
+                                                    FROM Recipes 
+                                                    LEFT JOIN Likes ON Recipes.recipeID = Likes.recipeID
+                                                    GROUP BY Recipes.recipeID 
+                                                    ORDER BY recipe_count '.$order.') AS rec'); //binding is not workin ;x
+        } else if ($column == 'saves'){
+            $query = $connection->prepare('SELECT rec.* 
+                                            FROM (SELECT Recipes.*, COUNT(Saves.savedID) AS recipe_count 
+                                                    FROM Recipes 
+                                                    LEFT JOIN Saves ON Recipes.recipeID = Saves.recipeID
+                                                    GROUP BY Recipes.recipeID 
+                                                    ORDER BY recipe_count '.$order.') AS rec'); //binding is not workin ;x
+        } else {
+            return array();
+        }
+
+        $query->execute();
+
+        $recipes = array();
+        for ($i=0; $i<$query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $recipes[] = fetchRecipe($record);
+        }
+
+        return $recipes;
+    }
+
+    function getAllRecipes() {
+        include "connectdb.php";
+
+        $query = $connection->prepare('SELECT * 
+                                        FROM Recipes');  
+        $query->execute();
+
+        $recipes = array();
+        for ($i=0; $i<$query->rowCount(); $i += 1) {
+            $record = $query->fetch();
+            $recipes[] = fetchRecipe($record);
+        }
+
+        return $recipes;
+    }
+
     function getNewestRecipes() {
         include "connectdb.php";
 
