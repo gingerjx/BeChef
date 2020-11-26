@@ -143,10 +143,11 @@
     <?php endforeach ?>
     <h3>Add comment</h3>
     <form action="../private/addComment.php" method="post">
-      <input type="textarea" name="content">
       <?php if($user != null) : ?>
+        <input type="text" name="content">
         <input type="submit" value="Comment" name="comment">
       <?php else : ?>
+        <input type="text" placeholder="Login to comment recipes.." disabled>
         <input type="submit" value="Login to comment" name="login">
       <?php endif; ?>
     </form>

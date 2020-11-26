@@ -27,8 +27,8 @@
     flex-direction: column;
 }
 
-#comment-container input[type="textarea"] {
-    min-height: 100px;
+#comment-container input[type="text"] {
+    min-height: 50px;
 }
 
 #comment-container input[type="submit"] {
