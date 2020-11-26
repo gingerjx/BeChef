@@ -7,6 +7,10 @@
   require_once "../private/recipe.php";
 
   $recipes = getPopularRecipes();
+  $user = null;
+  if (isset($_SESSION['logged'])) {
+    $user = unserialize($_SESSION['user']);
+  }
 ?>
 
 

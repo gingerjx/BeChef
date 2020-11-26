@@ -43,7 +43,8 @@
     }
 
     require_once "connectdb.php";
-
+    require_once "dbQueries.php";
+    
     if ($user->isInDatabaseUsername($connection)) {
         $_SESSION['e_username'] = "Username already exists";
         $exists = true;

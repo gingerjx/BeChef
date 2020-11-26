@@ -2,7 +2,7 @@
     <div class="nav-item"><img src="img/tray-orange.svg" alt="Web icon"/></div> 
     <div class="nav-item"><p><a href="../public/newestView.php">The Newest</a></p></div>
     <div class="nav-item"><p><a href="../public/popularView.php">Popular</a></p></div>
-    <!--<div class="nav-item"><p><a href="#">Search</a></p></div>-->
+    <div class="nav-item"><p><a href="#">Search</a></p></div>
 
     <?php if(isset($_SESSION['logged'])) : ?>
       <div id="username" class="nav-item">
