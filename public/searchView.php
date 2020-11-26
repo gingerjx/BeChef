@@ -1,15 +1,15 @@
 <?php
   session_start();
-  if (!isset($_SESSION['logged'])) {
-    header('Location: loginView.php');
-    exit();
-  }
+
   require_once "../private/utils.php";
-  require_once "../private/dbQueries.php";
+  require_once "../private/selectQueries.php";
   require_once "../private/user.php";
   require_once "../private/recipe.php";
 
-  $user = unserialize($_SESSION['user']);
+  $user = null;
+  if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+  }
 
   $url_components = parse_url($_SERVER['REQUEST_URI']); 
   $recipes = array();

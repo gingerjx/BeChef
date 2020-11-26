@@ -11,7 +11,7 @@
 
     if (isset($_POST['comment'])) {
         session_start();
-        require_once "dbQueries.php";
+        require_once "selectQueries.php";
         require_once "user.php";
 
         $url_components = parse_url($_SERVER['HTTP_REFERER']); 

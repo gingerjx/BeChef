@@ -25,7 +25,7 @@
         $number_of_people = $record['peopleNumber'];
         $kcal_per_person = $record['kcalPerPerson'];
 
-        include "connectdb.php";
+        require "connectdb.php";
         require_once "recipe.php";
         
         $query = $connection->prepare('SELECT * FROM Tags WHERE recipeID=:recipeID');
@@ -47,7 +47,7 @@
     }
 
     function getUserRecipes($userID) {
-        include "connectdb.php";
+        require "connectdb.php";
         
         $query = $connection->prepare('SELECT * FROM Recipes WHERE authorID=:authorID');
         $query->bindValue(":authorID", $userID, PDO::PARAM_STR);
@@ -63,7 +63,7 @@
     }
 
     function getUserRecipesInOrder($userID, $column, $order) {
-        include "connectdb.php";
+        require "connectdb.php";
         
         $query = null;
         
@@ -111,7 +111,7 @@
     }
 
     function getAllRecipesInOrder($column, $order) {
-        include "connectdb.php";
+        require "connectdb.php";
         
         $query = null;
         
@@ -153,7 +153,7 @@
     }
 
     function getAllRecipes() {
-        include "connectdb.php";
+        require "connectdb.php";
 
         $query = $connection->prepare('SELECT * 
                                         FROM Recipes');  
@@ -169,7 +169,7 @@
     }
 
     function getNewestRecipes() {
-        include "connectdb.php";
+        require "connectdb.php";
 
         $query = $connection->prepare('SELECT * 
                                         FROM Recipes 
@@ -186,7 +186,7 @@
     }
 
     function getPopularRecipes() {
-        include "connectdb.php";
+        require "connectdb.php";
 
         $query = $connection->prepare('SELECT rec.* 
                                         FROM (SELECT Recipes.*, COUNT(Likes.likeID) AS recipe_count 
@@ -206,7 +206,7 @@
     }
 
     function getSavedRecipes($userID) {
-        include "connectdb.php";
+        require "connectdb.php";
 
         $query = $connection->prepare('SELECT * 
                                         FROM `Recipes` 
@@ -226,7 +226,7 @@
     }
 
     function getRecipeByID($recipeID) {
-        include "connectdb.php";
+        require "connectdb.php";
         
         $query = $connection->prepare('SELECT * FROM Recipes WHERE recipeID=:recipeID');
         $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
@@ -260,7 +260,7 @@
     }
 
     function getUserByUsername($username) {
-        include "connectdb.php";
+        require "connectdb.php";
 
         $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
         $query->bindValue(":username", $username, PDO::PARAM_STR);
@@ -275,7 +275,7 @@
     }
 
     function getUserByID($id) {
-        include "connectdb.php";
+        require "connectdb.php";
 
         $query = $connection->prepare('SELECT * FROM Users WHERE id=:id');
         $query->bindValue(":id", $id, PDO::PARAM_STR);
@@ -290,7 +290,7 @@
     }
 
     function getNumberOf($tableName, $recipeID) {
-        include "connectdb.php";
+        require "connectdb.php";
         
         $query = $connection->prepare('SELECT * FROM '.$tableName.' WHERE recipeID=:recipeID');
         $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
@@ -312,7 +312,7 @@
     }
 
     function userReactOnIt($tablename, $recipeID, $userID) {
-        include "connectdb.php";
+        require "connectdb.php";
         
         $query = $connection->prepare('SELECT * FROM '.$tablename.' WHERE recipeID=:recipeID AND userID=:userID');
         $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
@@ -335,7 +335,7 @@
     }
 
     function getRecipeComments($recipeID) {
-        include "connectdb.php";
+        require "connectdb.php";
         require_once "comment.php";
 
         $query = $connection->prepare('SELECT * FROM Comments WHERE recipeID=:recipeID');
@@ -365,7 +365,7 @@
     }
 
     function insertComment($recipeID, $userID, $content) {
-        include "connectdb.php";
+        require "connectdb.php";
         $query = $connection->prepare('INSERT INTO Comments VALUES (NULL, :recipeID, :userID, now(), :content)');
         $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
         $query->bindValue(":userID", $userID, PDO::PARAM_STR);

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once "user.php";
-    require_once "dbQueries.php";
+    require_once "selectQueries.php";
     require_once "connectdb.php";
     
     $username = htmlentities($_POST['username'], ENT_QUOTES, "UTF-8");

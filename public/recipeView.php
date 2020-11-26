@@ -6,7 +6,7 @@
     }
 
     require_once "../private/utils.php";
-    require_once "../private/dbQueries.php";
+    require_once "../private/selectQueries.php";
     require_once "../private/user.php";
     require_once "../private/recipe.php";
 

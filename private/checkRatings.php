@@ -1,5 +1,5 @@
 <?php
-    require_once "dbQueries.php";
+    require_once "selectQueries.php";
     require_once "connectdb.php";
     require_once "user.php";
 
