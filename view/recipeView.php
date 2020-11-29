@@ -1,14 +1,17 @@
 <?php
     session_start();
     if (!isset($_GET['recipeID'])) {
-        header('Location: loginView.php');
+        header('Location: index.php');
         exit();
     }
 
-    require_once "../private/utils.php";
-    require_once "../private/selectQueries.php";
-    require_once "../private/user.php";
-    require_once "../private/recipe.php";
+    require_once "../service/utils.php";
+    require_once "../database/recipesDB.php";
+    require_once "../database/checkDB.php";
+    require_once "../database/numbersDB.php";
+    require_once "../database/usersDB.php";
+    require_once "../models/user.php";
+    require_once "../models/recipe.php";
 
     $recipeID = $_GET['recipeID'];
     $rec = getRecipeByID($recipeID);
@@ -30,12 +33,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include "../private/navInc.php" ?>
+  <?php include "components/navHead.php" ?>
   <link href="css/recipe.css?v=<?php echo time(); ?>" rel="stylesheet">
   <link href="css/comment.css?v=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body>
-  <?php include "../private/navView.php"; ?>
+  <?php include "components/navView.php"; ?>
 
   <div id="recipe-container">
     <div id="main-info">     
@@ -49,29 +52,29 @@
         <form class="ratings" action="../private/checkRatings.php" method="post">
           <div class="img-number">
             <button type="submit" name="like">
-              <? if ($user != null && userLikedIt($recipeID, $user->getID())): ?>
+              <? if ($user != null && isLikedByUser($recipeID, $user->getID())): ?>
                 <img src="img/thumbs-up-orange.svg" alt="Web icon"/>
               <? else: ?>
                 <img src="img/thumbs-up.svg" alt="Web icon"/>
               <? endif; ?>
             </button>
-            <b><?= getNumberOfLikes($rec->getRecipeID()) ?></b>
+            <b><?= getNumberOfRecipeLikes($rec->getRecipeID()) ?></b>
           </div>
           <div class="img-number">
             <button type="submit" name="save">
-              <? if ($user != null && userSavedIt($recipeID, $user->getID())): ?>
+              <? if ($user != null && isSavedByUser($recipeID, $user->getID())): ?>
                 <img src="img/disk-orange.svg" alt="Web icon"/>
               <? else: ?>
                 <img src="img/disk.svg" alt="Web icon"/>
               <? endif; ?>
             </button>
-            <b><?= getNumberOfSaves($rec->getRecipeID()) ?></b>
+            <b><?= getNumberOfRecipeSaves($rec->getRecipeID()) ?></b>
           </div>
           <div class="img-number">
             <button type="submit" name="comment">
               <img src="img/comment.svg" alt="Web icon"/>
             </button>
-            <b><?= getNumberOfComments($rec->getRecipeID()) ?></b>
+            <b><?= getNumberOfRecipeComments($rec->getRecipeID()) ?></b>
           </div>
         </form>
       </div>

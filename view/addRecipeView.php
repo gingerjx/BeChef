@@ -4,20 +4,20 @@
     header('Location: loginView.php');
     exit();
   }
-  require_once "../private/utils.php";
+  require_once "../service/utils.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include "../private/navInc.php" ?>
+  <?php include "components/navHead.php" ?>
   <link href="css/addRecipe.css?v=<?php echo time(); ?>" rel="stylesheet">
   <script src="js/addRecipe.js"></script>
 </head>
 <body>
-  <?php include "../private/navView.php" ?>
+  <?php include "components/navView.php" ?>
   
-  <form id="add-recipe" action="../private/addRecipe.php" method="post" enctype=multipart/form-data>
+  <form id="add-recipe" action="../service/addRecipe.php" method="post" enctype=multipart/form-data>
     <div class="add-recipe-component">
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" value=<?php displayInputAndUnset('title'); ?>>
