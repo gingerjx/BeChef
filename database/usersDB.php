@@ -62,4 +62,15 @@
 
         return $query->rowCount() > 0 ? true : false;
     }
+
+    function isInDatabaseEmail($email) {
+        require "connectDB.php";
+        require "sqlQueries.php";
+
+        $query = $connection->prepare($select_user_by_email);
+        $query->bindValue(":email", $email, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->rowCount() > 0 ? true : false;
+    }
 ?>

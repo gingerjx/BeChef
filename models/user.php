@@ -46,24 +46,6 @@
             return true;
         }
 
-        function isInDatabaseEmail($connection) {
-            $query = $connection->prepare('SELECT * FROM Users WHERE email=:email');
-            $query->bindValue(":email", $this->email, PDO::PARAM_STR);
-            $query->execute();
-
-            return $query->rowCount() > 0;
-        }
-
-        function insertToDB($connection, $password) {
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $query = $connection->prepare('INSERT INTO Users VALUES (NULL, now(), :fullname, :email, :username, :pass, 3)');
-            $query->bindValue(":fullname", $this->fullname, PDO::PARAM_STR);
-            $query->bindValue(":email", $this->email, PDO::PARAM_STR);
-            $query->bindValue(":username", $this->username, PDO::PARAM_STR);
-            $query->bindValue(":pass", $hashed_password, PDO::PARAM_STR);
-            $query->execute();
-        }
-
         function isValidLogin($connection, $password) {
             $query = $connection->prepare('SELECT * FROM Users WHERE username=:username');
             $query->bindValue(":username", $this->username, PDO::PARAM_STR);
@@ -82,12 +64,24 @@
             return $this->id;
         }
 
+        function getFullname() {
+            return $this->fullname;
+        }
+
         function getUsername() {
             return $this->username;
         }
 
-        function getFullname() {
-            return $this->fullname;
+        function getEmail() {
+            return $this->email;
+        }
+
+        function getJoinDate() {
+            return $this->email = $email;
+        }
+
+        function getRole() {
+            return $this->role;
         }
         
 /* Setters */

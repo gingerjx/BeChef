@@ -120,6 +120,10 @@
                                             FROM Users 
                                             WHERE username=:username';
 
+    $select_user_by_email =                 'SELECT * 
+                                            FROM Users 
+                                            WHERE email=:email';
+                                            
 /* ---------------------------------------COMMENTS---------------------------------------------------- */
 
     $select_comments_by_recipe_id =         'SELECT * 
