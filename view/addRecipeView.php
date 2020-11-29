@@ -84,7 +84,7 @@
     <div class="error"><?php displayAndUnset('e_recipe_img') ?></div>
     <div class="add-recipe-component">
       <label for="tags">Tags:</label>
-      <input type="text" id="tags" name="tags" value=<?php displayInputAndUnset('tags'); ?>>
+      <input type="text" placeholder="tag1,tag2,tag2,..." id="tags" name="tags" value=<?php displayInputAndUnset('tags'); ?>>
     </div>
     <div class="error"><?php displayAndUnset('e_tags') ?></div>
     <div id="submit-input" class="add-recipe-component">
