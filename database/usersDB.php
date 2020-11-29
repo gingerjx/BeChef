@@ -9,7 +9,8 @@
         $join_date = new DateTime($record['joinDate']);
         $role = $record['roleID'];
 
-        $user = new User($username);
+        $user = new User();
+        $user->setUsername($username);
         $user->setID($id);
         $user->setFullName($fullname);
         $user->setEmail($email);
@@ -49,5 +50,16 @@
         } else {
             return null;
         }
+    }
+
+    function isInDatabaseUsername($username) {
+        require "connectDB.php";
+        require "sqlQueries.php";
+
+        $query = $connection->prepare($select_user_by_username);
+        $query->bindValue(":username", $username, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->rowCount() > 0 ? true : false;
     }
 ?>
