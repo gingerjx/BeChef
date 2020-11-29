@@ -1,19 +1,23 @@
 <?php
-    require_once "debug.php";
-
     session_start();
+
+    require_once "catchAddRecipeFormErrors.php";
+    require_once "../database/insertDB.php";
+    require_once "../models/user.php";
+    require_once "../models/recipe.php";
+
     $valid = true;
 
-    $title = htmlentities($_POST['title']);
+    $title = htmlentities($_POST['title'], ENT_QUOTES, "UTF-8");
     $_SESSION['title'] = $title;
 
-    $description = htmlentities($_POST['description']);
+    $description = htmlentities($_POST['description'], ENT_QUOTES, "UTF-8");
     $_SESSION['description'] = $description;
 
     $ingredient_number = 1;
     $ingredients = array();
     while (!empty($_POST['ingredient-'.$ingredient_number])) {
-        $ingredients[] = htmlentities($_POST['ingredient-'.$ingredient_number]);
+        $ingredients[] = htmlentities($_POST['ingredient-'.$ingredient_number], ENT_QUOTES, "UTF-8");
         $ingredient_number += 1;
         $_SESSION['ingredient_1'] = $ingredients[0];
     }
@@ -21,30 +25,30 @@
     $preparation_number = 1;
     $preaparation = array();
     while (!empty($_POST['preparation-'.$preparation_number])) {
-        $preaparation[] = htmlentities($_POST['preparation-'.$preparation_number]);
+        $preaparation[] = htmlentities($_POST['preparation-'.$preparation_number], ENT_QUOTES, "UTF-8");
         $preparation_number += 1;
         $_SESSION['preparation_1'] = $preaparation[0];
     }
     
-    $preparation_time = htmlentities($_POST['preparation-time']);
+    $preparation_time = htmlentities($_POST['preparation-time'], ENT_QUOTES, "UTF-8");
     $_SESSION['preparation_time'] = $preparation_time;
-    $average_cost = htmlentities($_POST['average-cost']);
+    $average_cost = htmlentities($_POST['average-cost'], ENT_QUOTES, "UTF-8");
     $_SESSION['average_cost'] = $average_cost;
-    $country = htmlentities($_POST['country']);
+    $country = htmlentities($_POST['country'], ENT_QUOTES, "UTF-8");
     $_SESSION['country'] = $country;
     $vegetarian = empty($_POST['vegetarian']) ? false : true;
-    $difficulty_level = htmlentities($_POST['difficulty-level']);
+    $difficulty_level = htmlentities($_POST['difficulty-level'], ENT_QUOTES, "UTF-8");
     $_SESSION['difficulty_level'] = $difficulty_level;
-    $number_of_people = htmlentities($_POST['number-of-people']);
+    $number_of_people = htmlentities($_POST['number-of-people'], ENT_QUOTES, "UTF-8");
     $_SESSION['people_number'] = $number_of_people;
-    $kcal_per_person = htmlentities($_POST['kcal-per-person']);
+    $kcal_per_person = htmlentities($_POST['kcal-per-person'], ENT_QUOTES, "UTF-8");
     $_SESSION['kcal_per_person'] = $kcal_per_person;
-    $tags = htmlentities($_POST['tags']);
+    $tags = htmlentities($_POST['tags'], ENT_QUOTES, "UTF-8");
     $_SESSION['tags'] = $tags;
 
     $image_path = "";
     $max_size = 1024*1024;
-    $target_dir = $_SERVER['DOCUMENT_ROOT'].'/public/';
+    $target_dir = $_SERVER['DOCUMENT_ROOT'].'/view/';
     $image_ext = strtolower(pathinfo($_FILES['recipe-img']['name'], PATHINFO_EXTENSION));
 
     try {
@@ -80,8 +84,6 @@
         $_SESSION['e_recipe_img'] = $e->getMessage();
     } 
 
-    require_once "recipe.php";
-    require_once "catchAddRecipeFormErrors.php";
 
     $tags = explode(',', $tags);
     $recipe = new Recipe($title, $description, $ingredients, $preaparation, $preparation_time, $average_cost, $country,
@@ -93,16 +95,13 @@
         catchAddRecipeFormErrors($recipe);
 
     if (!$valid) {
-        header("Location: ../public/addRecipeView.php");
+        header("Location: ../view/addRecipeView.php");
         exit();
     }
 
-    require_once "connectdb.php";
-    require_once "user.php";
-
     $user = unserialize($_SESSION['user']);
     $recipe->setAuthorID($user->getId());
-    $recipe->insertToDB($connection);
+    insertRecipe($recipe);
 
     unset($_SESSION['title']);
     unset($_SESSION['description']);
@@ -115,5 +114,5 @@
     unset($_SESSION['people_number']);
     unset($_SESSION['kcal_per_person']);
 
-    header("Location: ../public/userRecipesView.php");
+    header("Location: ../view/userRecipesView.php");
 ?>  

@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST['login'])) {
-        header('Location: ../public/loginView.php');
+        header('Location: ../view/loginView.php');
         exit();
     }
 
@@ -11,9 +11,9 @@
 
     if (isset($_POST['comment'])) {
         session_start();
-        require_once "selectQueries.php";
-        require_once "user.php";
-
+        require_once "../models/user.php";
+        require_once "../database/insertDB.php";
+        
         $url_components = parse_url($_SERVER['HTTP_REFERER']); 
         parse_str($url_components['query'], $params); 
         $recipeID = $params['recipeID'];

@@ -206,54 +206,6 @@ class Recipe {
         return $this->tags;
     }
 
-/* Insert to database */
-    function insertToDB($connection) {
-        $this->addDate = new DateTime();
-        $inline_ingredients = "";
-        foreach ($this->ingredients as $ing) {
-            $inline_ingredients = $inline_ingredients.';'.$ing;
-        }
-        $inline_preparation = "";
-        foreach ($this->preparation as $prep) {
-            $inline_preparation = $inline_preparation.';'.$prep;
-        }
 
-        debug_to_console("Inline1: ".$inline_ingredients);
-        debug_to_console("Inline2: ".$inline_preparation);
-        debug_to_console("Inline3: ".$this->image_path);
-
-        $query = $connection->prepare('INSERT INTO Recipes VALUES 
-                                      (NULL, :author, now(), :imgPath, :title, :descr, :ingredients,
-                                      :preparation, :preparationTime, :averageCost, :country, :vegetarian,
-                                      :diffLevel, :pplNumber, :kcalPerPerson)');
-        $query->bindValue(":author", $this->authorID, PDO::PARAM_STR);
-        $query->bindValue(":imgPath", $this->image_path, PDO::PARAM_STR);
-        $query->bindValue(":title", $this->title, PDO::PARAM_STR);
-        $query->bindValue(":descr", $this->description, PDO::PARAM_STR);
-        $query->bindValue(":ingredients", $inline_ingredients, PDO::PARAM_STR);
-        $query->bindValue(":preparation", $inline_preparation, PDO::PARAM_STR);
-        $query->bindValue(":preparationTime", $this->preparation_time, PDO::PARAM_STR);
-        $query->bindValue(":averageCost", $this->average_cost, PDO::PARAM_STR);
-        $query->bindValue(":country", $this->country, PDO::PARAM_STR);
-        $query->bindValue(":vegetarian", $this->vegetarian ? '1' : '0', PDO::PARAM_STR);
-        $query->bindValue(":diffLevel", $this->difficulty_level, PDO::PARAM_STR);
-        $query->bindValue(":pplNumber", $this->people_number, PDO::PARAM_STR);
-        $query->bindValue(":kcalPerPerson", $this->kcal_per_person, PDO::PARAM_STR);
-
-        $query->execute();
-
-        $this->recipeID = $connection->lastInsertId();
-        $this->insertTagsToDB($connection);
-    }
-
-    function insertTagsToDB($connection) {
-        foreach ($this->tags as $tag) {
-            $query = $connection->prepare('INSERT INTO Tags VALUES (NULL, :recipe, :name)');
-            $query->bindValue(":recipe", $this->recipeID, PDO::PARAM_STR);
-            $query->bindValue(":name", $tag, PDO::PARAM_STR);
-
-            $query->execute();
-        }
-    }
 }
 ?>

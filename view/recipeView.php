@@ -145,7 +145,7 @@
       </div>
     <?php endforeach ?>
     <h3>Add comment</h3>
-    <form action="../private/addComment.php" method="post">
+    <form action="../service/addComment.php" method="post">
       <?php if($user != null) : ?>
         <input type="text" name="content">
         <input type="submit" value="Comment" name="comment">
