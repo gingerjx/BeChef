@@ -206,9 +206,8 @@
         if ($query->rowCount() > 0) {
             $record = $query->fetch();
             return fetchRecipe($record);
-        } else {
+        } else
             return null;
-        }
     }
 
     function getRecipeComments($recipeID) {

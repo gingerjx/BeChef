@@ -21,7 +21,6 @@
         $content = htmlentities($_POST['content']);
 
         insertComment($recipeID, $user->getID(), $content);
-
     }
 
     header('Location: '.$_SERVER['HTTP_REFERER']);

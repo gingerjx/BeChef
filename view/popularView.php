@@ -11,9 +11,8 @@
   $recipes = getPopularRecipes();
 
   $user = null;
-  if (isset($_SESSION['logged'])) {
+  if (isset($_SESSION['logged']))
     $user = unserialize($_SESSION['user']);
-  }
 ?>
 
 

@@ -1,36 +1,36 @@
 <?php 
 class Comment {
-    private $commentID;
-    private $recipeID;
-    private $userID;
+    private $comment_id;
+    private $recipe_id;
+    private $user_id;
     private $fullname;
-    private $addDate;
+    private $add_date;
     private $content;
 
-    function __construct($commentID, $recipeID, $userID, $fullname, $addDate, $content) {
-        $this->commentID = $commentID;
-        $this->recipeID = $recipeID;
-        $this->userID = $userID;
+    function __construct($comment_id, $recipe_id, $user_id, $fullname, $add_date, $content) {
+        $this->comment_id = $comment_id;
+        $this->recipe_id = $recipe_id;
+        $this->user_id = $user_id;
         $this->fullname = $fullname;
-        $this->addDate = $addDate;
+        $this->add_date = $add_date;
         $this->content = $content;
     }
 
 /* Getters */
     function getCommentID() {
-        return $this->commentID;
+        return $this->comment_id;
     }
 
     function getRecipeID() {
-        return $this->recipeID;
+        return $this->recipe_id;
     }
 
     function getUserID() {
-        return $this->userID;
+        return $this->user_id;
     }
 
     function getAddDate() {
-        return $this->addDate;
+        return $this->add_date;
     }
 
     function getContent() {
@@ -42,20 +42,20 @@ class Comment {
     }
 
 /* Setters */
-    function setCommentID($commentID) {
-        return $this->commentID = $commentID;
+    function setCommentID($comment_id) {
+        return $this->comment_id = $comment_id;
     }
 
-    function setRecipeID($recipeID) {
-        return $this->recipeID = $recipeID;
+    function setRecipeID($recipe_id) {
+        return $this->recipe_id = $recipe_id;
     }
 
-    function setUserID($userID) {
-        return $this->userID = $userID;
+    function setUserID($user_id) {
+        return $this->user_id = $user_id;
     }
 
-    function setAddDate($addDate) {
-        return $this->addDate = $addDate;
+    function setAddDate($add_date) {
+        return $this->add_date = $add_date;
     }
 
     function setContent($content) {

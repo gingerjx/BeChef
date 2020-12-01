@@ -1,9 +1,9 @@
 <?php
 
 class Recipe {
-    private $recipeID;
-    private $authorID;
-    private $addDate;
+    private $recipe_id;
+    private $author_id;
+    private $add_date;
     private $title;
     private $description;
     private $ingredients;
@@ -37,18 +37,14 @@ class Recipe {
 
 /* Validation */
     function isValidTitle() {
-        if (strlen($this->title) < 5 || strlen($this->title) > 50) {
+        if (strlen($this->title) < 5 || strlen($this->title) > 50)
             return false;
-        }
-
         return true;
     }
 
     function isValidDescription() {
-        if (strlen($this->description) < 50 || strlen($this->description) > 2500) {
+        if (strlen($this->description) < 50 || strlen($this->description) > 2500)
             return false;
-        }
-
         return true;
     }
 
@@ -57,9 +53,8 @@ class Recipe {
             return false;
 
         foreach ($this->ingredients as $ing) {
-            if (strlen($ing) < 5 || strlen($ing) > 100) {
+            if (strlen($ing) < 5 || strlen($ing) > 100)
                 return false;
-            }
         }
 
         return true;
@@ -70,9 +65,8 @@ class Recipe {
             return false;
 
         foreach ($this->preparation as $prep) {
-            if (strlen($prep) < 5 || strlen($prep) > 100) {
+            if (strlen($prep) < 5 || strlen($prep) > 100)
                 return false;
-            }
         }
 
         return true;
@@ -89,14 +83,12 @@ class Recipe {
     }
 
     function isValidCountry() {
-        if (strlen($this->country) < 3 || strlen($this->country) > 50) {
+        if (strlen($this->country) < 3 || strlen($this->country) > 50)
             return false;
-        }
-        else if (!ctype_alpha($this->country)) {
+        else if (!ctype_alpha($this->country)) 
             return false;
-        }
-
-        return true;
+        else
+            return true;
     }
 
     function isValidDifficultyLevel() {
@@ -116,9 +108,8 @@ class Recipe {
 
     function isValidTags() {
         foreach ($this->tags as $tag) {
-            if (!ctype_alpha($tag)) {
+            if (!ctype_alpha($tag))
                 return false;
-            }
         }
 
         return true;
@@ -126,15 +117,15 @@ class Recipe {
 
 /* Setters */
     function setAuthorID($id) {
-        $this->authorID = $id;
+        $this->author_id = $id;
     }
 
     function setRecipeID($id) {
-        $this->recipeID = $id;
+        $this->recipe_id = $id;
     }
 
-    function setAddDate($addDate) {
-        $this->addDate = $addDate;
+    function setAddDate($add_date) {
+        $this->add_date = $add_date;
     }
 
     function setTags($tags) {
@@ -143,15 +134,15 @@ class Recipe {
 
 /* Getters */
     function getRecipeID() {
-        return $this->recipeID;
+        return $this->recipe_id;
     }
 
     function getAuthorID() {
-       return $this->authorID;
+       return $this->author_id;
     }
 
     function getAddDate() {
-        return $this->addDate;
+        return $this->add_date;
     }
 
     function getTitle() {
@@ -205,7 +196,5 @@ class Recipe {
     function getTags() {
         return $this->tags;
     }
-
-
 }
 ?>

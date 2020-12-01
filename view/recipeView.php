@@ -24,10 +24,8 @@
     $comments = getRecipeComments($recipeID);
 
     $user = null;
-    if (isset($_SESSION['logged'])) {
+    if (isset($_SESSION['logged']))
       $user = unserialize($_SESSION['user']);
-    }
-
 ?>
 
 <!DOCTYPE html>

@@ -31,9 +31,8 @@
         if ($query->rowCount() > 0) {
             $record = $query->fetch();
             return fetchUser($record);
-        } else {
+        } else
             return null;
-        }
     }
 
     function getUserByID($id) {
@@ -47,9 +46,8 @@
         if ($query->rowCount() > 0) {
             $record = $query->fetch();
             return fetchUser($record);
-        } else {
+        } else
             return null;
-        }
     }
 
     function isInDatabaseUsername($username) {

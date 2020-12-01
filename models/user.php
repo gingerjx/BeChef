@@ -4,45 +4,37 @@
         private $fullname;
         private $username;
         private $email;
-        private $joinDate;
+        private $join_date;
         private $role;
 
 /* Validation */
         function isValidFullname() { 
-            if (strlen($this->fullname) < 5 || strlen($this->fullname) > 100) {
+            if (strlen($this->fullname) < 5 || strlen($this->fullname) > 100)
                 return false;
-            }
-            else if (ctype_alpha(str_replace(' ', '', $this->fullname)) == false) {
+            else if (ctype_alpha(str_replace(' ', '', $this->fullname)) == false) 
                 return false;
-            }
-
-            return true;
+            else
+                return true;
         }
 
         function isValidUsername() {
-            if (strlen($this->username) < 5 || strlen($this->username) > 50) {
+            if (strlen($this->username) < 5 || strlen($this->username) > 50)
                 return false;
-            }
-            else if (!ctype_alnum($this->username)) {
+            else if (!ctype_alnum($this->username))
                 return false;
-            }
-
-            return true;
+            else
+                return true;
         }
 
         function isValidEmail() {
-            if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            if (!filter_var($this->email, FILTER_VALIDATE_EMAIL))
                 return false;
-            }
-
             return true;
         }
         
         function isValidPassword($password) {
-            if (strlen($password) < 5 || strlen($password) > 50) {
+            if (strlen($password) < 5 || strlen($password) > 50)
                 return false;
-            }
-
             return true;
         }
 
@@ -77,7 +69,7 @@
         }
 
         function getJoinDate() {
-            return $this->email = $email;
+            return $this->join_date;
         }
 
         function getRole() {
@@ -101,8 +93,8 @@
             $this->email = $email;
         }
 
-        function setJoinDate($email) {
-            $this->email = $email;
+        function setJoinDate($join_date) {
+            $this->join_date = $join_date;
         }
 
         function setRole($role) {

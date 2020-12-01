@@ -27,13 +27,12 @@
 
         $recipe->setAddDate(new DateTime());
         $inline_ingredients = "";
-        foreach ($recipe->getIngredients() as $ing) {
+        foreach ($recipe->getIngredients() as $ing)
             $inline_ingredients = $inline_ingredients.';'.$ing;
-        }
+
         $inline_preparation = "";
-        foreach ($recipe->getPreparation() as $prep) {
+        foreach ($recipe->getPreparation() as $prep)
             $inline_preparation = $inline_preparation.';'.$prep;
-        }
 
         $query = $connection->prepare('INSERT INTO Recipes VALUES 
                                       (NULL, :author, now(), :imgPath, :title, :descr, :ingredients,
