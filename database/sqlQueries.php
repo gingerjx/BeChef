@@ -68,6 +68,46 @@
                                             GROUP BY r.recipeID 
                                             ORDER BY recipe_count DESC';
 
+    $select_user_recipes_by_cost_asc =     'SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY averageCost ASC';
+
+    $select_user_recipes_by_cost_desc =     'SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY averageCost DESC';
+
+    $select_user_recipes_by_difficulty_asc ='SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY difficultyLevel ASC';
+
+    $select_user_recipes_by_difficulty_desc ='SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY difficultyLevel DESC';
+
+    $select_user_recipes_by_people_asc =     'SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY peopleNumber ASC';
+
+    $select_user_recipes_by_people_desc =    'SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY peopleNumber DESC';
+
+    $select_user_recipes_by_kcal_asc =       'SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY kcalPerPerson  ASC';
+
+    $select_user_recipes_by_kcal_desc =      'SELECT * 
+                                            FROM Recipes 
+                                            WHERE authorID=:authorID
+                                            ORDER BY kcalPerPerson  DESC';
+
 /* ------------------------------------SELECT ALL RECIPES IN ORDER-------------------------------------------------------- */
 
     $select_all_recipes_by_add_date_desc =  'SELECT * 
@@ -109,6 +149,38 @@
                                             LEFT JOIN Saves s ON r.recipeID = s.recipeID 
                                             GROUP BY r.recipeID 
                                             ORDER BY recipe_count ASC';
+
+    $select_all_recipes_by_cost_asc =      'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY averageCost ASC';
+
+    $select_all_recipes_by_cost_desc =      'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY averageCost DESC';
+
+    $select_all_recipes_by_difficulty_asc = 'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY difficultyLevel ASC';
+
+    $select_all_recipes_by_difficulty_desc ='SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY difficultyLevel DESC';
+
+    $select_all_recipes_by_people_asc =     'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY peopleNumber ASC';
+
+    $select_all_recipes_by_people_desc =    'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY peopleNumber DESC';
+
+    $select_all_recipes_by_kcal_asc =       'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY kcalPerPerson  ASC';
+
+    $select_all_recipes_by_kcal_desc =      'SELECT * 
+                                            FROM Recipes 
+                                            ORDER BY kcalPerPerson  DESC';
 
 /* ---------------------------------------USER BY---------------------------------------------------- */
 

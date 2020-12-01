@@ -68,51 +68,70 @@
     }
 
 
-    function getUserRecipes($userID) {
+    function getUserRecipes($user_id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
         $query = $connection->prepare($select_user_recipes);
-        $query->bindValue(":authorID", $userID, PDO::PARAM_STR);
+        $query->bindValue(":authorID", $user_id, PDO::PARAM_STR);
         $query->execute();
 
         return getRecipesArray($query);
     }
 
-    function getUserRecipesInOrder($userID, $column, $order) {
+    function getUserRecipesInOrder($user_id, $column, $order) {
         require "sqlQueries.php";
 
         $query = null;
         
-        if ($column == 'add-date') {
-            $query = getDescOrAscQuery($order, 
-                                        $select_user_recipes_by_add_date_desc,
-                                        $select_user_recipes_by_add_date_asc);
-            if ($query == null) 
+        switch ($column) {
+            case 'add-date':             
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_add_date_desc,
+                $select_user_recipes_by_add_date_asc);
+                break;
+            case 'title':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_title_desc,
+                $select_user_recipes_by_title_asc);
+                break;
+            case 'likes':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_likes_desc,
+                $select_user_recipes_by_likes_asc);
+                break;
+            case 'saves':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_saves_desc,
+                $select_user_recipes_by_saves_asc);
+                break;
+            case 'cost':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_cost_desc,
+                $select_user_recipes_by_cost_asc);
+                break;
+            case 'difficulty':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_difficulty_desc,
+                $select_user_recipes_by_difficulty_asc);
+                break;
+             case 'people':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_people_desc,
+                $select_user_recipes_by_people_asc);
+                break;
+            case 'kcal':
+                $query = getDescOrAscQuery($order, 
+                $select_user_recipes_by_kcal_desc,
+                $select_user_recipes_by_kcal_asc);
+                break;
+            default:
                 return array();
-        } else if ($column == 'title') {
-            $query = getDescOrAscQuery($order, 
-                                        $select_user_recipes_by_title_desc,
-                                        $select_user_recipes_by_title_asc);
-            if ($query == null) 
-                return array();
-        } else if ($column == 'likes'){
-            $query = getDescOrAscQuery($order, 
-                                        $select_user_recipes_by_likes_desc,
-                                        $select_user_recipes_by_likes_asc);
-            if ($query == null) 
-                return array();
-        } else if ($column == 'saves'){
-            $query = getDescOrAscQuery($order, 
-                                        $select_user_recipes_by_saves_desc,
-                                        $select_user_recipes_by_saves_asc);
-            if ($query == null) 
-                return array();
-        } else {
-            return array();
         }
+        if ($query == null)
+            return array();
         
-        $query->bindValue(":authorID", $userID, PDO::PARAM_INT); 
+        $query->bindValue(":authorID", $user_id, PDO::PARAM_INT); 
         $query->execute();
         return getRecipesArray($query);
     }
@@ -132,33 +151,52 @@
 
         $query = null;
         
-        if ($column == 'add-date') {
-            $query = getDescOrAscQuery($order, 
-                                        $select_all_recipes_by_add_date_desc,
-                                        $select_all_recipes_by_add_date_asc);
-            if ($query == null) 
+        switch ($column) {
+            case 'add-date':             
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_add_date_desc,
+                $select_all_recipes_by_add_date_asc);
+                break;
+            case 'title':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_title_desc,
+                $select_all_recipes_by_title_asc);
+                break;
+            case 'likes':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_likes_desc,
+                $select_all_recipes_by_likes_asc);
+                break;
+            case 'saves':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_saves_desc,
+                $select_all_recipes_by_saves_asc);
+                break;
+            case 'cost':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_cost_desc,
+                $select_all_recipes_by_cost_asc);
+                break;
+            case 'difficulty':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_difficulty_desc,
+                $select_all_recipes_by_difficulty_asc);
+                break;
+            case 'people':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_people_desc,
+                $select_all_recipes_by_people_asc);
+                break;
+            case 'kcal':
+                $query = getDescOrAscQuery($order, 
+                $select_all_recipes_by_kcal_desc,
+                $select_all_recipes_by_kcal_asc);
+                break;
+            default:
                 return array();
-        } else if ($column == 'title') {
-            $query = getDescOrAscQuery($order, 
-                                        $select_all_recipes_by_title_desc,
-                                        $select_all_recipes_by_title_asc);
-            if ($query == null) 
-                return array();
-        } else if ($column == 'likes'){
-            $query = getDescOrAscQuery($order, 
-                                        $select_all_recipes_by_likes_desc,
-                                        $select_all_recipes_by_likes_asc);
-            if ($query == null) 
-                return array();
-        } else if ($column == 'saves'){
-            $query = getDescOrAscQuery($order, 
-                                        $select_all_recipes_by_saves_desc,
-                                        $select_all_recipes_by_saves_asc);
-            if ($query == null) 
-                return array();
-        } else {
-            return array();
         }
+        if ($query == null)
+            return array();
 
         $query->execute();
         return getRecipesArray($query);
@@ -184,23 +222,23 @@
         return getRecipesArray($query);
     }
 
-    function getSavedRecipes($userID) {
+    function getSavedRecipes($user_id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
         $query = $connection->prepare($select_user_saved_recipes);  
-        $query->bindValue(":userID", $userID, PDO::PARAM_STR);
+        $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
         $query->execute();
 
         return getRecipesArray($query);
     }
 
-    function getRecipeByID($recipeID) {
+    function getRecipeByID($recipe_id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
         $query = $connection->prepare($select_recipe_by_id);
-        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
         $query->execute();
 
         if ($query->rowCount() > 0) {
@@ -210,32 +248,32 @@
             return null;
     }
 
-    function getRecipeComments($recipeID) {
+    function getRecipeComments($recipe_id) {
         require "connectDB.php";
         require "sqlQueries.php";
         require_once "../models/comment.php";
 
         $query = $connection->prepare($select_comments_by_recipe_id);
-        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
         $query->execute();
         
         $comments = array();
         for ($i = 0; $i < $query->rowCount(); $i += 1) {
             $record = $query->fetch();
-            $commentID = $record['commentID'];
-            $recipeID = $record['recipeID'];
-            $userID = $record['userID'];
-            $addDate = $record['addDate'];
+            $comment_id = $record['commentID'];
+            $recipe_id = $record['recipeID'];
+            $user_id = $record['userID'];
+            $add_date = $record['addDate'];
             $content = $record['content'];
     
             $user_query = $connection->prepare($select_user_by_id);
-            $user_query->bindValue(":id", $userID, PDO::PARAM_STR);
+            $user_query->bindValue(":id", $user_id, PDO::PARAM_STR);
             $user_query->execute();
 
             $user_record = $user_query->fetch();
             $fullname = $user_record['fullname'];
 
-            $comments[] = new Comment($commentID, $recipeID, $userID, $fullname, $addDate, $content);
+            $comments[] = new Comment($comment_id, $recipe_id, $user_id, $fullname, $add_date, $content);
         }
 
         return $comments;
