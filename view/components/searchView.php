@@ -1,4 +1,5 @@
-<form id="order-container" action="../service/orderBy.php" method="post">
+<aside>
+<form action="../service/orderBy.php" method="post">
     <div id="radio-container">
       <div>
         <input type="checkbox" name="order" value="order">
@@ -20,6 +21,24 @@
         <input type="radio" name="order-by" value="title">
         <label for="title">Title</label>
       </div>
+      <div>
+        <input type="radio" name="order-by" value="cost">
+        <label for="title">Average cost</label>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="difficulty">
+        <label for="title">Difficulty level</label>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="people">
+        <label for="title">Number of people</label>
+      </div>
+      <div>
+        <input type="radio" name="order-by" value="kcal">
+        <label for="title">Kcal per person</label>
+      </div>
+
       <input type="submit" value="Order by">
     <div>
 </form>
+</aside>

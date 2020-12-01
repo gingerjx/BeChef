@@ -31,12 +31,12 @@
 <head>
   <?php include "components/navHead.php" ?>
   <link href="css/recipeCard.css?v=<?php echo time(); ?>" rel="stylesheet">
-  <link href="css/orderContainer.css?v=<?php echo time(); ?>" rel="stylesheet">
+  <link href="css/search.css?v=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body>
   <?php include "components/navView.php" ?>
   <?php include "components/recipesListView.php" ?>
-  <?php include "components/orderView.php" ?>
+  <?php include "components/searchView.php" ?>
 
   <script src="js/navigation.js"></script>
 </body>
