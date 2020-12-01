@@ -9,14 +9,15 @@ aside {
     border-left: 2px var(--nav-color-hover) solid;
 }
 
-#radio-container {
+aside > * {
     display: flex;
     flex-direction: column;
     padding: 20px 50px;
+    margin-bottom: 20px;
     background-color: var(--nav-color);
 }
 
-#radio-container > input[type="submit"]{
+aside input[type="submit"]{
     align-self: center;
     justify-self: center;
     background-color: var(--font-color);
@@ -29,11 +30,19 @@ aside {
     font-weight: bolder;
 }
 
-#radio-container > input[type="submit"]:hover {
+aside input[type="submit"]:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-#radio-container input[type="checkbox"]{
+#order-container input[type="checkbox"]{
     margin-bottom: 30px;
+}
+
+#search-container > input, #search-container > div {
+    margin-bottom: 20px;
+}
+
+#search-container input[type="range"] {
+    width: 100%;
 }
