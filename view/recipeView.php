@@ -47,7 +47,7 @@
           <span>author: <?= $author->getFullname() ?></span>
           <span>add date: <?= $rec->getAddDate() ?></span>
         </div>
-        <form class="ratings" action="../private/checkRatings.php" method="post">
+        <form class="ratings" action="../service/checkRatings.php" method="post">
           <div class="img-number">
             <button type="submit" name="like">
               <? if ($user != null && isLikedByUser($recipeID, $user->getID())): ?>

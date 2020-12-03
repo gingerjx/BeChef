@@ -62,11 +62,51 @@
         require "connectDB.php";
 
         foreach ($tags as $tag) {
-            $query = $connection->prepare('INSERT INTO Tags VALUES (NULL, :recipe, :name)');
-            $query->bindValue(":recipe", $recipeID, PDO::PARAM_STR);
+            $query = $connection->prepare('INSERT INTO Tags VALUES (NULL, :recipeID, :name)');
+            $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
             $query->bindValue(":name", $tag, PDO::PARAM_STR);
 
             $query->execute();
         }
+    }
+
+    function likeRecipe($recipe_id, $user_id) {
+        require "connectDB.php";
+
+        $query = $connection->prepare('INSERT INTO Likes VALUES (NULL, :recipeID, :userID)');
+        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+        $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
+
+        $query->execute();
+    }
+
+    function saveRecipe($recipe_id, $user_id) {
+        require "connectDB.php";
+
+        $query = $connection->prepare('INSERT INTO Saves VALUES (NULL, :recipeID, :userID)');
+        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+        $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
+
+        $query->execute();
+    }
+
+    function dislikeRecipe($recipe_id, $user_id) {
+        require "connectDB.php";
+
+        $query = $connection->prepare('DELETE FROM Likes WHERE recipeID=:recipeID AND userID=:userID');
+        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+        $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
+
+        $query->execute();
+    }
+
+    function unsaveRecipe($recipe_id, $user_id) {
+        require "connectDB.php";
+
+        $query = $connection->prepare('DELETE FROM Saves WHERE recipeID=:recipeID AND userID=:userID');
+        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+        $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
+
+        $query->execute();
     }
 ?>
