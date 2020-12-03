@@ -15,7 +15,11 @@
   $url_components = parse_url($_SERVER['REQUEST_URI']); 
   $recipes = array();
 
-  if (!isset($url_components['query'])) {
+  if (isset($_SESSION['searched_recipes'])) {
+    $recipes = unserialize($_SESSION['searched_recipes']);
+    unset($_SESSION['searched_recipes']);
+  }
+  else if (!isset($url_components['query'])) {
     $recipes = getAllRecipes();
   } else {
     parse_str($url_components['query'], $params); 

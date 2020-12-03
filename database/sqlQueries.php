@@ -182,6 +182,13 @@
                                             FROM Recipes 
                                             ORDER BY kcalPerPerson  DESC';
 
+/* ------------------------------------SELECT ALL RECIPES BY-------------------------------------------------------- */
+
+    $select_all_recipe_by =                 'SELECT * 
+                                            FROM Recipes
+                                            WHERE ';    // conditions need to be concatenated
+
+
 /* ---------------------------------------USER BY---------------------------------------------------- */
 
     $select_user_by_id =                    'SELECT * 
