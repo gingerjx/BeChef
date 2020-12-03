@@ -49,29 +49,29 @@
     <input type="search" name="tag">
 
     <div>
-      <input id="diff-box" type="checkbox" name="diff-box" onclick="changeDiff()">
+      <input id="diff-box" type="checkbox" name="diff-box">
       <label id="diff-label" for="diff">Max difficulty level <b>5</b>:</label>
       <input type="range" min="1" max="5" value="5" name="diff"
               oninput="showMaxDiffValue(this.value)" onchange="showMaxDiffValue(this.value)">
     </div>
 
     <div>
-      <input id="cost-box" type="checkbox" name="cost-box" onclick="changeCost()">
+      <input id="cost-box" type="checkbox" name="cost-box">
       <label id="cost-label" for="cost">Max cost <b>1000$</b>:</label>
       <input type="range" min="1" max="1000" value="1000" name="cost"
               oninput="showMaxCostValue(this.value)" onchange="showMaxCostValue(this.value)">
     </div>
 
     <div>
-      <input id="people-box" type="checkbox" name="people-box" onclick="changePeople()">
+      <input id="people-box" type="checkbox" name="people-box">
       <label id="people-label" for="people">Max number of people <b>10</b>:</label>
       <input type="range" min="1" max="10" value="10" name="people"
               oninput="showMaxPeopleValue(this.value)" onchange="showMaxPeopleValue(this.value)">
     </div>
 
     <div>
-      <input id="kcal-box" type="checkbox" name="kcal-box" onclick="changeKcal()">
-      <label id="kcal-label" for="kcal">Max number of people <b>8000</b>:</label>
+      <input id="kcal-box" type="checkbox" name="kcal-box">
+      <label id="kcal-label" for="kcal">Max number of kcal per person <b>8000</b>:</label>
       <input type="range" min="1" max="8000" value="8000" name="kcal"
               oninput="showMaxKcalValue(this.value)" onchange="showMaxKcalValue(this.value)">
     </div>
