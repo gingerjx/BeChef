@@ -35,6 +35,11 @@ aside input[type="submit"]:hover {
     opacity: 0.8;
 }
 
+#order-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 #order-container input[type="checkbox"]{
     margin-bottom: 30px;
 }
