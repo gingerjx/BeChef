@@ -4,8 +4,9 @@
     require_once "../database/connectDB.php";
     require_once "../database/recipesDB.php";
 
-    $title = $_POST['title'];
-    $tag = $_POST['tag'];
+    $title = htmlentities($_POST['title'], ENT_QUOTES, "UTF-8");;
+    $tag = htmlentities($_POST['tag'], ENT_QUOTES, "UTF-8");
+    $country = htmlentities($_POST['country'], ENT_QUOTES, "UTF-8");
     $prepared_query =  'SELECT * 
                         FROM Recipes
                         WHERE '; 
@@ -14,6 +15,10 @@
         $prepared_query .= " title=:title AND";
     if (!empty($tag)) 
         $prepared_query .= " recipeID in (SELECT recipeID FROM `Tags` WHERE name=:tag) AND";
+    if (!empty($country)) 
+        $prepared_query .= " recipeID in (SELECT recipeID FROM `Tags` WHERE country=:country) AND";
+    if (isset($_POST['vegatarian']))
+        $prepared_query .= " recipeID in (SELECT recipeID FROM `Tags` WHERE vegetarian=:vegatarian) AND";
     if (isset($_POST['diff-box'])) 
         $prepared_query .= " difficultyLevel<=:diff AND";
     if (isset($_POST['cost-box'])) 
@@ -33,6 +38,10 @@
         $query->bindValue(":title", $title, PDO::PARAM_STR);
     if (!empty($tag)) 
         $query->bindValue(":tag", $tag, PDO::PARAM_STR);
+    if (!empty($country)) 
+        $query->bindValue(":country", $country, PDO::PARAM_STR);
+    if (isset($_POST['vegatarian']))
+        $query->bindValue(":vegatarian", $_POST['vegatarian'] == 'yes' ? '1' : '0', PDO::PARAM_STR);
     if (isset($_POST['diff-box'])) 
         $query->bindValue(":diff", $_POST['diff'], PDO::PARAM_STR);
     if (isset($_POST['cost-box'])) 
