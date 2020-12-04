@@ -27,13 +27,18 @@
         $number_of_people = $record['peopleNumber'];
         $kcal_per_person = $record['kcalPerPerson'];
         
-        $query = $connection->prepare('SELECT * FROM Tags WHERE recipeID=:recipeID');
-        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
-        $query->execute();
-        $tags = array();
-        for ($i=0; $i<$query->rowCount(); $i += 1) {
-            $record = $query->fetch();
-            $tags[] = $record['name'];
+        try {
+            $query = $connection->prepare('SELECT * FROM Tags WHERE recipeID=:recipeID');
+            $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+            $query->execute();
+            $tags = array();
+            for ($i=0; $i<$query->rowCount(); $i += 1) {
+                $record = $query->fetch();
+                $tags[] = $record['name'];
+            }
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
         }
 
         $recipe = new Recipe($title, $description, $ingredients, $preparation, $preparation_time, $average_cost, $country,
@@ -48,13 +53,18 @@
     function getDescOrAscQuery($order, $desc, $asc) {
         require "connectDB.php";
 
-        switch ($order) {
-            case 'DESC':
-                return $connection->prepare($desc); 
-            case 'ASC':
-                return $connection->prepare($asc); 
-            default:
-                return null;
+        try {
+            switch ($order) {
+                case 'DESC':
+                    return $connection->prepare($desc); 
+                case 'ASC':
+                    return $connection->prepare($asc); 
+                default:
+                    return null;
+            }
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
         }
     }
 
@@ -67,16 +77,20 @@
         return $recipes;
     }
 
-
     function getUserRecipes($user_id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_user_recipes);
-        $query->bindValue(":authorID", $user_id, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_user_recipes);
+            $query->bindValue(":authorID", $user_id, PDO::PARAM_STR);
+            $query->execute();
 
-        return getRecipesArray($query);
+            return getRecipesArray($query);
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getUserRecipesInOrder($user_id, $column, $order) {
@@ -140,10 +154,15 @@
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_all_recipes);  
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_all_recipes);  
+            $query->execute();
 
-        return getRecipesArray($query);
+            return getRecipesArray($query);
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
     
     function getAllRecipesInOrder($column, $order) {
@@ -206,46 +225,66 @@
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_all_recipes_by_add_date_desc);  
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_all_recipes_by_add_date_desc);  
+            $query->execute();
 
-        return getRecipesArray($query);
+            return getRecipesArray($query);
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getPopularRecipes() {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_all_recipes_by_likes_desc);  
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_all_recipes_by_likes_desc);  
+            $query->execute();
 
-        return getRecipesArray($query);
+            return getRecipesArray($query);
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getSavedRecipes($user_id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_user_saved_recipes);  
-        $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_user_saved_recipes);  
+            $query->bindValue(":userID", $user_id, PDO::PARAM_STR);
+            $query->execute();
 
-        return getRecipesArray($query);
+            return getRecipesArray($query);
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getRecipeByID($recipe_id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_recipe_by_id);
-        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_recipe_by_id);
+            $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+            $query->execute();
 
-        if ($query->rowCount() > 0) {
-            $record = $query->fetch();
-            return fetchRecipe($record);
-        } else
-            return null;
+            if ($query->rowCount() > 0) {
+                $record = $query->fetch();
+                return fetchRecipe($record);
+            } else
+                return null;
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getRecipeComments($recipe_id) {
@@ -253,29 +292,34 @@
         require "sqlQueries.php";
         require_once "../models/comment.php";
 
-        $query = $connection->prepare($select_comments_by_recipe_id);
-        $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_comments_by_recipe_id);
+            $query->bindValue(":recipeID", $recipe_id, PDO::PARAM_STR);
+            $query->execute();
+            
+            $comments = array();
+            for ($i = 0; $i < $query->rowCount(); $i += 1) {
+                $record = $query->fetch();
+                $comment_id = $record['commentID'];
+                $recipe_id = $record['recipeID'];
+                $user_id = $record['userID'];
+                $add_date = $record['addDate'];
+                $content = $record['content'];
         
-        $comments = array();
-        for ($i = 0; $i < $query->rowCount(); $i += 1) {
-            $record = $query->fetch();
-            $comment_id = $record['commentID'];
-            $recipe_id = $record['recipeID'];
-            $user_id = $record['userID'];
-            $add_date = $record['addDate'];
-            $content = $record['content'];
-    
-            $user_query = $connection->prepare($select_user_by_id);
-            $user_query->bindValue(":id", $user_id, PDO::PARAM_STR);
-            $user_query->execute();
+                $user_query = $connection->prepare($select_user_by_id);
+                $user_query->bindValue(":id", $user_id, PDO::PARAM_STR);
+                $user_query->execute();
 
-            $user_record = $user_query->fetch();
-            $fullname = $user_record['fullname'];
+                $user_record = $user_query->fetch();
+                $fullname = $user_record['fullname'];
 
-            $comments[] = new Comment($comment_id, $recipe_id, $user_id, $fullname, $add_date, $content);
+                $comments[] = new Comment($comment_id, $recipe_id, $user_id, $fullname, $add_date, $content);
+            }
+
+            return $comments;
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
         }
-
-        return $comments;
     }
 ?>

@@ -24,51 +24,71 @@
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_user_by_username);
-        $query->bindValue(":username", $username, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_user_by_username);
+            $query->bindValue(":username", $username, PDO::PARAM_STR);
+            $query->execute();
 
-        if ($query->rowCount() > 0) {
-            $record = $query->fetch();
-            return fetchUser($record);
-        } else
-            return null;
+            if ($query->rowCount() > 0) {
+                $record = $query->fetch();
+                return fetchUser($record);
+            } else
+                return null;
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getUserByID($id) {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_user_by_id);
-        $query->bindValue(":id", $id, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_user_by_id);
+            $query->bindValue(":id", $id, PDO::PARAM_STR);
+            $query->execute();
 
-        if ($query->rowCount() > 0) {
-            $record = $query->fetch();
-            return fetchUser($record);
-        } else
-            return null;
+            if ($query->rowCount() > 0) {
+                $record = $query->fetch();
+                return fetchUser($record);
+            } else
+                return null;
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function isInDatabaseUsername($username) {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_user_by_username);
-        $query->bindValue(":username", $username, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_user_by_username);
+            $query->bindValue(":username", $username, PDO::PARAM_STR);
+            $query->execute();
 
-        return $query->rowCount() > 0 ? true : false;
+            return $query->rowCount() > 0 ? true : false;
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function isInDatabaseEmail($email) {
         require "connectDB.php";
         require "sqlQueries.php";
 
-        $query = $connection->prepare($select_user_by_email);
-        $query->bindValue(":email", $email, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_user_by_email);
+            $query->bindValue(":email", $email, PDO::PARAM_STR);
+            $query->execute();
 
-        return $query->rowCount() > 0 ? true : false;
+            return $query->rowCount() > 0 ? true : false;
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 ?>

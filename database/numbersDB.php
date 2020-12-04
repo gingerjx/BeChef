@@ -2,11 +2,16 @@
     function getNumberOf($select_query, $recipeID) {
         require "connectDB.php";
         
-        $query = $connection->prepare($select_query);
-        $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
-        $query->execute();
+        try {
+            $query = $connection->prepare($select_query);
+            $query->bindValue(":recipeID", $recipeID, PDO::PARAM_STR);
+            $query->execute();
 
-        return $query->rowCount();
+            return $query->rowCount();
+        } catch (PDOException $e) {
+            header("Location: ../view/errorView.php");
+            exit();
+        }
     }
 
     function getNumberOfRecipeLikes($recipeID) {
