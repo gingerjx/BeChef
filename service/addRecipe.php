@@ -78,7 +78,6 @@
         }
 
         $image_path = 'img/'.sha1_file($_FILES['recipe-img']['tmp_name']).'.'.$image_ext; 
-        move_uploaded_file($_FILES['recipe-img']['tmp_name'], $target_dir.$image_path);
     } catch (RuntimeException $e) {
         $valid = false;
         $_SESSION['e_recipe_img'] = $e->getMessage();
@@ -98,6 +97,9 @@
         header("Location: ../view/addRecipeView.php");
         exit();
     }
+
+    //download uploaded image
+    move_uploaded_file($_FILES['recipe-img']['tmp_name'], $target_dir.$image_path);
 
     $user = unserialize($_SESSION['user']);
     $recipe->setAuthorID($user->getId());
