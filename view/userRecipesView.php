@@ -17,7 +17,11 @@
   $url_components = parse_url($_SERVER['REQUEST_URI']); 
   $recipes = array();
 
-  if (!isset($url_components['query'])) {
+  if (isset($_SESSION['searched_recipes'])) {
+    $recipes = unserialize($_SESSION['searched_recipes']);
+    unset($_SESSION['searched_recipes']);
+  }
+  else if (!isset($url_components['query'])) {
     $recipes = getUserRecipes($user->getID());
   } else {
     parse_str($url_components['query'], $params); 
@@ -38,7 +42,7 @@
 <body>
   <?php include "components/navView.php" ?>
   <?php include "components/recipesListView.php" ?>
-  <?php include "components/searchView.php" ?>
+  <?php include "components/searchOrderView.php" ?>
 
   <script src="js/navigation.js"></script>
 </body>

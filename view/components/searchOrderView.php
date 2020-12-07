@@ -45,6 +45,9 @@
     <label>Title:</label>
     <input type="search" name="title">
 
+    <label>Author:</label>
+    <input type="search" name="author">
+
     <label>Tag:</label>
     <input type="search" name="tag">
 

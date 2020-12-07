@@ -40,7 +40,7 @@
 <body>
   <?php include "components/navView.php" ?>
   <?php include "components/recipesListView.php" ?>
-  <?php include "components/searchView.php" ?>
+  <?php include "components/searchOrderView.php" ?>
 
   <script src="js/navigation.js"></script>
 </body>
