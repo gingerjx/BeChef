@@ -50,21 +50,21 @@
         <form class="ratings" action="../service/checkRatings.php" method="post">
           <div class="img-number">
             <button type="submit" name="like">
-              <? if ($user != null && isLikedByUser($recipeID, $user->getID())): ?>
+              <?php if ($user != null && isLikedByUser($recipeID, $user->getID())): ?>
                 <img src="img/thumbs-up-orange.svg" alt="Web icon"/>
-              <? else: ?>
+              <?php else: ?>
                 <img src="img/thumbs-up.svg" alt="Web icon"/>
-              <? endif; ?>
+              <?php endif; ?>
             </button>
             <b><?= getNumberOfRecipeLikes($rec->getRecipeID()) ?></b>
           </div>
           <div class="img-number">
             <button type="submit" name="save">
-              <? if ($user != null && isSavedByUser($recipeID, $user->getID())): ?>
+              <?php if ($user != null && isSavedByUser($recipeID, $user->getID())): ?>
                 <img src="img/disk-orange.svg" alt="Web icon"/>
-              <? else: ?>
+              <?php else: ?>
                 <img src="img/disk.svg" alt="Web icon"/>
-              <? endif; ?>
+              <?php endif; ?>
             </button>
             <b><?= getNumberOfRecipeSaves($rec->getRecipeID()) ?></b>
           </div>
