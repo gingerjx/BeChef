@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: row;
     background-color: $nav_color;
-    border-radius: $home_border_radius;
-    padding: $home_newest_padding;
+    border-radius: 10px;
+    padding: 2em;
 }
 
 @mixin flex_column_center {
@@ -20,13 +20,13 @@
     max-width: $max_home_width;
     display: flex;
     flex-direction: column;
-    margin: $home_padding auto;
+    margin:  1em 15% 1em 25%;
     article {
-        margin-bottom: $article_margin_bottom;
+        margin-bottom: 3em;
     }
     h3 {
         font-weight: lighter;
-        margin: $home_h3_padding;
+        margin: 0 2em;
         text-align: center;
     }
 }
@@ -36,21 +36,21 @@
     flex-direction: row;
     img {
         width: 30%;
-        border-radius: $home_border_radius;
+        border-radius: 10px;
     }
     div {
         @include flex_column_center;
         width: 70%;
         height: 100%;
         h1 {
-            font-size: $welcome_font_size;
-            margin: $home_h1_padding;
+            font-size: 50px;
+            margin: 1em 2em;
             text-align: center;
         }
         h4 {
             font-weight: lighter;
             margin: 0;
-            margin-top: $home_h4_padding;
+            margin-top: 1em;
             text-align: center;
             span {
                 color: $acent_color;
@@ -66,11 +66,11 @@
         width: 70%;
         height: 100%;
         h1 {
-            font-size: $home_h1_font_size;
-            margin: $home_h1_padding;
+            font-size: 35px;
+            margin: 1em 2em;
             text-align: center;
             span {
-                color: #FFC107;
+                color: $acent_color;
             }
         }
     }

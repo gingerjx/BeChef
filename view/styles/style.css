@@ -136,10 +136,10 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin: 20px auto;
+    margin: 1em 15% 1em 25%;
   }
   #home article {
-    margin-bottom: 0 0 50px 0;
+    margin-bottom: 3em;
   }
   #home h3 {
     font-weight: lighter;
@@ -176,7 +176,7 @@ body {
     height: 100%;
   }
   #home-welcome div h1 {
-    font-size: 3em;
+    font-size: 50px;
     margin: 1em 2em;
     text-align: center;
   }
@@ -199,7 +199,7 @@ body {
             flex-direction: row;
     background-color: #393232;
     border-radius: 10px;
-    padding: 20px;
+    padding: 2em;
   }
   #home-newest div {
     display: -webkit-box;
@@ -218,7 +218,7 @@ body {
     height: 100%;
   }
   #home-newest div h1 {
-    font-size: 2em;
+    font-size: 35px;
     margin: 1em 2em;
     text-align: center;
   }
@@ -241,7 +241,7 @@ body {
             flex-direction: row;
     background-color: #393232;
     border-radius: 10px;
-    padding: 20px;
+    padding: 2em;
   }
   #home-description div {
     display: -webkit-box;
