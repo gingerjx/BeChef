@@ -20,4 +20,6 @@ nav {
     min-height: 100%;
     width: $nav_width;
     box-sizing: border-box;
+    position: fixed;
+    left: 0;
 }

@@ -93,5 +93,7 @@ nav {
   width: 150px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  position: fixed;
+  left: 0;
 }
 /*# sourceMappingURL=lg_nav.css.map */
