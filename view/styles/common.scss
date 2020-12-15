@@ -1,0 +1,56 @@
+@mixin nav-a-element {
+    text-decoration: none;
+    color: $text_color;
+    transition: color 0.5s;
+    padding: $nav_a_padding;
+    &:hover {
+        color: $text_color_hover;
+        background-color: $nav_color_hover;
+    }
+    img {
+        width: $icon_size;
+    }
+}
+
+@mixin logo {
+    display: flex;
+    flex-direction: row;
+
+    padding: $logo_padding;
+
+    img {
+        width: $logo_size;
+    }
+}
+
+@mixin links {
+    display: flex;
+    flex-direction: column;
+    margin-top: $links_top_margin;
+    a {
+        @include nav-a-element;
+    }
+    hr.separator {
+        width: 75%;
+        border-top: 3px solid $body_color;
+        border-radius: 5px;
+    }
+    button {
+        width: 80%;
+        min-height: 3em;
+        margin: 1em 0;
+        background-color: $text_color;
+        border-radius: 5px;
+        color: $nav_color;
+        font-family: fredoka-one-regular;
+        align-self: center;
+        &:hover{
+            cursor: pointer;
+            background-color: $text_color_hover;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+

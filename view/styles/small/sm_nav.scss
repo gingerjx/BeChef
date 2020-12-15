@@ -1,0 +1,33 @@
+@import "../values";
+@import "../common";
+
+#web-logo {
+    @include logo;
+}
+
+#show-nav {
+    border: none;
+    background: none;
+    padding: none;
+    img {
+        width: $menu_btn_size;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+#links {
+    @include links;
+    display: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: $nav_color;
+    box-sizing: border-box;
+}

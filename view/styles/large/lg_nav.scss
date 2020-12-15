@@ -1,0 +1,23 @@
+@import "../values";
+@import "../common";
+
+#show-nav {
+    display: none;
+}
+
+#web-logo {
+    @include logo;
+}
+
+#links {
+    @include links;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: $nav_color;
+    min-height: 100%;
+    width: $nav_width;
+    box-sizing: border-box;
+}
