@@ -25,6 +25,7 @@ body {
         flex-direction: row;
     }
     @import "large/lg_nav.scss";
+    @import "large/lg_home.scss";
 }
 @media screen and (max-width: $small_max) {
     body {

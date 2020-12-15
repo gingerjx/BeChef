@@ -9,5 +9,6 @@
   </head>
   <body>
     <?php include 'view/components/nav.php' ?>
+    <?php include 'view/components/home.php' ?>
   </body>
 </html>

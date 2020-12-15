@@ -2,6 +2,9 @@
 /* Landscape phone to portrait tablet */
 /* Portrait tablet to landscape and desktop */
 /* Large desktop */
+/* colors */
+/* nav */
+/* home */
 @font-face {
   font-family: fredoka-one-regular;
   src: url("../fonts/FredokaOne-Regular.ttf");
@@ -34,6 +37,9 @@ body {
   /* Landscape phone to portrait tablet */
   /* Portrait tablet to landscape and desktop */
   /* Large desktop */
+  /* colors */
+  /* nav */
+  /* home */
   #show-nav {
     display: none;
   }
@@ -112,6 +118,150 @@ body {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
+  /* Landscape phones and down */
+  /* Landscape phone to portrait tablet */
+  /* Portrait tablet to landscape and desktop */
+  /* Large desktop */
+  /* colors */
+  /* nav */
+  /* home */
+  #home {
+    max-width: 1000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 20px auto;
+  }
+  #home article {
+    margin-bottom: 50px;
+  }
+  #home h3 {
+    font-weight: lighter;
+    margin: 0 2em;
+    text-align: center;
+  }
+  #home-welcome {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #home-welcome img {
+    width: 30%;
+    border-radius: 10px;
+  }
+  #home-welcome div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 70%;
+    height: 100%;
+  }
+  #home-welcome div h1 {
+    font-size: 3em;
+    margin: 1em 2em;
+    text-align: center;
+  }
+  #home-welcome div h4 {
+    font-weight: lighter;
+    margin: 0;
+    margin-top: 1em;
+    text-align: center;
+  }
+  #home-welcome div h4 span {
+    color: #FFC107;
+  }
+  #home-newest {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    background-color: #393232;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  #home-newest div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 70%;
+    height: 100%;
+  }
+  #home-newest div h1 {
+    font-size: 2em;
+    margin: 1em 2em;
+    text-align: center;
+  }
+  #home-newest div h1 span {
+    color: #FFC107;
+  }
+  #home-newest a {
+    width: 30%;
+  }
+  #home-newest a:hover {
+    cursor: pointer;
+  }
+  #home-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    background-color: #393232;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  #home-description div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 0.33;
+        -ms-flex: 0.33;
+            flex: 0.33;
+  }
+  #home-description div a {
+    text-align: center;
+  }
+  #home-description div a img {
+    width: 30%;
+  }
+  #home-description div a:hover {
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -125,6 +275,9 @@ body {
   /* Landscape phone to portrait tablet */
   /* Portrait tablet to landscape and desktop */
   /* Large desktop */
+  /* colors */
+  /* nav */
+  /* home */
   #web-logo {
     display: -webkit-box;
     display: -ms-flexbox;
