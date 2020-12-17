@@ -43,7 +43,7 @@
         width: 70%;
         height: 100%;
         h1 {
-            font-size: 50px;
+            font-size: $home_welcome_font_size_lg;
             margin: 1em 2em;
             text-align: center;
         }
@@ -66,7 +66,7 @@
         width: 70%;
         height: 100%;
         h1 {
-            font-size: 35px;
+            font-size: $home_h1_font_size_lg;
             margin: 1em 2em;
             text-align: center;
             span {

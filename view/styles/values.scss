@@ -16,16 +16,12 @@ $nav_color : #393232;
 $nav_color_hover : $body_color; 
 $acent_color : #FFC107;
 
-/* nav */
-$logo_padding : 5px;
-$links_top_margin : 20px;
-$user_logo_top_margin: 20px;
-$nav_width : 150px;
-$nav_a_padding: 10px;
-$icon_size : 25px;
-$logo_size : 60px;
-$menu_btn_size : 35px; 
-$nav_border_radius : 5px;
-
 /* home */
 $max_home_width: 1000px;
+
+$home_h1_font_size_sm: 20px;
+$home_h3_font_size_sm: 15px;
+$home_h4_font_size_sm: 12px;
+
+$home_welcome_font_size_lg: 50px;
+$home_h1_font_size_lg: 35px;

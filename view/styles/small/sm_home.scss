@@ -24,16 +24,16 @@
     }
     h3 {
         margin : 0;
-        font-size : 15px;
+        font-size : $home_h3_font_size_sm;
         font-weight: lighter;
         text-align: center;
     }
     h1 {
         margin : 10px 0;
-        font-size: 20px;
+        font-size: $home_h1_font_size_sm;
         text-align: center;
         span {
-            color: #FFC107;
+            color: $acent_color;
         }
     }
 }
@@ -46,7 +46,7 @@
     div {
         @include flex_column_center;
         h4 {
-            font-size : 12px;
+            font-size : $home_h4_font_size_sm;
             font-weight: lighter;
             margin: 0;
             margin-top: 1em;

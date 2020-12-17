@@ -2,13 +2,13 @@
     text-decoration: none;
     color: $text_color;
     transition: color 0.5s;
-    padding: $nav_a_padding;
+    padding: 10px;
     &:hover {
         color: $text_color_hover;
         background-color: $nav_color_hover;
     }
     img {
-        width: $icon_size;
+        width: 25px;
     }
 }
 
@@ -16,17 +16,17 @@
     display: flex;
     flex-direction: row;
 
-    padding: $logo_padding;
+    padding: 5px;
 
     img {
-        width: $logo_size;
+        width: 60px;
     }
 }
 
 @mixin links {
     display: flex;
     flex-direction: column;
-    margin-top: $links_top_margin;
+    margin-top: 20px;
     a {
         @include nav-a-element;
     }
