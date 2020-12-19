@@ -23,31 +23,31 @@
 
         <hr class="separator">
 
-        <!-- if not logged -->
-        <button id="sign-in">Sign in</button>
-        <button id="sign-up">Sign up</button>
-        <!-- else -->
-        <a href="#">
-            <img src="view/images/floppy-disk.svg" alt="Save"/>
-            Saves
-        </a>
-        <a href="#">
-            <img src="view/images/add.svg" alt="Add"/>
-            Add
-        </a>
-        <a href="#">
-            <img src="view/images/recipe-book.svg" alt="User recipes"/>
-            Your recipes
-        </a>
-        <a href="#">
-            <img src="view/images/settings.svg" alt="Settings"/>
-            Settings
-        </a>
-        <a href="#">
-            <img src="view/images/arrow.svg" alt="Logout"/>
-            Logout
-        </a>
-        <!--  -->
+        <?php if(!isset($_SESSION['logged'])) : ?>
+            <button id="sign-in">Sign in</button>
+            <button id="sign-up">Sign up</button>
+        <?php else : ?>
+            <a href="#">
+                <img src="view/images/floppy-disk.svg" alt="Save"/>
+                Saves
+            </a>
+            <a href="#">
+                <img src="view/images/add.svg" alt="Add"/>
+                Add
+            </a>
+            <a href="#">
+                <img src="view/images/recipe-book.svg" alt="User recipes"/>
+                Your recipes
+            </a>
+            <a href="#">
+                <img src="view/images/settings.svg" alt="Settings"/>
+                Settings
+            </a>
+            <a href="#">
+                <img src="view/images/arrow.svg" alt="Logout"/>
+                Logout
+            </a>
+        <?php endif; ?>
     </div>
-    <script type="text/javascript" src="view/script/nav.js?v=<?php echo time(); ?>"></script>
+    <script src="view/script/nav.js?v=<?php echo time(); ?>"></script>
 </nav>
