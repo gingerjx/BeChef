@@ -1,0 +1,45 @@
+@import "../values";
+@import "../common";
+
+#login {
+    @include login;
+    label {
+        font-size: $login_label_font_size_lg;
+    }
+    input[type="text"], input[type="password"] {
+        min-width: 200px;
+    }
+    input[type="submit"] {
+        font-size: $login_submit_font_size_lg;
+    }
+}
+
+#login-logo {
+    @include login_logo;
+    line-height: 200px;
+    h1 {
+        font-size: $login_logo_font_size_lg;
+        margin: 0;
+    }
+    img {
+        width: 200px;
+    }
+}
+
+.login-error {
+    color: $error_color;
+}
+
+#register-message {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin: 10px 5px;
+    p {
+        margin: 0 10px 0 0;
+    }
+    button {
+        min-height: 2em;
+    }
+}

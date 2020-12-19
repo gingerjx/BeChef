@@ -11,7 +11,7 @@
     <article id="home-newest">
         <div>
             <h1><span>New</span> recipes everyday</h1> 
-            <h3>No inspiration? Check recipes uploaded by other chefs and prepare amazing meals for you and your family</h3>
+            <h3>No inspiration? Check recipes uploaded by other chefs and prepare amazing meals for yourself and your family</h3>
         </div>
         <a href="#">
             <img src="view/images/new.svg" />
@@ -22,7 +22,7 @@
             <a href="#">
                 <img src="view/images/trending.svg" />
             </a> 
-            <h3>Easy access to the most popular recipes on our recipes. Be up to date with people tastes</h3>
+            <h3>Be up to date with people tastes with easy access to the most popular recipes on our website</h3>
         </div>
         <div>
             <a href="#">

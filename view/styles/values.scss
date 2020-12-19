@@ -1,27 +1,35 @@
 /* Landscape phones and down */
-$small_max : 480px;
+$small_max: 480px;
 /* Landscape phone to portrait tablet */
-$medium_portrait_max : 767px;
+$medium_portrait_max: 767px;
 /* Portrait tablet to landscape and desktop */
-$medium_landscape_min : 768px;
-$medium_landscape_max : 979px;
+$medium_landscape_min: 768px;
+$medium_landscape_max: 979px;
 /* Large desktop */
-$large_min : 1200px;
+$large_min: 1200px;
 
 /* colors */
-$text_color : #F6DDCC;
+$text_color: #F6DDCC;
 $text_color_hover:#FFFFFF; 
-$body_color : #4d4545;
-$nav_color : #393232;
-$nav_color_hover : $body_color; 
-$acent_color : #FFC107;
+$body_color: #4d4545;
+$nav_color: #393232;
+$nav_color_hover: $body_color; 
+$acent_color: #FFC107;
+$error_color: #CD6155;
 
 /* home */
 $max_home_width: 1000px;
-
 $home_h1_font_size_sm: 20px;
 $home_h3_font_size_sm: 15px;
 $home_h4_font_size_sm: 12px;
-
 $home_welcome_font_size_lg: 50px;
 $home_h1_font_size_lg: 35px;
+
+/* login */
+$login_label_font_size_lg: 25px;
+$login_submit_font_size_lg: 15px;
+$login_logo_font_size_lg: 70px;
+
+$login_label_font_size_sm: 15px;
+$login_submit_font_size_sm: 12px;
+$login_logo_font_size_sm: 30px;

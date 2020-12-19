@@ -1,0 +1,127 @@
+/* Landscape phones and down */
+/* Landscape phone to portrait tablet */
+/* Portrait tablet to landscape and desktop */
+/* Large desktop */
+/* colors */
+/* home */
+/* login */
+#login {
+  background-color: #393232;
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+#login form {
+  padding: 0;
+}
+
+#login form input {
+  margin-bottom: 20px;
+}
+
+#login form input[type="text"], #login form input[type="password"] {
+  border-radius: 5px;
+  min-height: 25px;
+}
+
+#login form input[type="text"]:focus, #login form input[type="password"]:focus {
+  outline-color: #FFC107;
+  outline-width: 1px;
+}
+
+#login button, #login input[type="submit"] {
+  background-color: #F6DDCC;
+  border-radius: 5px;
+  color: #393232;
+  font-family: fredoka-one-regular;
+}
+
+#login button:hover, #login input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#login button:focus, #login input[type="submit"]:focus {
+  outline: none;
+}
+
+#login input[type="submit"] {
+  min-height: 3em;
+  background-color: #FFC107;
+}
+
+#login label {
+  font-size: 15px;
+}
+
+#login input[type="submit"] {
+  font-size: 12px;
+}
+
+#login-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+  line-height: 75px;
+}
+
+#login-logo h1 {
+  margin: 0;
+}
+
+#login-logo h1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+#login-logo img {
+  width: 75px;
+}
+
+.login-error {
+  color: #CD6155;
+}
+
+#register-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px 5px;
+}
+
+#register-message p {
+  margin: 0 0 10px 0;
+}
+
+#register-message button {
+  min-height: 2em;
+}
+/*# sourceMappingURL=sm_login.css.map */

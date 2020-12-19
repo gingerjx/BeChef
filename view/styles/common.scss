@@ -46,7 +46,7 @@
         align-self: center;
         &:hover{
             cursor: pointer;
-            background-color: $text_color_hover;
+            opacity: 0.9;
         }
         &:focus {
             outline: none;
@@ -54,3 +54,54 @@
     }
 }
 
+@mixin login {
+    background-color: $nav_color;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    form {
+        padding: 0;
+        input {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            border-radius: 5px;
+            min-height: 25px;
+            &:focus {
+                outline-color: $acent_color;
+                outline-width: 1px;
+            }
+        }
+    }
+    button, input[type="submit"] {
+        background-color: $text_color;
+        border-radius: 5px;
+        color: $nav_color;
+        font-family: fredoka-one-regular;
+        &:hover{
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    input[type="submit"] {
+        min-height: 3em;
+        background-color: $acent_color;
+    }
+}
+
+@mixin login_logo {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    h1 {
+        margin: 0;
+    } 
+}
