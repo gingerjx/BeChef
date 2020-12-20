@@ -43,7 +43,7 @@
                 <img src="view/images/settings.svg" alt="Settings"/>
                 Settings
             </a>
-            <a href="#">
+            <a href="service/logout.php">
                 <img src="view/images/arrow.svg" alt="Logout"/>
                 Logout
             </a>

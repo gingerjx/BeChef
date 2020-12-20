@@ -3,7 +3,6 @@
     require_once "../models/user.php";
     require_once "../database/connectDB.php";
     require_once "../database/usersDB.php";
-    require_once "../models/user.php";
 
     $username = htmlentities($_POST['username'], ENT_QUOTES, "UTF-8");
     $password = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
@@ -27,10 +26,10 @@
         $_SESSION['logged'] = true;
         $_SESSION['user'] = serialize($user);
         
-        header('Location: ../view/newestView.php');
+        header('Location: ../index.php');
         exit();
     } else {
-        header('Location: ../view/loginView.php');
+        header('Location: ../login.php');
         exit();
     }
 ?>
