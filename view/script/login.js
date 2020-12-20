@@ -34,3 +34,7 @@ $(() => {
         }) 
     });
 });
+
+$("#register-button").click(() => {
+    location.href = "register.php";
+});

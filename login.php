@@ -28,7 +28,7 @@
 
         <div id="register-message">
             <p>Not register yet? Join us!</p>
-            <button>Register</button>
+            <button id="register-button">Register</button>
         </div>
     </div>
     <script src="view/script/login.js?v=<?php echo time(); ?>"></script>

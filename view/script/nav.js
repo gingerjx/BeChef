@@ -22,11 +22,9 @@ window.onresize = function(event) {
 };
 
 $("#sign-in").click(() => {
-    console.log("clicked");
     location.href = "login.php";
 });
 
 $("#sign-up").click(() => {
-    console.log("clicked");
-    location.href = "#"; //TODO
+    location.href = "register.php";
 });
