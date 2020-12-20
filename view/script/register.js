@@ -21,9 +21,24 @@ $(() => {
         });
 
         request.done((data) => {
-            if (data == "success")
+            let ret = JSON.parse(data);
+            $("#username-error").html('');
+            $("#username").css("border", "2px grey solid");
+            $("#email-error").html('');
+            $("#email").css("border", "2px grey solid");
+
+            if (ret[0] == true || ret[1] == true) {
+                if (ret[0] == true) {
+                    $("#username-error").html("Username already exists");
+                    $("#username").css("border", "2px #CD6155 solid");
+                }
+                if (ret[1] == true) {
+                    $("#email-error").html("Email already exists");
+                    $("#email").css("border", "2px #CD6155 solid");
+                }
+            }
+            else
                 window.location = "../../index.php";
-            // else TODO
         })
 
         request.fail(() => {
@@ -43,15 +58,15 @@ function validAndPrintErrors(fullname, username, email, password, pass_repeat) {
     var emailReg = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     
     $("#fullname-error").html('');
-    $("#fullname").css("border", "none");
+    $("#fullname").css("border", "2px grey solid");
     $("#username-error").html('');
-    $("#username").css("border", "none");
+    $("#username").css("border", "2px grey solid");
     $("#email-error").html('');
-    $("#email").css("border", "none");
+    $("#email").css("border", "2px grey solid");
     $("#password-error").html('');
-    $("#password").css("border", "none");
+    $("#password").css("border", "2px grey solid");
     $("#pass-repeat-error").html('');
-    $("#pass-repeat").css("border", "none");
+    $("#pass-repeat").css("border", "2px grey solid");
 
     if (fullname.length < 5 || fullname.lenght > 100 || !fullname.match(lettersSpace)) {
         valid = false;
