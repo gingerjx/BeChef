@@ -1,0 +1,39 @@
+@import "../values";
+@import "../common";
+
+#register {
+    @include login;
+    label {
+        font-size: $login_label_font_size_lg;
+    }
+    form {
+        width: 80%;
+    }
+    input[type="text"], input[type="password"] {
+        margin: 0;
+        width: 100%;
+    }
+    input[type="submit"] {
+        align-self: center;
+        padding: 0;
+        width: 100%;
+        font-size: $login_submit_font_size_lg;
+    }
+}
+
+#register-logo {
+    @include login_logo;
+    line-height: 200px;
+    h1 {
+        font-size: $login_logo_font_size_lg;
+        margin: 0;
+    }
+    img {
+        width: 200px;
+    }
+}
+
+.input-error {
+    color: $error_color;
+    margin-bottom: 30px;
+}

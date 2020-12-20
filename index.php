@@ -1,9 +1,5 @@
 <?php
   session_start();
-
-  // $user = null;
-  // if (isset($_SESSION['logged']))
-  //   $user = unserialize($_SESSION['user']);
 ?>
 
 <!DOCTYPE html>

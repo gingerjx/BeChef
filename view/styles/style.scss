@@ -27,6 +27,7 @@ body {
     @import "large/lg_nav.scss";
     @import "large/lg_home.scss";
     @import "large/lg_login.scss";
+    @import "large/lg_register.scss";
 }
 @media screen and (max-width: $small_max) {
     body {
@@ -35,4 +36,5 @@ body {
     @import "small/sm_nav.scss";
     @import "small/sm_home.scss";
     @import "small/sm_login.scss";
+    @import "small/sm_register.scss";
 }

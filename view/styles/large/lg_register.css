@@ -1,0 +1,127 @@
+/* Landscape phones and down */
+/* Landscape phone to portrait tablet */
+/* Portrait tablet to landscape and desktop */
+/* Large desktop */
+/* colors */
+/* home */
+/* login */
+#register {
+  background-color: #393232;
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+#register form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  padding: 0;
+  padding: 0;
+}
+
+#register form input {
+  margin-bottom: 20px;
+}
+
+#register form input[type="text"], #register form input[type="password"] {
+  border-radius: 5px;
+  min-height: 25px;
+}
+
+#register form input[type="text"]:focus, #register form input[type="password"]:focus {
+  outline-color: #FFC107;
+  outline-width: 1px;
+}
+
+#register button, #register input[type="submit"] {
+  background-color: #F6DDCC;
+  border-radius: 5px;
+  color: #393232;
+  font-family: fredoka-one-regular;
+}
+
+#register button:hover, #register input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#register button:focus, #register input[type="submit"]:focus {
+  outline: none;
+}
+
+#register input[type="submit"] {
+  min-height: 3em;
+  background-color: #FFC107;
+}
+
+#register label {
+  font-size: 25px;
+}
+
+#register form {
+  width: 80%;
+}
+
+#register input[type="text"], #register input[type="password"] {
+  margin: 0;
+  width: 100%;
+}
+
+#register input[type="submit"] {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0;
+  width: 100%;
+  font-size: 15px;
+}
+
+#register-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+  line-height: 200px;
+}
+
+#register-logo h1 {
+  margin: 0;
+}
+
+#register-logo h1 {
+  font-size: 70px;
+  margin: 0;
+}
+
+#register-logo img {
+  width: 200px;
+}
+
+.input-error {
+  color: #CD6155;
+  margin-bottom: 30px;
+}
+/*# sourceMappingURL=lg_register.css.map */
