@@ -1,0 +1,7 @@
+@import "../values";
+@import "../common";
+
+#recipe-cards {
+    @include recipe_cards;
+    margin: 1em 50px 1em 150px;
+}

@@ -13,7 +13,7 @@
             <h1><span>New</span> recipes everyday</h1> 
             <h3>No inspiration? Check recipes uploaded by other chefs and prepare amazing meals for yourself and your family</h3>
         </div>
-        <a href="#">
+        <a href="newest.php">
             <img src="view/images/new.svg" alt="new icon"/>
         </a>
     </article>

@@ -8,7 +8,7 @@
     </div>
 
     <div id="links">
-        <a href="#">
+        <a href="newest.php">
             <img src="view/images/new.svg" alt="The newest"/>
             The Newest
         </a>

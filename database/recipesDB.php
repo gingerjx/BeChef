@@ -1,7 +1,7 @@
 <?php
     function fetchRecipe($record) {
         require "connectDB.php";
-        require_once "../models/recipe.php";
+        require_once "models/recipe.php";
 
         $recipe_id = $record['recipeID'];
         $author_id = $record['authorID'];
