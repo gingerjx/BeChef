@@ -5,6 +5,7 @@
 /* colors */
 /* home */
 /* login */
+/* card */
 @font-face {
   font-family: fredoka-one-regular;
   src: url("../fonts/FredokaOne-Regular.ttf");
@@ -40,6 +41,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #show-nav {
     display: none;
   }
@@ -127,6 +129,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #home {
     max-width: 1000px;
     display: -webkit-box;
@@ -271,6 +274,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #login {
     background-color: #393232;
     border-radius: 10px;
@@ -391,6 +395,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #register {
     background-color: #393232;
     border-radius: 10px;
@@ -500,6 +505,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #recipe-cards {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -592,6 +598,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #web-logo {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -687,6 +694,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #home {
     max-width: 100%;
     display: -webkit-box;
@@ -834,6 +842,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #login {
     background-color: #393232;
     border-radius: 10px;
@@ -951,6 +960,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #register {
     background-color: #393232;
     border-radius: 10px;
@@ -1060,6 +1070,7 @@ body {
   /* colors */
   /* home */
   /* login */
+  /* card */
   #recipe-cards {
     display: -webkit-box;
     display: -ms-flexbox;

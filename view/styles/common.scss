@@ -120,13 +120,13 @@
         flex-direction: column;
         align-items: center;
         padding: 1em;
-        height: 380px;
-        width: 320px;
+        height: $card_height;
+        width: $card_width;
         color: $text_color;
         text-decoration: none;
         .image-cropper {
-            width: 250px;
-            height: 250px;
+            width: $card_img_width;
+            height: $card_img_height;
             position: relative;
             overflow: hidden;
             border-radius: 50%;
@@ -144,18 +144,18 @@
             flex-direction: row;
             margin: 10px 0;
             img {
-                width: 35px;
+                width: $card_icons_width;
             }
             > div {
                 margin: 0 15px;
                 b {
-                    font-size: 20px;
+                    font-size: $card_icons_font_size;
                 }
             }
         }
         h2 {
             margin: 0;
-            font-size: 25px;
+            font-size: $card_title_font_size;
             font-weight: lighter;
             text-align: center;
         }
