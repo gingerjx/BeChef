@@ -12,7 +12,7 @@
             <img src="view/images/new.svg" alt="The newest"/>
             The Newest
         </a>
-        <a href="#">
+        <a href="popular.php">
             <img src="view/images/trending.svg" alt="Popular"/>
             Popular
         </a>

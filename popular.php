@@ -7,7 +7,7 @@
   require_once "models/user.php";
   require_once "models/recipe.php";
 
-  $recipes = getTheNewestRecipes();
+  $recipes = getPopularRecipes();
 
   $user = null;
   if (isset($_SESSION['logged']))

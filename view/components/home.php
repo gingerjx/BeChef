@@ -19,7 +19,7 @@
     </article>
     <article id="home-description">
         <div>
-            <a href="#">
+            <a href="popular.php">
                 <img src="view/images/trending.svg" alt="trending icon"/>
             </a> 
             <h3>Be up to date with people tastes with easy access to the most popular recipes on our website</h3>
