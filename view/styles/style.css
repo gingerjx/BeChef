@@ -543,7 +543,7 @@ body {
     height: 250px;
     position: relative;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 10px;
     -webkit-box-shadow: 10px 5px 5px black;
             box-shadow: 10px 5px 5px black;
   }
@@ -1326,7 +1326,7 @@ body {
     height: 250px;
     position: relative;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 10px;
     -webkit-box-shadow: 10px 5px 5px black;
             box-shadow: 10px 5px 5px black;
   }
