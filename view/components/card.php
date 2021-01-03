@@ -1,4 +1,4 @@
-<a class="card" href="<?= 'recipeView.php?recipeID='.$rec->getRecipeID() ?>">
+<a class="card" href="<?= 'recipe.php?recipeID='.$rec->getRecipeID() ?>">
     <div class="image-cropper">
         <img src="<?= 'view/images/recipes/'.$rec->getImagePath() ?>" alt="Recipe image" /> <!-- Recipes image -->
     </div>

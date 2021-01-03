@@ -1,0 +1,162 @@
+@import "../values";
+@import "../common";
+
+#recipe {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 1em 10% 1em 15%;
+}
+
+#general-info {
+    display: flex;
+    flex-direction: row;
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        margin: 0 1em;
+        > h1 {
+            text-align: center;
+        }
+        > span {
+            align-self: flex-start;
+            > img {
+                width: 1em;
+            }
+        }
+    }
+    > img {
+        width: 50%;
+        border-radius: 20px;
+    }
+}
+
+#recipe-ratings{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    margin-top: auto;
+    > div {
+        margin: 0 1em;
+    }
+    img {
+        width: 2em;
+    }
+    button {
+        border: none;
+        background: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+#recipe-properties {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    margin: 2em 0;
+    width: 100%;
+    background-color: $nav_color;
+    border-radius: 10px;
+    .property {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        > img {
+            width: 6em;
+        }
+        > b {
+            margin: 1em 0;
+            font-size: 20px;
+        }
+        > p {
+            margin: 0;
+            font-size: 15px;
+        }
+    }
+}
+
+#ingredients-recipes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    > h2 {
+        text-align: center;
+    }
+    li {
+        font-size: 18px;
+    }
+}
+
+#recipe-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1em 0;
+    > p {
+        padding: 10px;
+        margin: 10px;
+        background-color: $nav_color;
+        border-radius: 5px;
+    }
+}
+
+.comment-title {
+    > b {
+        color: $acent_color;
+    }
+    > span {
+        margin-left: 1em;
+        font-size: 12px;
+    }
+}
+
+.comment-content {
+    display: flex;
+    flex-wrap: wrap;
+    word-break: normal;
+    overflow: hidden;
+    margin-bottom: 3em;
+}
+
+#recipe-comments {
+    display: flex;
+    flex-direction: column;
+    background-color: $nav_color;
+    border-radius: 10px;
+    padding: 1em;
+    color: $text_color;
+    > button {
+        min-width: 10em;
+        min-height: 3em;
+        margin: 1em 0;
+        background-color: $acent_color;
+        border-radius: 5px;
+        color: $nav_color;
+        font-family: fredoka-one-regular;
+        align-self: flex-end;
+        &:hover{
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    > textarea {
+        max-width: 100%;
+        min-height: 4em;
+        border-radius: 5px;
+        background-color: $text_color;
+        color: $nav_color;
+        font-family: fredoka-one-regular;
+        &:focus {
+            outline: none;
+        }
+    }
+}
