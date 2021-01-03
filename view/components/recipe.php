@@ -109,7 +109,7 @@
         <p class="comment-content"><?= $com->getContent() ?></p>
       <?php endforeach ?>
       
-      <h3>Add comment</h3>
+      <h3 id="add-comment-title">Add comment</h3>
       <?php if($user != null) : ?>
         <textarea id="add-comment-content" placeholder="Add comment"></textarea>
         <button id="add-comment">Comment</button>
@@ -118,4 +118,5 @@
         <button id="add-comment">Sign in</button>
       <?php endif; ?>
     </div>
+    <script src="view/script/recipe.js?v=<?php echo time(); ?>"></script>
   </main>
