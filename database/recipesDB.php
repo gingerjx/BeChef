@@ -1,7 +1,7 @@
 <?php
     function fetchRecipe($record) {
-        require "connectDB.php";
-        require_once "models/recipe.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/models/recipe.php");
 
         $recipe_id = $record['recipeID'];
         $author_id = $record['authorID'];
@@ -37,7 +37,7 @@
                 $tags[] = $record['name'];
             }
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
 
@@ -51,7 +51,7 @@
     }
 
     function getDescOrAscQuery($order, $desc, $asc) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             switch ($order) {
@@ -63,7 +63,7 @@
                     return null;
             }
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
@@ -78,8 +78,7 @@
     }
 
     function getUserRecipes($user_id) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_user_recipes);
@@ -88,13 +87,13 @@
 
             return getRecipesArray($query);
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function getUserRecipesInOrder($user_id, $column, $order) {
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         $query = null;
         
@@ -151,8 +150,8 @@
     }
 
     function getAllRecipes() {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_all_recipes);  
@@ -160,13 +159,13 @@
 
             return getRecipesArray($query);
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
     
     function getAllRecipesInOrder($column, $order) {
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         $query = null;
         
@@ -222,8 +221,8 @@
     }
 
     function getTheNewestRecipes() {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_all_recipes_by_add_date_desc);  
@@ -231,14 +230,14 @@
 
             return getRecipesArray($query);
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function getPopularRecipes() {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_all_recipes_by_likes_desc);  
@@ -246,14 +245,14 @@
 
             return getRecipesArray($query);
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function getSavedRecipes($user_id) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_user_saved_recipes);  
@@ -262,14 +261,14 @@
 
             return getRecipesArray($query);
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function getRecipeByID($recipe_id) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_recipe_by_id);
@@ -282,15 +281,15 @@
             } else
                 return null;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function getRecipeComments($recipe_id) {
-        require "connectDB.php";
-        require "sqlQueries.php";
-        require_once "models/comment.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/models/comment.php");
 
         try {
             $query = $connection->prepare($select_comments_by_recipe_id);
@@ -318,7 +317,7 @@
 
             return $comments;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }

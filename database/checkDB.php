@@ -1,6 +1,6 @@
 <?php
     function userReactedOnIt($select_query, $recipeID, $userID) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
         
         try {
             $query = $connection->prepare($select_query);
@@ -9,18 +9,18 @@
             $query->execute();
             return $query->rowCount() > 0 ? true : false;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function isLikedByUser($recipeID, $userID) {
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
         return userReactedOnIt($is_liked_by_user, $recipeID, $userID);
     }
 
     function isSavedByUser($recipeID, $userID) {
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
         return userReactedOnIt($is_saved_by_user, $recipeID, $userID);
     }
 ?>

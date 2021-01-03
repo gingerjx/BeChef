@@ -1,7 +1,7 @@
 <?php
 
     function insertComment($recipeID, $userID, $content) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $query = $connection->prepare('INSERT INTO Comments VALUES (NULL, :recipeID, :userID, now(), :content)');
@@ -10,13 +10,13 @@
             $query->bindValue(":content", $content, PDO::PARAM_STR);
             $query->execute();
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function insertUser($user, $password) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -27,13 +27,13 @@
             $query->bindValue(":pass", $hashed_password, PDO::PARAM_STR);
             $query->execute();
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function insertRecipe($recipe) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $recipe->setAddDate(new DateTime());
@@ -68,13 +68,13 @@
             $recipe->setRecipeID($connection->lastInsertId());
             insertTags($recipe->getTags(), $recipe->getRecipeID());
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function insertTags($tags, $recipeID) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             foreach ($tags as $tag) {
@@ -85,13 +85,13 @@
                 $query->execute();
             }
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function likeRecipe($recipe_id, $user_id) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $query = $connection->prepare('INSERT INTO Likes VALUES (NULL, :recipeID, :userID)');
@@ -100,13 +100,13 @@
 
             $query->execute();
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function saveRecipe($recipe_id, $user_id) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $query = $connection->prepare('INSERT INTO Saves VALUES (NULL, :recipeID, :userID)');
@@ -115,13 +115,13 @@
 
             $query->execute();
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function dislikeRecipe($recipe_id, $user_id) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $query = $connection->prepare('DELETE FROM Likes WHERE recipeID=:recipeID AND userID=:userID');
@@ -130,13 +130,13 @@
 
             $query->execute();
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function unsaveRecipe($recipe_id, $user_id) {
-        require "connectDB.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $query = $connection->prepare('DELETE FROM Saves WHERE recipeID=:recipeID AND userID=:userID');
@@ -145,7 +145,7 @@
 
             $query->execute();
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }

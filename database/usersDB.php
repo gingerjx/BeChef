@@ -1,6 +1,6 @@
 <?php
     function fetchUser($record) {
-        require_once "models/user.php";
+        require_once($_SERVER['DOCUMENT_ROOT']."/models/user.php");
 
         $id = $record['id'];
         $fullname = $record['fullname'];
@@ -21,8 +21,8 @@
     }
 
     function getUserByUsername($username) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_user_by_username);
@@ -35,14 +35,14 @@
             } else
                 return null;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function getUserByID($id) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_user_by_id);
@@ -55,14 +55,14 @@
             } else
                 return null;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function isInDatabaseUsername($username) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_user_by_username);
@@ -71,14 +71,14 @@
 
             return $query->rowCount() > 0 ? true : false;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
 
     function isInDatabaseEmail($email) {
-        require "connectDB.php";
-        require "sqlQueries.php";
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
 
         try {
             $query = $connection->prepare($select_user_by_email);
@@ -87,7 +87,7 @@
 
             return $query->rowCount() > 0 ? true : false;
         } catch (PDOException $e) {
-            header("Location: ../view/errorView.php");
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."error.php");
             exit();
         }
     }
