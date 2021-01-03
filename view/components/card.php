@@ -12,7 +12,7 @@
         <b> <?= getNumberOfRecipeLikes($rec->getRecipeID()) ?> </b>
     </div>
     <div class="img-number">
-        <?php if ($user != null && isLikedByUser($rec->getRecipeID(), $user->getID())): ?>
+        <?php if ($user != null && isSavedByUser($rec->getRecipeID(), $user->getID())): ?>
             <img src="view/images/disk-yellow.svg" alt="Yellow heart"/>
         <?php else: ?>
             <img src="view/images/disk.svg" alt="White disk"/>
