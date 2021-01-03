@@ -14,30 +14,30 @@
         </span>
         <div id="recipe-ratings">
           <div>
-            <button>
+            <button id="like-button">
               <?php if ($user != null && isLikedByUser($recipeID, $user->getID())): ?>
-                <img src="view/images/heart-red.svg" alt="Red heart icon"/>
+                <img id="like-icon" src="view/images/heart-red.svg" alt="Red heart icon"/>
               <?php else: ?>
-                <img src="view/images/heart.svg" alt="Heart icon"/>
+                <img id="like-icon" src="view/images/heart.svg" alt="Heart icon"/>
               <?php endif; ?>
             </button>
-            <b><?= getNumberOfRecipeLikes($rec->getRecipeID()) ?></b>
+            <b id="like-number"><?= getNumberOfRecipeLikes($rec->getRecipeID()) ?></b>
           </div>
           <div>
-            <button>
+            <button id="save-button">
               <?php if ($user != null && isSavedByUser($recipeID, $user->getID())): ?>
-                <img src="view/images/disk-yellow.svg" alt="Yellow disk icon"/>
+                <img id="save-icon" src="view/images/disk-yellow.svg" alt="Yellow disk icon"/>
               <?php else: ?>
-                <img src="view/images/disk.svg" alt="Dsik icon"/>
+                <img id="save-icon" src="view/images/disk.svg" alt="Disk icon"/>
               <?php endif; ?>
             </button>
-            <b><?= getNumberOfRecipeSaves($rec->getRecipeID()) ?></b>
+            <b id="save-number"><?= getNumberOfRecipeSaves($rec->getRecipeID()) ?></b>
           </div>
           <div>
-            <button>
+            <button id="comment-button">
               <img src="view/images/comment.svg" alt="Comment icon"/>
             </button>
-            <b><?= getNumberOfRecipeComments($rec->getRecipeID()) ?></b>
+            <b id="comments-number"><?= getNumberOfRecipeComments($rec->getRecipeID()) ?></b>
           </div>
         </div>
       </div>

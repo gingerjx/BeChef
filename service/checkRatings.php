@@ -17,18 +17,27 @@
     $user = unserialize($_SESSION['user']);
     $user_id = $user->getID();
 
-    if (isset($_POST['like'])) {
-        if (isLikedByUser($recipe_id, $user_id)) 
-            dislikeRecipe($recipe_id, $user_id);
-        else
-            likeRecipe($recipe_id, $user_id);
-    } else if (isset($_POST['save'])) {
-        if (isSavedByUser($recipe_id, $user_id))
-            unsaveRecipe($recipe_id, $user_id);
-        else
-            saveRecipe($recipe_id, $user_id);
+    if (isset($_POST['action'])) {
+        if ($_POST['action'] == 'like') {
+            if (isLikedByUser($recipe_id, $user_id)) {
+                dislikeRecipe($recipe_id, $user_id);
+                echo 'unliked';
+            }
+            else {
+                likeRecipe($recipe_id, $user_id);
+                echo 'liked';
+            }
+        } else if ($_POST['action'] == 'save') {
+            if (isSavedByUser($recipe_id, $user_id)) {
+                unsaveRecipe($recipe_id, $user_id);
+                echo 'unsaved';
+            }
+            else {
+                saveRecipe($recipe_id, $user_id);
+                echo 'saved';
+            }
+        }
     }
 
-    header('Location: '.$_SERVER['HTTP_REFERER']);
     exit();
 ?>
