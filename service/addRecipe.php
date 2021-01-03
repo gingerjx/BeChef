@@ -1,10 +1,10 @@
 <?php
     session_start();
 
-    require_once "catchAddRecipeFormErrors.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/database/insertDB.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/models/recipe.php";
+    require_once("catchAddRecipeFormErrors.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/database/insertDB.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/models/user.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/models/recipe.php");
 
     $valid = true;
 

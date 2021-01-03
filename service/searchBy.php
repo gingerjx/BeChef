@@ -1,9 +1,9 @@
 <?php
     session_start();
 
-    require_once $_SERVER['DOCUMENT_ROOT']."/database/connectDB.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/database/recipesDB.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
+    require_once($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/database/recipesDB.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/models/user.php");
 
     $author = null;
     if (basename($_SERVER['HTTP_REFERER']) == 'userRecipes.php') {

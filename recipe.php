@@ -5,7 +5,6 @@
         exit();
     }
 
-    require_once "service/utils.php";
     require_once "database/recipesDB.php";
     require_once "database/checkDB.php";
     require_once "database/numbersDB.php";

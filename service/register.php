@@ -1,10 +1,10 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
-        require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
-        require_once $_SERVER['DOCUMENT_ROOT']."/database/connectDB.php";
-        require_once $_SERVER['DOCUMENT_ROOT']."/database/insertDB.php";
-        require_once $_SERVER['DOCUMENT_ROOT']."/database/usersDB.php";
+        require_once($_SERVER['DOCUMENT_ROOT']."/models/user.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/database/insertDB.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/database/usersDB.php");
 
         $fullname = htmlentities($_POST['fullname'], ENT_QUOTES, "UTF-8");
         $username = htmlentities($_POST['username'], ENT_QUOTES, "UTF-8");

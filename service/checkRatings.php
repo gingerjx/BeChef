@@ -6,10 +6,10 @@
         exit();
     }
 
-    require_once $_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/database/insertDB.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/database/checkDB.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
+    require_once($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/database/insertDB.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/database/checkDB.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/models/user.php");
 
     $url_components = parse_url($_SERVER['HTTP_REFERER']); 
     parse_str($url_components['query'], $params); 
