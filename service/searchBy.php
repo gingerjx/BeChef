@@ -1,12 +1,12 @@
 <?php
     session_start();
 
-    require_once "../database/connectDB.php";
-    require_once "../database/recipesDB.php";
-    require_once "../models/user.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/connectDB.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/recipesDB.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
 
     $author = null;
-    if (basename($_SERVER['HTTP_REFERER']) == 'userRecipesView.php') {
+    if (basename($_SERVER['HTTP_REFERER']) == 'userRecipes.php') {
         if (isset($_SESSION['logged'])) {
             $user = unserialize($_SESSION['user']);
             $author = $user->getUsername();

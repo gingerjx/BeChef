@@ -2,9 +2,9 @@
     session_start();
 
     require_once "catchAddRecipeFormErrors.php";
-    require_once "../database/insertDB.php";
-    require_once "../models/user.php";
-    require_once "../models/recipe.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/insertDB.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/models/recipe.php";
 
     $valid = true;
 
@@ -94,7 +94,7 @@
         catchAddRecipeFormErrors($recipe);
 
     if (!$valid) {
-        header("Location: ../view/addRecipeView.php");
+        header("Location: ".$_SERVER['DOCUMENT_ROOT']."/addRecipe.php");
         exit();
     }
 
@@ -116,5 +116,5 @@
     unset($_SESSION['people_number']);
     unset($_SESSION['kcal_per_person']);
 
-    header("Location: ../view/userRecipesView.php");
+    header("Location: ".$_SERVER['DOCUMENT_ROOT']."view/userRecipes.php");
 ?>  

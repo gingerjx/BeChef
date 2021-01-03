@@ -2,14 +2,14 @@
     session_start();
 
     if (!isset($_SESSION['logged'])) {
-        header('Location: ../view/loginView.php');
+        header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/login.php');
         exit();
     }
 
-    require_once "../database/sqlQueries.php";
-    require_once "../database/insertDB.php";
-    require_once "../database/checkDB.php";
-    require_once "../models/user.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/insertDB.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/checkDB.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
 
     $url_components = parse_url($_SERVER['HTTP_REFERER']); 
     parse_str($url_components['query'], $params); 
