@@ -74,11 +74,11 @@
         }
         > b {
             margin: 1em 0;
-            font-size: 20px;
+            font-size: $recipe_property_value_font_size;
         }
         > p {
             margin: 0;
-            font-size: 15px;
+            font-size: $recipe_property_description_font_size;
         }
     }
 }
@@ -91,7 +91,7 @@
         text-align: center;
     }
     li {
-        font-size: 18px;
+        font-size: $recipe_ingredients_font_size;
     }
 }
 
@@ -114,7 +114,7 @@
     }
     > span {
         margin-left: 1em;
-        font-size: 12px;
+        font-size: $recipe_comment_title_font_size;
     }
 }
 
