@@ -290,7 +290,7 @@
     function getRecipeComments($recipe_id) {
         require "connectDB.php";
         require "sqlQueries.php";
-        require_once "../models/comment.php";
+        require_once "models/comment.php";
 
         try {
             $query = $connection->prepare($select_comments_by_recipe_id);

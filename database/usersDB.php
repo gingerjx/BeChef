@@ -1,6 +1,6 @@
 <?php
     function fetchUser($record) {
-        require_once "../models/user.php";
+        require_once "models/user.php";
 
         $id = $record['id'];
         $fullname = $record['fullname'];
