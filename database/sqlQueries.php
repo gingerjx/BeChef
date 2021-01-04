@@ -216,6 +216,12 @@
                                             FROM Comments 
                                             WHERE recipeID=:recipeID';
 
+    $select_recipes_number =                'SELECT COUNT(*) 
+                                            FROM Recipes';
+
+    $select_users_number =                'SELECT COUNT(*) 
+                                            FROM Users';
+
 /* ---------------------------------------CHECK---------------------------------------------------- */
 
     $is_liked_by_user =                     'SELECT * 

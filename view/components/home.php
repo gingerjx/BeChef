@@ -4,8 +4,8 @@
         <div>
             <h1>Welcome at BeChef</h1> 
             <h3>Discover all the flavors of the world and share your own!</h3>
-            <h4>More than <span>100 000</span> of recipes available at one place</h4> <!-- TODO -->
-            <h4>Around <span>2000</span> active users</h4> <!-- TODO -->
+            <h4>More than <span><?= getNumberOfRecipes()?></span> of recipes available at one place</h4>
+            <h4>Around <span><?= getNumberOfUsers()?></span> active users</h4> 
         </div>
     </article>
     <article id="home-newest">

@@ -28,4 +28,22 @@
         require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
         return getNumberOf($select_recipe_comments_number, $recipeID);
     }
+
+    function getNumberOfRecipes() {
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
+
+        $query = $connection->prepare($select_recipes_number);
+        $query->execute();
+        return $query->fetch()[0];
+    }
+
+    function getNumberOfUsers() {
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
+
+        $query = $connection->prepare($select_users_number);
+        $query->execute();
+        return $query->fetch()[0];
+    }
 ?>

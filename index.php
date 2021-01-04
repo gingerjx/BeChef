@@ -1,5 +1,7 @@
 <?php
   session_start();
+
+  require_once("database/numbersDB.php");
 ?>
 
 <!DOCTYPE html>
