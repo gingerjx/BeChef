@@ -6,6 +6,7 @@
 /* home */
 /* login */
 /* card */
+/* recipe */
 @font-face {
   font-family: fredoka-one-regular;
   src: url("../fonts/FredokaOne-Regular.ttf");
@@ -42,6 +43,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #show-nav {
     display: none;
   }
@@ -130,6 +132,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #home {
     max-width: 1000px;
     display: -webkit-box;
@@ -275,6 +278,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #login {
     background-color: #393232;
     border-radius: 10px;
@@ -396,6 +400,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #register {
     background-color: #393232;
     border-radius: 10px;
@@ -506,6 +511,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #recipe-cards {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -590,6 +596,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #recipe {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -800,6 +807,174 @@ body {
   #recipe-comments > textarea:focus {
     outline: none;
   }
+  /* Landscape phones and down */
+  /* Landscape phone to portrait tablet */
+  /* Portrait tablet to landscape and desktop */
+  /* Large desktop */
+  /* colors */
+  /* home */
+  /* login */
+  /* card */
+  /* recipe */
+  #add-recipe {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    margin: 1em 10% 1em 15%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #add-recipe .add-recipe-component {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    min-width: 60em;
+    max-width: 70em;
+    margin: 10px 0;
+  }
+  #add-recipe .add-recipe-component > input[type="text"] {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 2em;
+  }
+  #add-recipe .add-recipe-component > input[type="text"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > textarea {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 5em;
+  }
+  #add-recipe .add-recipe-component > textarea:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > input[type="button"] {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    width: 3em;
+    margin-left: 1em;
+  }
+  #add-recipe .add-recipe-component > input[type="button"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > input[type="button"]:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  #add-recipe .add-recipe-component > input[type="button"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 1em;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"] {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    width: 10em;
+    height: 3em;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"]:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"]:focus {
+    outline: none;
+  }
+  #add-recipe .error {
+    color: #CD6155;
+    font-size: 15px;
+  }
+  #add-recipe .property {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 1em;
+  }
+  #add-recipe .property img {
+    width: 80px;
+  }
+  #add-recipe .property input {
+    width: 5em;
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+  }
+  #add-recipe .property input:focus {
+    outline: none;
+  }
+  #add-recipe .property input[type="checkbox"] {
+    margin: 18px 0;
+  }
+  #add-recipe .property input[type="checkbox"]:hover {
+    cursor: pointer;
+  }
+  #add-recipe .property label {
+    font-size: 12px;
+  }
+  #add-recipe .property .error {
+    color: #CD6155;
+    font-size: 10px;
+  }
+  #add-recipe-properties {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background-color: #393232;
+    padding: 1em;
+    border-radius: 10px;
+  }
+  #submit-input {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -817,6 +992,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #web-logo {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -913,6 +1089,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #home {
     max-width: 100%;
     display: -webkit-box;
@@ -1061,6 +1238,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #login {
     background-color: #393232;
     border-radius: 10px;
@@ -1179,6 +1357,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #register {
     background-color: #393232;
     border-radius: 10px;
@@ -1289,6 +1468,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #recipe-cards {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1373,6 +1553,7 @@ body {
   /* home */
   /* login */
   /* card */
+  /* recipe */
   #recipe {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1586,6 +1767,182 @@ body {
   }
   #recipe-comments > textarea:focus {
     outline: none;
+  }
+  /* Landscape phones and down */
+  /* Landscape phone to portrait tablet */
+  /* Portrait tablet to landscape and desktop */
+  /* Large desktop */
+  /* colors */
+  /* home */
+  /* login */
+  /* card */
+  /* recipe */
+  #add-recipe {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #add-recipe .add-recipe-component {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 80%;
+    margin: 10px 0;
+  }
+  #add-recipe .add-recipe-component > input[type="text"] {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 2em;
+  }
+  #add-recipe .add-recipe-component > input[type="text"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > textarea {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 10em;
+  }
+  #add-recipe .add-recipe-component > textarea:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component input[type="button"] {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    width: 10em;
+    height: 3em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: 1em;
+  }
+  #add-recipe .add-recipe-component input[type="button"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component input[type="button"]:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  #add-recipe .add-recipe-component input[type="button"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 20px;
+    margin-right: 1em;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"] {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+    width: 10em;
+    height: 3em;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"]:focus {
+    outline: none;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"]:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  #add-recipe .add-recipe-component > input[type="submit"]:focus {
+    outline: none;
+  }
+  #add-recipe .error {
+    color: #CD6155;
+    font-size: 15px;
+  }
+  #add-recipe .property {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 1em 0;
+  }
+  #add-recipe .property img {
+    width: 80px;
+  }
+  #add-recipe .property input {
+    width: 7em;
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+  }
+  #add-recipe .property input:focus {
+    outline: none;
+  }
+  #add-recipe .property input[type="checkbox"] {
+    margin: 18px 0;
+  }
+  #add-recipe .property input[type="checkbox"]:hover {
+    cursor: pointer;
+  }
+  #add-recipe .property label {
+    font-size: 12px;
+  }
+  #add-recipe .property .error {
+    color: #CD6155;
+    font-size: 10px;
+  }
+  #add-recipe-properties {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background-color: #393232;
+    max-width: 10em;
+    padding: 1em;
+    border-radius: 10px;
+  }
+  #submit-input {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -30,6 +30,7 @@ body {
     @import "large/lg_register.scss";
     @import "large/lg_cards.scss";
     @import "large/lg_recipe.scss";
+    @import "large/lg_add_recipe.scss";
 }
 @media screen and (max-width: $small_max) {
     body {
@@ -41,5 +42,6 @@ body {
     @import "small/sm_register.scss";
     @import "small/sm_cards.scss";
     @import "small/sm_recipe.scss";
+    @import "small/sm_add_recipe.scss";
 }
 

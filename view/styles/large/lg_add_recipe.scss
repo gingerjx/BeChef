@@ -1,0 +1,117 @@
+@import "../values";
+@import "../common";
+
+@mixin input-template {
+    margin: 1em 0;
+    border-radius: 5px;
+    background-color: $text_color;
+    color: $nav_color;
+    font-family: fredoka-one-regular;
+    &:focus {
+        outline: none;
+    }
+}
+
+#add-recipe {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1em 10% 1em 15%;
+    align-items: center;
+    .add-recipe-component {
+        display: flex;
+        flex-direction: row;
+        min-width: 60em;
+        max-width: 70em;
+        margin: 10px 0;
+        > input[type="text"] {
+            @include input-template;
+            flex: 1;
+            height: 2em;
+        }
+        > textarea {
+            @include input-template;
+            flex: 1;
+            height: 5em;
+        }
+        > input[type="button"] {
+            @include input-template;
+            width: 3em;
+            margin-left: 1em;
+            &:hover {
+                cursor: pointer;
+                opacity: 0.9;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        > label {
+            display: flex;
+            align-items: center;
+            margin-right: 1em;
+        }
+        > input[type="submit"] {
+            @include input-template;
+            width: 10em;
+            height: 3em;
+            &:hover {
+                cursor: pointer;
+                opacity: 0.9;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .error {
+        color: $error_color;
+        font-size: 15px;
+    }
+    .property {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        margin: 0 1em;
+        img {
+            width: 80px;
+        }
+        input {
+            width: 5em;
+            margin: 1em 0;
+            border-radius: 5px;
+            background-color: $text_color;
+            color: $nav_color;
+            font-family: fredoka-one-regular;
+            &:focus {
+                outline: none;
+            }
+        }
+        input[type="checkbox"] {
+            margin: 18px 0;
+            &:hover {
+                cursor: pointer;
+            }
+        }   
+        label {
+            font-size: 12px;
+        }
+        .error {
+            color: $error_color;
+            font-size: 10px;
+        }
+    }
+}
+
+#add-recipe-properties {
+    justify-content: space-between;
+    background-color:  $nav_color;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+#submit-input {
+    justify-content: center;
+}
+

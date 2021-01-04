@@ -31,7 +31,7 @@
                 <img src="view/images/floppy-disk.svg" alt="Save"/>
                 Saves
             </a>
-            <a href="#">
+            <a href="addRecipe.php">
                 <img src="view/images/add.svg" alt="Add"/>
                 Add
             </a>
