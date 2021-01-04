@@ -27,7 +27,7 @@
             <button id="sign-in">Sign in</button>
             <button id="sign-up">Sign up</button>
         <?php else : ?>
-            <a href="#">
+            <a href="saves.php">
                 <img src="view/images/floppy-disk.svg" alt="Save"/>
                 Saves
             </a>
