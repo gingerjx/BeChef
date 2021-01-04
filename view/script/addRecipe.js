@@ -1,6 +1,7 @@
 let ingredientNumber = 1;
 let preparationNumber = 1;
 let normalBorder;
+const border = '3px #CD6155 solid';
 
 window.onload = () => {
     normalBorder = $('#title').css('border');
@@ -39,6 +40,9 @@ function addPreparationStep() {
 $('#add-recipe').on('submit', function (e) {
     e.preventDefault();
 
+    $('#recipe-img').css('border', normalBorder);
+    $('#recipe-img-error').html('');
+
     let values = $(this).serializeArray();
     
     let ingredients = createIngredients(values);
@@ -58,6 +62,46 @@ $('#add-recipe').on('submit', function (e) {
 
     if (!valid)
         return;
+
+    let inputsName =    'title, description, preparation-time, average-cost, country, ' +
+                        'vegetarian, difficulty-level, number-of-people, kcal-per-person' +
+                        'recipe-img, tags, recipe-img, ';
+    for (let i=0; i<ingredients.length; ++i)
+        inputsName += 'ingredient-' + (i+1) + ', ';
+    for (let i=0; i<preparations.length; ++i)
+        inputsName += 'preparation-' + (i+1) + ', ';
+    inputsName = inputsName.substr(0, inputsName.length - 2);
+
+    let inputs = $(this).find(inputsName);
+    inputs.prop('disabled', true);
+
+    let request = $.ajax({
+        type: 'post',
+        url: 'service/addRecipe.php',
+        data: new FormData(this),
+        contentType: false,
+        cache: false,
+        processData:false
+    });
+
+    request.done((data) => {
+        if (data === 'success') {
+            location.href = 'userRecipes.php';
+        } else if (data === 'Invalid form') {
+
+        } else {
+            $('#recipe-img-error').html(data);
+            $('#recipe-img').css('border', border);
+        }
+    });
+
+    request.fail(() => {
+        //TODO
+    })
+
+    request.always(() => {
+        inputs.prop('disabled', false);
+    }) 
 });
 
 function createIngredients(values, substr) {
@@ -80,7 +124,6 @@ function createPreparations(values, substr) {
 
 function validateForm(title, descr, prepTime, avgCost, country, diffLevel, numOfPpl, kcalPerPerson, ingredients, preparations, tags) {
     let valid = true;
-    let border = '3px #CD6155 solid';
 
     $('#title').css('border', normalBorder);
     $('#add-title-error').html('');
@@ -173,7 +216,7 @@ function validateForm(title, descr, prepTime, avgCost, country, diffLevel, numOf
         let ingrd = ingredients[i];
         if (ingrd.length < 5 || ingrd.length > 100) {
             valid = false;
-            $('#ingredients-error').html('Number range: (5, 100)');
+            $('#ingredients-error').html('Text range: (5, 100)');
             $('#ingredient-' + (i+1)).css('border', border);
         }
     }
@@ -182,7 +225,7 @@ function validateForm(title, descr, prepTime, avgCost, country, diffLevel, numOf
         let prep = preparations[i];
         if (prep.length < 5 || prep.length > 100) {
             valid = false;
-            $('#preparations-error').html('Number range: (5, 100)');
+            $('#preparations-error').html('Text range: (5, 100)');
             $('#preparation-' + (i+1)).css('border', border);
         }
     }

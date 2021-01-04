@@ -1,4 +1,4 @@
-<form id="add-recipe" action="#" method="post" enctype=multipart/form-data>
+<form id="add-recipe" action="service/addRecipe.php" method="post" enctype=multipart/form-data>
     <div class="add-recipe-component">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title">
@@ -13,39 +13,39 @@
     
     <div id="add-recipe-properties" class="add-recipe-component">
         <div class="property">
-        <img src="view/images/chronometer.svg" alt="Time icon"/>
-        <input id="preparation-time" type="number" min="1" max="324000" name="preparation-time">
-        <label for="preparation-time">Preparation Time (min)</label>
+            <img src="view/images/chronometer.svg" alt="Time icon"/>
+            <input id="preparation-time" type="number" min="1" max="324000" name="preparation-time">
+            <label for="preparation-time">Preparation Time (min)</label>
         <div id="preparation-time-error" class="error"></div>
         </div>
         <div class="property">
-        <img src="view/images/money.svg" alt="Money icon"/>
-        <input type="number" min="0.1" max="1000.0" step=".01" id="average-cost" name="average-cost">
-        <label for="average-cost">Average Cost</label>
+            <img src="view/images/money.svg" alt="Money icon"/>
+            <input type="number" min="0.1" max="1000.0" step=".01" id="average-cost" name="average-cost">
+            <label for="average-cost">Average Cost</label>
         <div id="average-cost-error" class="error"></div>
         </div>
         <div class="property">
-        <img src="view/images/coronavirus.svg" alt="World icon"/>
-        <input type="text" id="country" name="country">
-        <label for="country">Country</label>
+            <img src="view/images/coronavirus.svg" alt="World icon"/>
+            <input type="text" id="country" name="country">
+            <label for="country">Country</label>
         <div id="country-error" class="error"></div>
         </div>
         <div class="property">
-        <img src="view/images/vegetarian.svg" alt="Vegetarian icon"/>
-        <input type="checkbox" id="vegetarian" name="vegetarian">
-        <label id="vege" for="vegetarian">Vegetarian</label>
+            <img src="view/images/vegetarian.svg" alt="Vegetarian icon"/>
+            <input type="checkbox" id="vegetarian" name="vegetarian">
+            <label id="vege" for="vegetarian">Vegetarian</label>
         <div class="error"></div>
         </div>
         <div class="property">
-        <img src="view/images/level.svg" alt="Level icon"/>
-        <input type="number" min="1" max="5" id="difficulty-level" name="difficulty-level">
-        <label for="difficulty-level">Difficulty level</label>
+            <img src="view/images/level.svg" alt="Level icon"/>
+            <input type="number" min="1" max="5" id="difficulty-level" name="difficulty-level">
+            <label for="difficulty-level">Difficulty level</label>
         <div id="difficulty-level-error" class="error"></div>
         </div>
         <div class="property">
-        <img src="view/images/community.svg" alt="Level icon"/>
-        <input type="number" min="1" max="10" id="number-of-people" name="number-of-people">
-        <label for="number-of-people">Number of people</label>
+            <img src="view/images/community.svg" alt="Level icon"/>
+            <input type="number" min="1" max="10" id="number-of-people" name="number-of-people">
+            <label for="number-of-people">Number of people</label>
         <div id="number-of-people-error" class="error"></div>
         </div>
         <div class="property">
@@ -74,7 +74,7 @@
         <label for="recipe-img">Select recipe image:</label>
         <input type="file" id="recipe-img" name="recipe-img" accept="image/*">
     </div>
-    <div class="error"></div>
+    <div id="recipe-img-error" class="error"></div>
 
     <div class="add-recipe-component">
         <label for="tags">Tags:</label>

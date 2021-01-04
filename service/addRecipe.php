@@ -9,17 +9,13 @@
     $valid = true;
 
     $title = htmlentities($_POST['title'], ENT_QUOTES, "UTF-8");
-    $_SESSION['title'] = $title;
-
     $description = htmlentities($_POST['description'], ENT_QUOTES, "UTF-8");
-    $_SESSION['description'] = $description;
 
     $ingredient_number = 1;
     $ingredients = array();
     while (!empty($_POST['ingredient-'.$ingredient_number])) {
         $ingredients[] = htmlentities($_POST['ingredient-'.$ingredient_number], ENT_QUOTES, "UTF-8");
         $ingredient_number += 1;
-        $_SESSION['ingredient_1'] = $ingredients[0];
     }
 
     $preparation_number = 1;
@@ -27,28 +23,20 @@
     while (!empty($_POST['preparation-'.$preparation_number])) {
         $preaparation[] = htmlentities($_POST['preparation-'.$preparation_number], ENT_QUOTES, "UTF-8");
         $preparation_number += 1;
-        $_SESSION['preparation_1'] = $preaparation[0];
     }
     
     $preparation_time = htmlentities($_POST['preparation-time'], ENT_QUOTES, "UTF-8");
-    $_SESSION['preparation_time'] = $preparation_time;
     $average_cost = htmlentities($_POST['average-cost'], ENT_QUOTES, "UTF-8");
-    $_SESSION['average_cost'] = $average_cost;
     $country = htmlentities($_POST['country'], ENT_QUOTES, "UTF-8");
-    $_SESSION['country'] = $country;
     $vegetarian = empty($_POST['vegetarian']) ? false : true;
     $difficulty_level = htmlentities($_POST['difficulty-level'], ENT_QUOTES, "UTF-8");
-    $_SESSION['difficulty_level'] = $difficulty_level;
     $number_of_people = htmlentities($_POST['number-of-people'], ENT_QUOTES, "UTF-8");
-    $_SESSION['people_number'] = $number_of_people;
     $kcal_per_person = htmlentities($_POST['kcal-per-person'], ENT_QUOTES, "UTF-8");
-    $_SESSION['kcal_per_person'] = $kcal_per_person;
     $tags = htmlentities($_POST['tags'], ENT_QUOTES, "UTF-8");
-    $_SESSION['tags'] = $tags;
 
     $image_path = "";
     $max_size = 1024*1024;
-    $target_dir = $_SERVER['DOCUMENT_ROOT'].'/view/';
+    $target_dir = $_SERVER['DOCUMENT_ROOT'].'/view/images/recipes/';
     $image_ext = strtolower(pathinfo($_FILES['recipe-img']['name'], PATHINFO_EXTENSION));
 
     try {
@@ -77,10 +65,10 @@
             throw new RuntimeException('Invalid format, only .jpeg and .png');
         }
 
-        $image_path = 'img/'.sha1_file($_FILES['recipe-img']['tmp_name']).'.'.$image_ext; 
+        $image_path = sha1_file($_FILES['recipe-img']['tmp_name']).'.'.$image_ext; 
     } catch (RuntimeException $e) {
-        $valid = false;
-        $_SESSION['e_recipe_img'] = $e->getMessage();
+        echo $e->getMessage();
+        exit();
     } 
 
 
@@ -94,27 +82,21 @@
         catchAddRecipeFormErrors($recipe);
 
     if (!$valid) {
-        header("Location: ".$_SERVER['DOCUMENT_ROOT']."/addRecipe.php");
+        echo 'Invalid form';
         exit();
     }
 
-    //download uploaded image
-    move_uploaded_file($_FILES['recipe-img']['tmp_name'], $target_dir.$image_path);
+    try {
+        move_uploaded_file($_FILES['recipe-img']['tmp_name'], $target_dir.$image_path);
+    } catch (Exception $e) {
+        echo 'Unable to download image';
+        exit;
+    }
 
     $user = unserialize($_SESSION['user']);
     $recipe->setAuthorID($user->getId());
     insertRecipe($recipe);
 
-    unset($_SESSION['title']);
-    unset($_SESSION['description']);
-    unset($_SESSION['ingredient_1']);
-    unset($_SESSION['preparation_1']);
-    unset($_SESSION['preparation_time']);
-    unset($_SESSION['average_cost']);
-    unset($_SESSION['country']);
-    unset($_SESSION['difficulty_level']);
-    unset($_SESSION['people_number']);
-    unset($_SESSION['kcal_per_person']);
-
-    header("Location: ".$_SERVER['DOCUMENT_ROOT']."view/userRecipes.php");
+    echo 'success';
+    exit();
 ?>  

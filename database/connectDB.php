@@ -2,7 +2,7 @@
     $server = "localhost";
     $db_user = "root";
     $db_password = "";
-    $db_name = "CookPortal";
+    $db_name = "CookBase";
 
     try {
         $firstParam = "mysql:host={$server};dbname={$db_name};charset=utf8";
