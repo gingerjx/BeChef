@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <div id="login">>
+    <div id="login">
         <div id="login-logo">
             <img src="view/images/cooking.svg" alt="logo"/>
             <h1>BeChef</h1>
