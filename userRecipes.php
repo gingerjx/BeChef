@@ -12,7 +12,7 @@
   require_once "models/recipe.php";
 
   $user = unserialize($_SESSION['user']);
-  $recipes = getSavedRecipes($user->getID());
+  $recipes = getUserRecipes($user->getID());
 ?>
 
 <!DOCTYPE html>

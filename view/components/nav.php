@@ -35,7 +35,7 @@
                 <img src="view/images/add.svg" alt="Add"/>
                 Add
             </a>
-            <a href="#">
+            <a href="userRecipes.php">
                 <img src="view/images/recipe-book.svg" alt="User recipes"/>
                 Your recipes
             </a>

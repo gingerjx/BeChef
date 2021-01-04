@@ -79,6 +79,7 @@
 
     function getUserRecipes($user_id) {
         require($_SERVER['DOCUMENT_ROOT']."/database/sqlQueries.php");
+        require($_SERVER['DOCUMENT_ROOT']."/database/connectDB.php");
 
         try {
             $query = $connection->prepare($select_user_recipes);
