@@ -16,7 +16,7 @@
             <img src="view/images/trending.svg" alt="Popular"/>
             Popular
         </a>
-        <a href="#">
+        <a href="search.php">
             <img src="view/images/magnifying-glass.svg" alt="Search"/>
             Search
         </a>
@@ -39,10 +39,10 @@
                 <img src="view/images/recipe-book.svg" alt="User recipes"/>
                 Your recipes
             </a>
-            <!-- <a href="#">
+            <a href="#">
                 <img src="view/images/settings.svg" alt="Settings"/>
                 Settings
-            </a> -->
+            </a>
             <a href="service/logout.php">
                 <img src="view/images/arrow.svg" alt="Logout"/>
                 Logout
