@@ -57,6 +57,10 @@ User can also add his own recipe by filling above form. Similar to login and reg
 
 Not implemented yet
 
+## Responsivness
+
+Web is adjusted to all device sizes. For instance you can check mobile screenshots from `screenshot` directory name `mobile_*.png`.
+
 # Database
 
 ![add](screenshots/db.png)
