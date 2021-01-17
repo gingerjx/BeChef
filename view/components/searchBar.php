@@ -100,6 +100,7 @@
         <div id="kcal-slider"></div>
     </div>
     </div>
+    <input type="submit" />
 </form>
 <script src="view/script/search.js"></script>
 </aside>

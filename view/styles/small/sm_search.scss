@@ -40,9 +40,25 @@
 
 #search-form {
     margin: 1em;
+    display: flex;
+    flex-direction: column;
     input[type="checkbox"], input[type="radio"] {
         &:hover {
             cursor: pointer;
+        }
+    }
+    > input[type="submit"] {
+        @include input-template;
+        align-self: center;
+        justify-self: center;
+        width: 10em;
+        height: 3em;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        &:focus {
+            outline: none;
         }
     }
 }
