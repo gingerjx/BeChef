@@ -56,3 +56,9 @@ User can also add his own recipe by filling above form. Similar to login and reg
 ## Settings
 
 Not implemented yet
+
+# Database
+
+![add](screenshots/db.png)
+
+Above diagram represents general structure of database. `BeChef.sql` available in repo, provide this database structure with few sample rows in each table.
