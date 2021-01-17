@@ -63,3 +63,64 @@ $('#kcal-slider').slider({
         max.html(ui.values[1]);
     }
 });
+
+$('#filter-submit').click((e) => {
+    e.preventDefault();
+    let data = retrieveFormData();
+
+    $('#recipe-cards').html('');
+    $('#search-form').toggle('fast');
+
+    let params = '';
+    data.forEach(e => {
+        params += '&'+e.name+'='+e.value;
+    });
+    params += '&action=filter';
+    window.location.href = 'search.php?' + params;
+});
+
+$('#order-submit').click((e) => {
+    e.preventDefault();
+    let data = retrieveFormData();
+
+    $('#recipe-cards').html('');
+    $('#search-form').toggle('fast');
+
+    let order;
+    let column;
+    if (data[0].name === 'order' && data[0].value === 'on') {
+        order = 'DESC';
+        column = data[1].value;
+    }
+    else {
+        order = 'ASC';
+        column = data[0].value;
+    }
+
+    let params = '&order=' + order + '&column=' +  column + '&action=order';
+    console.log("Params " + params);
+    window.location.href = 'search.php?' + params;
+});
+
+function retrieveFormData() {
+    let min_diff = $('#diff-slider').slider('values')[0];
+    let max_diff = $('#diff-slider').slider('values')[1];
+    let min_avg_cost = $('#avg-cost-slider').slider('values')[0];
+    let max_avg_cost = $('#avg-cost-slider').slider('values')[1];
+    let min_ppl_num = $('#ppl-num-slider').slider('values')[0];
+    let max_ppl_num = $('#ppl-num-slider').slider('values')[1];
+    let min_kcal = $('#kcal-slider').slider('values')[0];
+    let max_kcal = $('#kcal-slider').slider('values')[1];
+
+    let data = $("#search-form").serializeArray();
+    data.push({name: 'min_diff', value: min_diff});
+    data.push({name: 'max_diff', value: max_diff});
+    data.push({name: 'min_avg_cost', value: min_avg_cost});
+    data.push({name: 'max_avg_cost', value: max_avg_cost});
+    data.push({name: 'min_ppl_num', value: min_ppl_num});
+    data.push({name: 'max_ppl_num', value: max_ppl_num});
+    data.push({name: 'min_kcal', value: min_kcal});
+    data.push({name: 'max_kcal', value: max_kcal});
+
+    return data;
+}

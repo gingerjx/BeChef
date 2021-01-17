@@ -1,6 +1,6 @@
 <?php
 
-class Recipe {
+class Recipe{
     private $recipe_id;
     private $author_id;
     private $add_date;

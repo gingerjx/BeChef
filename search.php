@@ -4,10 +4,17 @@
   require_once "database/recipesDB.php";
   require_once "database/checkDB.php";
   require_once "database/numbersDB.php";
+  require_once "service/search.php";
   require_once "models/user.php";
   require_once "models/recipe.php";
 
-  $recipes = getTheNewestRecipes();
+  $recipes = array();
+  if (isset($_GET['action']) && $_GET['action'] === 'filter') 
+    $recipes = getFilteredRecipes();
+  else if (isset($_GET['action']) && $_GET['action'] === 'order') 
+    $recipes = getAllRecipesInOrder($_GET['column'], $_GET['order']);
+  else
+    $recipes = getTheNewestRecipes();
 
   $user = null;
   if (isset($_SESSION['logged']))

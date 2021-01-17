@@ -171,6 +171,7 @@
         $query = null;
         
         switch ($column) {
+            case 'none':
             case 'add-date':             
                 $query = getDescOrAscQuery($order, 
                 $select_all_recipes_by_add_date_desc,
