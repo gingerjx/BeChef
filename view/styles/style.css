@@ -28,7 +28,7 @@ body {
   font-family: fredoka-one-regular;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
   body {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1178,7 +1178,7 @@ body {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
   body {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
