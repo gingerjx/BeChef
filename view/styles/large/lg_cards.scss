@@ -4,4 +4,18 @@
 #recipe-cards {
     @include recipe_cards;
     margin: 1em 50px 1em 150px;
+    .card {
+        height: $card_height_lg;
+        width: $card_width_lg;
+        padding: 1em;
+        .image-cropper {
+            width: $card_img_width_lg;
+            height: $card_img_height_lg;
+        }
+        .ratings {
+            img {
+                width: $card_icons_width_lg;
+            }
+        }
+    }
 }
