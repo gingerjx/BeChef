@@ -984,9 +984,6 @@ body {
   /* login */
   /* card */
   /* recipe */
-  .search-cards {
-    margin-top: 100px;
-  }
   #search {
     width: 100%;
     display: -webkit-box;
@@ -2112,6 +2109,170 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  /* Landscape phones and down */
+  /* Landscape phone to portrait tablet */
+  /* Portrait tablet to landscape and desktop */
+  /* Large desktop */
+  /* colors */
+  /* home */
+  /* login */
+  /* card */
+  /* recipe */
+  #search {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #search-box {
+    width: 90%;
+    margin: 1em auto 0 auto;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #433B3B;
+  }
+  #rewind-panel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #393232;
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    color: #F6DDCC;
+    font-size: 20px;
+    font-family: fredoka-one-regular;
+  }
+  #rewind-panel:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  #rewind-panel:focus {
+    outline: none;
+  }
+  #rewind-panel > img {
+    width: 25px;
+    margin-left: auto;
+  }
+  #search-form {
+    margin: 1em;
+  }
+  #search-form input[type="checkbox"]:hover, #search-form input[type="radio"]:hover {
+    cursor: pointer;
+  }
+  .search-component {
+    margin: 1em 0;
+  }
+  .search-component h4 {
+    margin: 0;
+    margin-bottom: 1em;
+  }
+  #radio-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #radio-box > div {
+    margin: 0 1em;
+  }
+  #text-input-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #text-input-box > input {
+    width: 10em;
+    margin-right: 2em;
+    border-radius: 5px;
+    background-color: #F6DDCC;
+    color: #393232;
+    font-family: fredoka-one-regular;
+  }
+  #text-input-box > input:focus {
+    outline: none;
+  }
+  #text-input-box label {
+    margin-right: 5px;
+  }
+  #vege-input {
+    margin: 1em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .range-input {
+    margin: auto;
+    margin-bottom: 2em;
+  }
+  .range-input-label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  .slider-value {
+    width: 30px;
+  }
+  .ui-slider-horizontal .ui-slider-range {
+    background: #FFC107;
+  }
+  .ui-widget-content .ui-state-default {
+    border-radius: 50%;
+  }
+  .ui-widget-content .ui-state-default:hover {
+    cursor: pointer;
+  }
+  .ui-widget-content .ui-state-default:focus {
+    outline: none;
+  }
+  #diff-input {
+    width: 200px;
+  }
+  #avg-cost-input {
+    width: 200px;
+  }
+  #ppl-num-input {
+    width: 200px;
+  }
+  #kcal-input {
+    width: 200px;
   }
 }
 /*# sourceMappingURL=style.css.map */

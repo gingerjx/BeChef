@@ -16,19 +16,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 5em 10% 1em 15%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 #search-box {
-  position: fixed;
-  top: 0;
-  width: 80%;
-  margin: 1em 10% 1em 15%;
+  width: 90%;
+  margin: 1em auto 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 10px;
   background-color: #433B3B;
-  z-index: 2;
 }
 
 #rewind-panel {
@@ -82,10 +80,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -98,10 +96,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -181,14 +179,14 @@
 }
 
 #avg-cost-input {
-  width: 500px;
+  width: 200px;
 }
 
 #ppl-num-input {
-  width: 300px;
+  width: 200px;
 }
 
 #kcal-input {
-  width: 500px;
+  width: 200px;
 }
-/*# sourceMappingURL=lg_search.css.map */
+/*# sourceMappingURL=sm_search.css.map */

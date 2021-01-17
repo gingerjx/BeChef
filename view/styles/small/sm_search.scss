@@ -1,0 +1,139 @@
+@import "../values";
+@import "../common";
+
+#search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+#search-box {
+    width: 90%;
+    margin: 1em auto 0 auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: $lighter_nav_color;
+}
+
+#rewind-panel {
+    display: flex;
+    align-items: center;
+    background-color: $nav_color;
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    color: $text_color;
+    font-size: 20px;
+    font-family: fredoka-one-regular;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.9;
+    }
+    &:focus {
+        outline: none;
+    }
+    > img {
+        width: 25px;
+        margin-left: auto;
+    }
+}
+
+#search-form {
+    margin: 1em;
+    input[type="checkbox"], input[type="radio"] {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.search-component {
+    margin: 1em 0;
+    h4 {
+        margin: 0;
+        margin-bottom: 1em;
+    }
+}
+
+#radio-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    > div {
+        margin: 0 1em;
+    }
+}
+
+#text-input-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    > input {
+        width: 10em;
+        margin-right: 2em;
+        border-radius: 5px;
+        background-color: $text_color;
+        color: $nav_color;
+        font-family: fredoka-one-regular;
+        &:focus {
+            outline: none;
+        }
+    }
+    label {
+        margin-right: 5px;
+    }
+}
+
+#vege-input {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.range-input {
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+.range-input-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.slider-value {
+    width: 30px;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+    background: $acent_color;
+}
+
+.ui-widget-content .ui-state-default {
+    border-radius: 50%;
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+#diff-input {
+    width: 200px;
+}
+
+#avg-cost-input {
+    width: 200px;
+}
+
+#ppl-num-input {
+    width: 200px;
+}
+
+#kcal-input {
+    width: 200px;
+}
