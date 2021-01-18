@@ -4,10 +4,13 @@ Simple cook portal based on php backend
 
 ## Tech stack
 
-- **Php** 7.4.3
-- **MariaDB** 10.4.14
-- **jQuery** 3.5.1
-- **jQueryUI** 1.9.2
+`Php 7.4.3`
+
+`MariaDB 10.4.14`
+
+`jQuery 3.5.1`
+
+`jQueryUI 1.9.2`
 
 ## Login & Register
 
@@ -15,19 +18,19 @@ Login            |  Register
 :-------------------------:|:-------------------------:
 ![login](screenshots/login.png)   |  ![register](screenshots/register.png) 
 
-Login and register form are validated before sending data to the server. Ajax mechanisms allows to prevent default form submitting behaviour. Only in case of valid data it is forwarded to server, otherwise corresponding error message are displayed.
+Login and register form are validated before sending data to the server. Ajax mechanisms allows to prevent default form submitting behaviour. Only in case of valid data it is forwarded to the server, otherwise corresponding error message are displayed.
 
 ## Home
 
 ![home](screenshots/home.png)
 
-Homepage provide basic info about site. At the right we can see navigation, sticked to the left. For unlogged user only `The Newest`, `Popular` and `Search` option are available and `Sign in` and `Sign up` buttons are displayed instead.
+Homepage provides basic info about site. At the right we can see navigation, sticked to the left. For unlogged user only `The Newest`, `Popular` and `Search` option are available and `Sign in` and `Sign up` buttons are displayed instead.
 
 ## Cards
 
 ![home](screenshots/cards.png)
 
-`The Newest`, `Popular`, `Saves` and `Your recipes` provide the same view, but with corresponding to it's name recipe cards.
+`The Newest`, `Popular`, `Saves` and `Your recipes` provides the same view, but with corresponding to it's name recipe cards.
 - `The Newest` - the most recent recipes
 - `Popular` - recipes with the most number of likes (illustrated by hearts)
 - `Saves` - recipes saved by user (illustrated by yellow disks)
@@ -44,7 +47,7 @@ After clicking at recipe card, we are forwarded to recipe's view. We can find a 
 
 ![search](screenshots/search.png)
 
-This view provides toggled search panel. By clicking `Order by` we are fetching recipes in order. Order checkbox indicate ascending or descending order and below options indicate column.
+This view provides toggled search panel. By clicking `Order by` we are fetching recipes in order. Order checkbox indicates ascending or descending order and below options indicates column.
 By clicking `Filter by` we are fetching recipes filtered by data from `Filter by` section.
 
 ## Add recipe
@@ -59,7 +62,7 @@ Not implemented yet
 
 ## Responsivness
 
-Web is adjusted to all device sizes. For instance you can check mobile screenshots from `screenshot` directory name `mobile_*.png`.
+Web is adjusted to all device sizes. For instance you can check mobile screenshots from `screenshot` directory named `mobile_*.png`.
 
 # Database
 
