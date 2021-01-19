@@ -30,8 +30,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="view/styles/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="view/script/jquery-3-5-1.min.js"></script>
+    <script src="view/script/jquery-ui-1-12-1.min.js"></script>
   </head>
   <body>
     <?php include 'view/components/nav.php' ?>
