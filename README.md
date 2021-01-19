@@ -1,6 +1,6 @@
 # BeChef
 
-Simple cook portal based on php backend
+Simple cook portal based with php backend. Website is uploaded to free hosting here https://becheef.000webhostapp.com, you can check it yourself - if free hosting allows you to do so ;)
 
 ## Tech stack
 
