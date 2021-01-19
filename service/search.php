@@ -31,7 +31,7 @@
         if (!empty($country)) 
             $prepared_query .= " country=:country AND";
         if ($vegetarian !== 'both')
-            $prepared_query .= " vegetarian=:vegatarian AND";
+            $prepared_query .= " vegetarian=:vegetarian AND";
 
         $prepared_query .= " difficultyLevel>=:minDiff AND difficultyLevel<=:maxDiff AND ";
         $prepared_query .= " averageCost>=:minAvgCost AND averageCost<=:maxAvgCost AND ";
@@ -51,7 +51,7 @@
         if (!empty($country)) 
             $query->bindValue(":country", $country, PDO::PARAM_STR);
         if ($vegetarian !== 'both')
-            $query->bindValue(":vegatarian", $_POST['vegatarian'] == 'yes' ? '1' : '0', PDO::PARAM_STR);
+            $query->bindValue(":vegetarian", $vegetarian == 'yes' ? '1' : '0', PDO::PARAM_STR);
 
         $query->bindValue(":minDiff", $min_diff, PDO::PARAM_STR);
         $query->bindValue(":maxDiff", $max_diff, PDO::PARAM_STR);

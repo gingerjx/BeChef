@@ -59,12 +59,12 @@
         </div>  
         <div id="vege-input">
             <div>
-            <input type="radio" name="vegetarian" value="both" checked="checked">
-            <label>Both</label>
-            <input type="radio" name="vegetarian" value="yes">
-            <label>Yes</label>
-            <input type="radio" name="vegetarian" value="no">
-            <label>No</label>
+                <input type="radio" name="vegetarian" value="both" checked="checked">
+                <label>Both</label>
+                <input type="radio" name="vegetarian" value="yes">
+                <label>Yes</label>
+                <input type="radio" name="vegetarian" value="no">
+                <label>No</label>
             </div>
             <label>Vegetarian:</label>
         </div>

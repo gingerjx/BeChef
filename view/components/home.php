@@ -25,7 +25,7 @@
             <h3>Be up to date with people tastes with easy access to the most popular recipes on our website</h3>
         </div>
         <div>
-            <a href="#">
+            <a href="search.php">
                 <img src="view/images/magnifying-glass.svg" alt="glass icon"/>
             </a> 
             <h3>Use our search engine to find dishes that match your preferences</h3>
