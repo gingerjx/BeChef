@@ -118,5 +118,5 @@
         <button id="add-comment">Sign in</button>
       <?php endif; ?>
     </div>
-    <script src="view/script/recipe.js?v=<?php echo time(); ?>"></script>
+    <script src="view/script/recipe.js"></script>
   </main>

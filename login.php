@@ -5,7 +5,7 @@
     <title>BeChef</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="BeChef">
-    <link rel="stylesheet" type="text/css" href="view/styles/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="view/styles/style.css">
     <script src="view/script/jquery-3-5-1.min.js"></script>
   </head>
   <body>
@@ -32,6 +32,6 @@
             <button id="register-button">Register</button>
         </div>
     </div>
-    <script src="view/script/login.js?v=<?php echo time(); ?>"></script>
+    <script src="view/script/login.js"></script>
   </body>
 </html>

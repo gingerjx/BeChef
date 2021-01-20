@@ -49,5 +49,5 @@
             </a>
         <?php endif; ?>
     </div>
-    <script src="view/script/nav.js?v=<?php echo time(); ?>"></script>
+    <script src="view/script/nav.js"></script>
 </nav>
