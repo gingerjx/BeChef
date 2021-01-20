@@ -96,3 +96,8 @@ function validAndPrintErrors(fullname, username, email, password, pass_repeat) {
 
     return valid;
 }
+
+$('#register-logo').click(() => {
+    location.href = 'index.php';
+});
+

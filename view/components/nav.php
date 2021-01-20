@@ -3,8 +3,8 @@
         <button id="show-nav" onclick="toggleNav()">
             <img src="view/images/menu.svg" alt="Menu"/>
         </button>
-        <img src="view/images/cooking.svg" alt="Logo"/>
-        <h3>BeChef</h3>
+        <img id="home-image" src="view/images/cooking.svg" alt="Logo"/>
+        <h3 id="home-title">BeChef</h3>
     </div>
 
     <div id="links">

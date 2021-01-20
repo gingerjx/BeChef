@@ -28,3 +28,7 @@ $("#sign-in").click(() => {
 $("#sign-up").click(() => {
     location.href = "register.php";
 });
+
+$('#home-image').click(() => {
+    location.href = 'index.php';
+});

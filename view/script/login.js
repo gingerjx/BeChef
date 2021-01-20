@@ -38,3 +38,7 @@ $(() => {
 $("#register-button").click(() => {
     location.href = "register.php";
 });
+
+$('#login-logo').click(() => {
+    location.href = 'index.php';
+});
