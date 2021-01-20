@@ -5,6 +5,14 @@
     display: none;
 }
 
+#home-image:hover {
+    cursor: pointer;
+}
+  
+#home-title:hover {
+    cursor: pointer;
+}
+
 #web-logo {
     @include logo;
 }

@@ -40,6 +40,14 @@
   outline: none;
 }
 
+#home-image:hover {
+  cursor: pointer;
+}
+
+#home-title:hover {
+  cursor: pointer;
+}
+
 #links {
   display: -webkit-box;
   display: -ms-flexbox;

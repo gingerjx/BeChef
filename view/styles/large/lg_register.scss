@@ -31,6 +31,9 @@
     img {
         width: 200px;
     }
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .input-error {

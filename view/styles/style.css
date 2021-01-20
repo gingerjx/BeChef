@@ -47,6 +47,12 @@ body {
   #show-nav {
     display: none;
   }
+  #home-image:hover {
+    cursor: pointer;
+  }
+  #home-title:hover {
+    cursor: pointer;
+  }
   #web-logo {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -368,6 +374,9 @@ body {
   #login-logo img {
     width: 200px;
   }
+  #login-logo:hover {
+    cursor: pointer;
+  }
   .login-error {
     color: #CD6155;
   }
@@ -498,6 +507,9 @@ body {
   }
   #register-logo img {
     width: 200px;
+  }
+  #register-logo:hover {
+    cursor: pointer;
   }
   .input-error {
     color: #CD6155;
@@ -1221,6 +1233,12 @@ body {
   #show-nav:focus {
     outline: none;
   }
+  #home-image:hover {
+    cursor: pointer;
+  }
+  #home-title:hover {
+    cursor: pointer;
+  }
   #links {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1526,6 +1544,9 @@ body {
   #login-logo img {
     width: 75px;
   }
+  #login-logo:hover {
+    cursor: pointer;
+  }
   .login-error {
     color: #CD6155;
   }
@@ -1656,6 +1677,9 @@ body {
   }
   #register-logo img {
     width: 75px;
+  }
+  #register-logo:hover {
+    cursor: pointer;
   }
   .input-error {
     color: #CD6155;

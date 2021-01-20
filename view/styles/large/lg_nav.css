@@ -11,6 +11,14 @@
   display: none;
 }
 
+#home-image:hover {
+  cursor: pointer;
+}
+
+#home-title:hover {
+  cursor: pointer;
+}
+
 #web-logo {
   display: -webkit-box;
   display: -ms-flexbox;

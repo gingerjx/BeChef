@@ -122,6 +122,10 @@
   width: 75px;
 }
 
+#register-logo:hover {
+  cursor: pointer;
+}
+
 .input-error {
   color: #CD6155;
   margin-bottom: 30px;

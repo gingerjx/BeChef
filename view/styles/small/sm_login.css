@@ -108,6 +108,10 @@
   width: 75px;
 }
 
+#login-logo:hover {
+  cursor: pointer;
+}
+
 .login-error {
   color: #CD6155;
 }

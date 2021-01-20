@@ -20,6 +20,14 @@
     }
 }
 
+#home-image:hover {
+    cursor: pointer;
+}
+  
+#home-title:hover {
+    cursor: pointer;
+}
+
 #links {
     @include links;
     display: none;
