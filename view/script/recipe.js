@@ -5,7 +5,7 @@ $(() => {
     
     commentContent.click(() => commentContent.css('color', normalColor) );
     commentButton.click(() => {
-        if (button.html() === 'Comment') {
+        if (commentButton.html() === 'Comment') {
             loggedComment();
         } else {
             unlogged();
